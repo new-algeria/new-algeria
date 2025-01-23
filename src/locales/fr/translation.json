@@ -58,7 +58,17 @@
     "changelogDescription": "Nous travaillons sur Nouvelle Algérie depuis quelques mois. Voici une chronologie de l'entreprise.",
     "achievements": "Réalisations",
     "we": "Fondateurs",
+<<<<<<< HEAD
+<<<<<<< HEAD
+    "joinTeam": "Rejoindre l'équipe !",
+    "apiPlatform": " 🌍 Nous avons ouvert <0>api-dz.com</0> : la <1>1ère plateforme d'APIs d'Algérie</1> dans la continuité de notre portail data !"
+=======
     "joinTeam": "Rejoindre l'équipe !"
+>>>>>>> cf1a019 (internationalization + membres organisation)
+=======
+    "joinTeam": "Rejoindre l'équipe !",
+    "apiPlatform": " 🌍 Nous avons ouvert <0>api-dz.com</0> : la <1>1ère plateforme d'APIs d'Algérie</1> dans la continuité de notre portail data !"
+>>>>>>> 70e531e (time line)
   },
   "faqs": {
     "0": {

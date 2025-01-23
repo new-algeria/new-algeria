@@ -86,7 +86,35 @@ const TimelineSection = () => {
 
   const timelineData = [
     {
-      title: "2024",
+      title: "jan 2025",
+      content: (
+        <div>
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
+            <Trans
+              i18nKey="timeline.apiPlatform"
+              components={[
+                <a
+                  href="https://data-dz.com/api"
+                  className="underline text-primary dark:text-accent"
+                />,
+                <b></b>,
+              ]}
+            />
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-3">
+            <video
+              src="https://github.com/newalgeria/new-algeria/releases/download/0.0.0/data-dz.mp4"
+              autoPlay
+              loop
+              muted
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow"
+            />
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "dec 2024",
       content: (
         <div>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">

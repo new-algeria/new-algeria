@@ -58,7 +58,17 @@
     "changelogDescription": "We've been working on New Algeria for the past few months. Here's a timeline of the company.",
     "achievements": "Achievements",
     "we": "Founders",
+<<<<<<< HEAD
+<<<<<<< HEAD
+    "joinTeam": "Join the team!",
+    "apiPlatform": " 🌍 We have launched <0>api-dz.com</0> : <1>Algeria's first API platform</1> as a continuation of our data portal! "
+=======
     "joinTeam": "Join the team!"
+>>>>>>> cf1a019 (internationalization + membres organisation)
+=======
+    "joinTeam": "Join the team!",
+    "apiPlatform": " 🌍 We have launched <0>api-dz.com</0> : <1>Algeria's first API platform</1> as a continuation of our data portal! "
+>>>>>>> 70e531e (time line)
   },
   "faqs": {
     "0": {
