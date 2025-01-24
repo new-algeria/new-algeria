@@ -41,8 +41,8 @@ const TimelineSection = () => {
   // Fonction pour récupérer les membres d'une organisation via l'API GitHub
   React.useEffect(() => {
     const fetchCollaborators = async () => {
-      const orgName = "new-algeria"; // Remplacez par le nom de votre organisation
-      const token = import.meta.env.VITE_GITHUB_COLLABORATORS_TOKEN; // Remplacez par votre token GitHub
+      const orgName = "new-algeria";
+      const token = import.meta.env.VITE_GITHUB_COLLABORATORS_TOKEN;
       const url = `https://api.github.com/orgs/${orgName}/members`;
 
       try {
