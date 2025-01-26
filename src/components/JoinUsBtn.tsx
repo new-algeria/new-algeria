@@ -104,7 +104,7 @@ const JoinUsBtn = () => {
                   )}`}
                 >
                   <button
-                    onClick={() => alert(t("joinUs.writeAlert"))}
+                    //onClick={() => alert(t("joinUs.writeAlert"))}
                     className="bg-purple-500 text-white hover:bg-purple-600 py-2 px-4 rounded-lg flex items-center justify-center"
                   >
                     <FontAwesomeIcon icon={faPen} className="mr-2" />{" "}
