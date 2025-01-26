@@ -33,5 +33,55 @@
     "title": "Contact Us",
     "subject": "Contact Request - New Algeria Digital Platform",
     "body": "Hello,\n\nI am interested in learning more about the New Algeria Digital Platform.\n\nBest regards,"
+  },
+  "bentoGrid": {
+    "digitalInfrastructure": {
+      "title": "Digital Infrastructure",
+      "description": "Building robust digital foundations for Algeria's future"
+    },
+    "cybersecurity": {
+      "title": "Cybersecurity",
+      "description": "Ensuring the safety and security of digital assets"
+    },
+    "community": {
+      "title": "Community",
+      "description": "Fostering a vibrant digital community"
+    }
+  },
+  "bentoGridSection": {
+    "title": "Driving Digital <0>Innovation</0>"
+  },
+  "timeline": {
+    "builtAndLaunched": "🚀 Built and launched <0>Data-dz</0> from scratch",
+    "digitalExcellence": "Digital excellence <0>by Algerians</0>",
+    "changelogTitle": "Changelog from New Algeria released projects",
+    "changelogDescription": "We've been working on New Algeria for the past few months. Here's a timeline of the company.",
+    "achievements": "Achievements",
+    "we": "Founders",
+    "joinTeam": "Join the team!"
+  },
+  "faqs": {
+    "0": {
+      "question": "What is Algeria's digital transformation initiative?",
+      "answer": "It's a comprehensive program aimed at modernizing public services, providing digital access to government resources, and fostering innovation in the technology sector."
+    },
+    "1": {
+      "question": "How can developers access the APIs?",
+      "answer": "Developers can access the APIs through our dedicated developer portal, where they can find the necessary documentation and API keys."
+    },
+    "2": {
+      "question": "What kind of data is available through the platform?",
+      "answer": "The platform provides access to a variety of data, including economic statistics, demographic data, and information on public services."
+    },
+    "title": "Frequently Asked Questions"
+  },
+  "footer": {
+    "product": "Product",
+    "resources": "Resources",
+    "features": "Features",
+    "pricing": "Pricing",
+    "community": "Community",
+    "contact": "Contact",
+    "copyright": "All rights reserved."
   }
 }

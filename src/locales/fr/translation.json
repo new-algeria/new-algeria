@@ -33,5 +33,55 @@
     "title": "Contactez-nous",
     "subject": "Demande de Contact - Plateforme Numérique Nouvelle Algérie",
     "body": "Bonjour,\n\nJe suis intéressé(e) par en savoir plus sur la Plateforme Numérique Nouvelle Algérie.\n\nCordialement,"
+  },
+  "bentoGrid": {
+    "digitalInfrastructure": {
+      "title": "Infrastructure Numérique",
+      "description": "Construire des fondations numériques robustes pour l'avenir de l'Algérie"
+    },
+    "cybersecurity": {
+      "title": "Cybersécurité",
+      "description": "Assurer la sécurité des actifs numériques"
+    },
+    "community": {
+      "title": "Communauté",
+      "description": "Favoriser une communauté numérique dynamique"
+    }
+  },
+  "bentoGridSection": {
+    "title": "Conduire l'Innovation <0>Numérique</0>"
+  },
+  "timeline": {
+    "builtAndLaunched": "🚀 Construit et lancé <0>Data-dz</0> à partir de zéro",
+    "digitalExcellence": "Excellence numérique <0>par les Algériens</0>",
+    "changelogTitle": "Journal des modifications des projets publiés par Nouvelle Algérie",
+    "changelogDescription": "Nous travaillons sur Nouvelle Algérie depuis quelques mois. Voici une chronologie de l'entreprise.",
+    "achievements": "Réalisations",
+    "we": "Fondateurs",
+    "joinTeam": "Rejoindre l'équipe !"
+  },
+  "faqs": {
+    "0": {
+      "question": "Quelle est l'initiative de transformation numérique de l'Algérie ?",
+      "answer": "C'est un programme complet visant à moderniser les services publics, à fournir un accès numérique aux ressources gouvernementales et à favoriser l'innovation dans le secteur technologique."
+    },
+    "1": {
+      "question": "Comment les développeurs peuvent-ils accéder aux APIs ?",
+      "answer": "Les développeurs peuvent accéder aux APIs via notre portail dédié aux développeurs, où ils peuvent trouver la documentation et les clés d'API nécessaires."
+    },
+    "2": {
+      "question": "Quel type de données est disponible via la plateforme ?",
+      "answer": "La plateforme offre un accès à une variété de données, y compris des statistiques économiques, des données démographiques, et des informations sur les services publics."
+    },
+    "title": "Questions Fréquemment Posées"
+  },
+  "footer": {
+    "product": "Produit",
+    "resources": "Ressources",
+    "features": "Fonctionnalités",
+    "pricing": "Tarification",
+    "community": "Communauté",
+    "contact": "Contact",
+    "copyright": "Tous droits réservés."
   }
 }
