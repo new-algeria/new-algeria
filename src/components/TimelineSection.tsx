@@ -5,6 +5,7 @@ import { Timeline } from "@/components/ui/timeline";
 import { AnimatedTooltip } from "./ui/animates-tooltip";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import JoinUsBtn from "./JoinUsBtn";
 
 interface Collaborator {
   id: number;
@@ -163,14 +164,7 @@ const TimelineSection = () => {
           </div>
           {/* Rejoignez l'équipe Github ! */}
           <div className="flex items-center gap-2">
-            <a href="https://github.com/new-algeria" target="_blank">
-              <button className="bg-black text-primary-foreground hover:bg-primary/90 dark:bg-accent dark:hover:bg-accent/90 py-2 px-4 rounded-lg">
-                <span>
-                  <FontAwesomeIcon icon={faGithub} /> {""}
-                  {t("timeline.joinTeam")}
-                </span>
-              </button>
-            </a>
+            <JoinUsBtn />
           </div>
         </div>
         <Timeline data={timelineData} />

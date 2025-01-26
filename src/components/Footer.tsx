@@ -1,6 +1,11 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { faGithub, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import {
+  faGithub,
+  faLinkedin,
+  faTwitter,
+  faXTwitter,
+} from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Footer = ({ year }) => {
@@ -14,13 +19,16 @@ const Footer = ({ year }) => {
             href="https://github.com/new-algeria"
             className="text-muted-foreground hover:text-foreground"
           >
-            <FontAwesomeIcon icon={faGithub} /> GitHub
+            <FontAwesomeIcon icon={faGithub} />
           </a>
           <a
             href="https://x.com/newalgeria_org"
             className="text-muted-foreground hover:text-foreground"
           >
-            <FontAwesomeIcon icon={faTwitter} /> Twitter
+            <FontAwesomeIcon icon={faXTwitter} />
+          </a>
+          <a href="#" className="text-muted-foreground hover:text-foreground">
+            <FontAwesomeIcon icon={faLinkedin} />
           </a>
         </div>
       </div>

@@ -6,7 +6,7 @@
     "contact": "Contact"
   },
   "hero": {
-    "title": "Construire un Avenir Numérique pour l'Algérie",
+    "title": "Le futur Numérique de l'Algérie",
     "categories": {
       "innovation": "Innovation",
       "forward": "Prospective",
@@ -15,7 +15,7 @@
     }
   },
   "services": {
-    "title": "Autonomiser l'Avenir Numérique de l'Algérie",
+    "title": "<0> Autonomiser </0> L'avenir numérique de l'Algérie",
     "digital": {
       "title": "Services Numériques",
       "description": "Services gouvernementaux rationalisés accessibles à tous les citoyens"
@@ -31,8 +31,8 @@
   },
   "contact": {
     "title": "Contactez-nous",
-    "subject": "Demande de Contact - Plateforme Numérique Nouvelle Algérie",
-    "body": "Bonjour,\n\nJe suis intéressé(e) par en savoir plus sur la Plateforme Numérique Nouvelle Algérie.\n\nCordialement,"
+    "subject": "Demande de Contact - Plateforme Numérique NewAlgeria",
+    "body": "Bonjour,\n\nJe suis intéressé(e) par en savoir plus sur la Plateforme Numérique NewAlgeria.\n\nCordialement,"
   },
   "bentoGrid": {
     "digitalInfrastructure": {
@@ -54,14 +54,12 @@
   "timeline": {
     "builtAndLaunched": "🚀 Construit et lancé <0>Data-dz</0> à partir de zéro",
     "digitalExcellence": "Excellence numérique <0>par les Algériens</0>",
-    "changelogTitle": "Journal des modifications des projets publiés par Nouvelle Algérie",
-    "changelogDescription": "Nous travaillons sur Nouvelle Algérie depuis quelques mois. Voici une chronologie de l'entreprise.",
+    "changelogTitle": "Journal des modifications des projets publiés par NewAlgeria",
+    "changelogDescription": "Nous travaillons sur NewAlgeria depuis quelques mois. Voici une chronologie de l'entreprise.",
     "achievements": "Réalisations",
     "we": "Fondateurs",
-
     "joinTeam": "Rejoindre l'équipe !",
     "apiPlatform": " 🌍 Nous avons ouvert <0>api-dz.com</0> : la <1>1ère plateforme d'APIs d'Algérie</1> dans la continuité de notre portail data !"
-
   },
   "faqs": {
     "0": {
@@ -86,5 +84,22 @@
     "community": "Communauté",
     "contact": "Contact",
     "copyright": "Tous droits réservés."
+  },
+  "joinUs": {
+    "joinUs": "Rejoignez-nous",
+    "modalHeader": "Que souhaitez-vous faire ?",
+    "joinGithub": "Rejoindre l'organisation Github",
+    "emailPlaceholder": "vous@example.com",
+    "join": "Rejoindre",
+    "writeUs": "Écrivez-nous !",
+    "writeToUs": "Écrivez-nous",
+    "connectWithUs": "Connectez-vous avec nous",
+    "invitationSuccess": "Invitation envoyée avec succès !",
+    "invitationFailure": "Échec de l'envoi de l'invitation. Veuillez réessayer plus tard.",
+    "writeAlert": "Écrivez-nous !",
+    "emailSubject": "Demande de Contact - NewAlgeria",
+    "emailBody": "Bonjour,\n\nJe suis intéressé(e) par en savoir plus sur la Plateforme Numérique NewAlgeria.\n\nCordialement,",
+    "motivations": "Les développeurs, les data scientists, les enseignants, les concepteurs et bien plus encore sont tous invités à nous rejoindre.  \nImpliquez-vous dans la communauté et aidez-nous à construire l’avenir de l’Algérie.",
+    "motivations2": "Trouvez également des partenaires et des collaborateurs avec lesquels travailler."
   }
 }

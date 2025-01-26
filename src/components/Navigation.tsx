@@ -11,6 +11,7 @@ import {
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { t } from "i18next";
+import JoinUsBtn from "./JoinUsBtn";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -118,14 +119,7 @@ const Navigation = () => {
               {isDark ? <Sun size={20} /> : <Moon size={20} />}
             </Button>
 
-            <a href="https://github.com/new-algeria" target="_blank">
-              <button className="bg-black text-primary-foreground hover:bg-primary/90 dark:bg-accent dark:hover:bg-accent/90 py-2 px-4 rounded-lg">
-                <span>
-                  <FontAwesomeIcon icon={faGithub} /> {""}
-                  {t("timeline.joinTeam")}
-                </span>
-              </button>
-            </a>
+            <JoinUsBtn />
           </div>
 
           {/* Mobile Menu Button */}
@@ -175,14 +169,7 @@ const Navigation = () => {
                   {item.label}
                 </a>
               ))}
-              <a href="https://github.com/new-algeria" target="_blank">
-                <button className="bg-black text-primary-foreground hover:bg-primary/90 dark:bg-accent dark:hover:bg-accent/90 py-2 px-4 rounded-lg">
-                  <span>
-                    <FontAwesomeIcon icon={faGithub} /> {""}
-                    {t("timeline.joinTeam")}
-                  </span>
-                </button>
-              </a>
+              <JoinUsBtn />
             </div>
           </div>
         )}

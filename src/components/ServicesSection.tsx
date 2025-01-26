@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Globe, Database, Code } from "lucide-react";
 
@@ -48,7 +48,10 @@ const ServicesSection = () => {
           variants={itemVariants}
           className="text-3xl md:text-4xl font-bold mb-12 text-center"
         >
-          {t("services.title")}
+          <Trans
+            i18nKey="services.title"
+            components={[<span className="text-primary dark:text-accent" />]}
+          />
         </motion.h2>
         <motion.div
           variants={containerVariants}
