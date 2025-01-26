@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import Background_video from "../assets/videos/background_algeria.mp4";
 
 const HeroSection = () => {
   const { t } = useTranslation();
@@ -23,15 +24,15 @@ const HeroSection = () => {
       className="min-h-screen flex items-center relative overflow-hidden"
       id="home"
     >
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage:
-            "url(https://images.unsplash.com/photo-1590846083693-f23fdede3a7e)",
-        }}
+      <video
+        autoPlay
+        loop
+        muted
+        className="absolute inset-0 w-full h-full object-cover"
       >
-        <div className="absolute inset-0 bg-primary/50 dark:bg-primary/70" />
-      </div>
+        <source src={Background_video} type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 bg-primary/50 dark:bg-primary/70" />
       <div className="container relative z-10 pt-20">
         <motion.h1
           variants={itemVariants}
