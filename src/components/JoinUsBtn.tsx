@@ -99,9 +99,9 @@ const JoinUsBtn = () => {
                   2. {t("joinUs.writeUs")}
                 </h3>
                 <a
-                  href={`mailto:?subject=${t("joinUs.emailSubject")}&body=${t(
-                    "joinUs.emailBody"
-                  )}`}
+                  href={`mailto:admin@newalgeria.org?subject=${t(
+                    "joinUs.emailSubject"
+                  )}&body=${t("joinUs.emailBody")}`}
                 >
                   <button
                     //onClick={() => alert(t("joinUs.writeAlert"))}
