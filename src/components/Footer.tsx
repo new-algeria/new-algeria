@@ -8,61 +8,74 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Footer = ({ year }) => {
+const Footer = () => {
   const { t } = useTranslation();
+  const year = new Date().getFullYear();
 
   return (
-    <footer className="container mt-10 flex flex-wrap justify-between pb-16 pt-10 ">
-      <div className="flex basis-full justify-between gap-8 md:basis-auto md:flex-col md:justify-start">
-        <div className="flex items-center gap-5">
-          <a
-            href="https://github.com/new-algeria"
-            className="text-muted-foreground hover:text-foreground"
-          >
-            <FontAwesomeIcon icon={faGithub} />
-          </a>
-          <a
-            href="https://x.com/newalgeria_org"
-            className="text-muted-foreground hover:text-foreground"
-          >
-            <FontAwesomeIcon icon={faXTwitter} />
-          </a>
-          <a href="#" className="text-muted-foreground hover:text-foreground">
-            <FontAwesomeIcon icon={faLinkedin} />
-          </a>
-        </div>
-      </div>
-      <div className="mt-10 flex basis-1/2 flex-col gap-5 md:mt-0 md:basis-auto">
-        <h3 className="font-semibold">{t("footer.product")}</h3>
+    <footer className="container mx-auto pb-16 pt-10 text-gray-500 flex flex-col items-center text-center gap-6  dark:bg-black/25 bg-gray-100 w-full">
+      <img
+        src="https://storage.berachem.dev/branding/logo_horizontal.png"
+        alt="New Algeria"
+        className="w-64 h-15 -mb-6"
+      />
+
+      <div className="flex items-center gap-5">
         <a
-          href="#"
-          className="text-sm text-muted-foreground hover:text-foreground"
+          href="https://github.com/new-algeria"
+          className="hover:text-foreground"
         >
-          {t("footer.features")}
+          <FontAwesomeIcon icon={faGithub} className="text-2xl" />
         </a>
         <a
-          href="#"
-          className="text-sm text-muted-foreground hover:text-foreground"
+          href="https://x.com/newalgeria_org"
+          className="hover:text-foreground"
         >
-          {t("footer.pricing")}
+          <FontAwesomeIcon icon={faXTwitter} className="text-2xl" />
+        </a>
+        <a
+          href="https://www.linkedin.com/company/106182021/"
+          className="hover:text-foreground"
+        >
+          <FontAwesomeIcon icon={faLinkedin} className="text-2xl" />
         </a>
       </div>
-      <div className="mt-10 flex basis-1/2 flex-col gap-5 md:mt-0 md:basis-auto">
-        <h3 className="font-semibold">{t("footer.resources")}</h3>
+
+      {/*   <div className="flex flex-col gap-2">
+        <h3 className="font-semibold text-white">{t("footer.product")}</h3>
         <a
-          href="#"
-          className="text-sm text-muted-foreground hover:text-foreground"
+          href="https://www.data-dz.com"
+          className="text-sm hover:text-foreground"
+        >
+          Data-dz
+        </a>
+        <a
+          href="https://www.data-dz.com/api"
+          className="text-sm hover:text-foreground"
+        >
+          Api-dz
+        </a>
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <h3 className="font-semibold text-white">{t("footer.resources")}</h3>
+        <a
+          href="https://github.com/new-algeria"
+          className="text-sm hover:text-foreground"
         >
           {t("footer.community")}
         </a>
         <a
-          href="#"
-          className="text-sm text-muted-foreground hover:text-foreground"
+          href="mailto:admin@newalgeria.org"
+          className="text-sm hover:text-foreground"
         >
           {t("footer.contact")}
         </a>
-      </div>
-      <div className="my-8 pt-8 px-8 w-full border-t border-primary/10 text-center text-muted-foreground">
+      </div> */}
+
+      <hr className="w-1/4 border-primary/10 dark:border-primary-foreground/10" />
+
+      <div className="text-muted-foreground">
         ©{year} {t("footer.copyright")}
       </div>
     </footer>

@@ -33,7 +33,7 @@ const Index = () => {
       <ContactSection />
 
       {/* Footer */}
-      <Footer year={new Date().getFullYear()} />
+      <Footer />
     </div>
   );
 };
