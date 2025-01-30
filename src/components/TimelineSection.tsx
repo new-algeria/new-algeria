@@ -14,6 +14,7 @@ interface Collaborator {
   image: string;
   profileUrl: string;
   founder?: boolean;
+  specialEmoji?: string;
 }
 
 const TimelineSection = () => {
@@ -34,6 +35,16 @@ const TimelineSection = () => {
       image: "https://avatars.githubusercontent.com/u/61350744?v=4",
       profileUrl: "https://github.com/Berachem",
       founder: true,
+    },
+  ];
+  const specialCollaborators: Collaborator[] = [
+    {
+      id: 3,
+      name: "Hani",
+      designation: "Geomatician",
+      image: "https://avatars.githubusercontent.com/u/195878584?v=4",
+      profileUrl: "https://github.com/HaniBAHIDJ",
+      specialEmoji: "🌍",
     },
   ];
 
@@ -71,9 +82,18 @@ const TimelineSection = () => {
                 (founder) =>
                   founder.profileUrl.toString().toLowerCase() ===
                   collaborator.profileUrl.toString().toLowerCase()
+              ) &&
+              !specialCollaborators.find(
+                (specialCollaborator) =>
+                  specialCollaborator.profileUrl.toString().toLowerCase() ===
+                  collaborator.profileUrl.toString().toLowerCase()
               )
           );
-          setCollaborators([...founders, ...formattedCollaborators]);
+          setCollaborators([
+            ...founders,
+            ...specialCollaborators,
+            ...formattedCollaborators,
+          ]);
         } else {
           console.error("Failed to fetch collaborators", response.statusText);
         }

@@ -21,6 +21,7 @@ export const AnimatedTooltip = ({
     image: string;
     profileUrl?: string;
     founder?: boolean;
+    specialEmoji?: string;
   }[];
   className?: string;
 }) => {
@@ -77,7 +78,7 @@ export const AnimatedTooltip = ({
                   {item.name}
                 </div>
                 <div className="text-xs text-background relative z-30">
-                  {item.founder ? "👑" : "💻"}
+                  {item.founder ? "👑" : item.specialEmoji ?? "💻"}
                   {item.designation}
                 </div>
               </motion.div>
