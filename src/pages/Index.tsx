@@ -34,11 +34,11 @@ const Index = () => {
         />
         <meta
           property="og:image"
-          content="/assets/img/logo.png"
+          content="https://www.newalgeria.org/assets/img/logo.png"
         />
         <meta
           property="og:url"
-          content="https://new-algeria.com"
+          content="https://www.newalgeria.org"
         />
         <meta property="og:type" content="website" />
 
@@ -50,7 +50,7 @@ const Index = () => {
         />
         <meta
           name="twitter:image"
-          content="/assets/img/logo.png"
+          content="https://www.newalgeria.org/assets/img/logo.png"
         />
       </MetaTags>
 
