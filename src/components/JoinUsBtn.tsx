@@ -131,7 +131,11 @@ const JoinUsBtn = () => {
                   >
                     <FontAwesomeIcon icon={faXTwitter} size="2x" />
                   </a>
-                  <a href="#" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://www.linkedin.com/company/106182021"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <FontAwesomeIcon
                       icon={faLinkedin}
                       size="2x"
