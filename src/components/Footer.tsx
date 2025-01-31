@@ -15,7 +15,7 @@ const Footer = () => {
   return (
     <footer className="container mx-auto pb-16 pt-10 text-gray-500 flex flex-col items-center text-center gap-6  dark:bg-black/25 bg-gray-100 w-full">
       <img
-        src="https://storage.berachem.dev/branding/logo_horizontal.png"
+        src={`${import.meta.env.VITE_R2_BUCKET_URI}/logo/logo-horizontal-small.png`}
         alt="New Algeria"
         className="w-64 h-15 -mb-6"
       />
