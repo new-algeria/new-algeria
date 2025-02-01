@@ -124,7 +124,7 @@ const TimelineSection = () => {
           </p>
           <div className="grid grid-cols-2 md:grid-cols-2 gap-3">
             <video
-              src="https://github.com/newalgeria/new-algeria/releases/download/0.0.0/data-dz.mp4"
+              src={`${import.meta.env.VITE_R2_BUCKET_URI}/videos/api-dz.mp4`}
               autoPlay
               loop
               muted
@@ -156,7 +156,7 @@ const TimelineSection = () => {
               className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow"
             />
             <video
-              src="https://github.com/newalgeria/new-algeria/releases/download/0.0.0/data-dz.mp4"
+              src={`${import.meta.env.VITE_R2_BUCKET_URI}/videos/data-dz.mp4`}
               autoPlay
               loop
               muted
