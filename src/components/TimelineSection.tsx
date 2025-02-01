@@ -108,6 +108,7 @@ const TimelineSection = () => {
   const timelineData = [
     {
       title: "jan 2025",
+      logo: `${import.meta.env.VITE_R2_BUCKET_URI}/logo/api-dz-logo.png`,
       content: (
         <div>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
@@ -136,6 +137,9 @@ const TimelineSection = () => {
     },
     {
       title: "dec 2024",
+      logo: `${
+        import.meta.env.VITE_R2_BUCKET_URI
+      }/logo/data-dz-logo-removebg.png`,
       content: (
         <div>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
@@ -146,6 +150,7 @@ const TimelineSection = () => {
                   href="https://data-dz.com"
                   className="underline text-primary dark:text-accent"
                 />,
+                <b></b>,
               ]}
             />
           </p>
