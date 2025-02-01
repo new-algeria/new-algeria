@@ -42,7 +42,7 @@ export const AnimatedTooltip = ({
   };
 
   return (
-    <div className={cn("flex items-center gap-2", className)}>
+    <div className={cn("flex flex-wrap items-center gap-2", className)}>
       {items.map((item) => (
         <div
           className="-mr-4 relative group"
@@ -70,7 +70,7 @@ export const AnimatedTooltip = ({
                   rotate: rotate,
                   whiteSpace: "nowrap",
                 }}
-                className="absolute -top-16  translate-x-1/2 flex text-xs flex-col items-center justify-center rounded-md bg-foreground z-50 shadow-xl px-4 py-2"
+                className="absolute -top-16 translate-x-1/2 flex text-xs flex-col items-center justify-center rounded-md bg-foreground z-50 shadow-xl px-4 py-2"
               >
                 <div className="absolute inset-x-10 z-30 w-[20%] -bottom-px bg-gradient-to-r from-transparent via-emerald-500 to-transparent h-px" />
                 <div className="absolute left-10 w-[40%] z-30 -bottom-px bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px" />
@@ -95,7 +95,7 @@ export const AnimatedTooltip = ({
                 item.founder
                   ? "h-20 w-20 border-green-400"
                   : "h-16 w-16 border-purple-400"
-              } border-2 group-hover:scale-105 group-hover:z-30 border-background relative transition duration-500  `}
+              } border-2 group-hover:scale-105 group-hover:z-30 border-background relative transition duration-500`}
             />
           </a>
         </div>
