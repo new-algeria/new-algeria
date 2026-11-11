@@ -1250,6 +1250,11 @@ a:hover > .mb-chevron {
   filter: hue-rotate(115deg) saturate(1.15);
 }
 
+/* DjazAI : même logo, en bleu */
+.dz-logo-blue {
+  filter: hue-rotate(72deg) saturate(1.2);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .mb-lift,
   .mb-lift:hover {
