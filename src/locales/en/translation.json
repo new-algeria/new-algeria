@@ -16,18 +16,17 @@
     },
     "subline": "A community of students, researchers, developers, scientists… creating useful, free and accessible digital tools, by and for all Algerians ❤️",
     "watch": "See our projects",
-    "badge": "Algeria is entering the AI era",
-    "topics": {
-      "ai": "Artificial intelligence",
-      "data": "Open data",
-      "api": "APIs",
-      "opensource": "Open source",
-      "geo": "Geomatics & maps",
-      "education": "Education",
-      "research": "Research",
-      "security": "Cybersecurity",
-      "health": "Health",
-      "community": "Community"
+    "badge": "Algeria joins the tech race",
+    "needYou": "We need you in",
+    "fields": {
+      "ai": "AI",
+      "security": "cybersecurity",
+      "health": "health",
+      "data": "open data",
+      "education": "education",
+      "research": "research",
+      "opensource": "open source",
+      "geo": "geomatics"
     }
   },
   "services": {
@@ -99,7 +98,10 @@
     "pricing": "Pricing",
     "community": "Community",
     "contact": "Contact",
-    "copyright": "All rights reserved."
+    "copyright": "All rights reserved.",
+    "tagline": "Algeria's digital future, built by and for Algerians.",
+    "madeWith": "Made with ❤️ in Algeria",
+    "join": "Join the community"
   },
   "joinUs": {
     "joinUs": "Join Us",

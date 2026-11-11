@@ -4,9 +4,12 @@ import { Laptop, Shield, Users } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BorderBeam } from "@/components/ui/border-beam.tsx";
 import { useTranslation, Trans } from "react-i18next";
+import { useAutoSlide } from "@/hooks/use-auto-slide";
 
 const BentoGridSection = () => {
   const { t } = useTranslation();
+  const rowRef = React.useRef<HTMLDivElement>(null);
+  useAutoSlide(rowRef);
 
   const bentoItems = [
     {
@@ -46,7 +49,7 @@ const BentoGridSection = () => {
             components={[<span className="mb-highlight" />]}
           />
         </motion.h2>
-        <div className="mb-row grid md:grid-cols-3 gap-6">
+        <div ref={rowRef} className="mb-row grid md:grid-cols-3 gap-6">
           {bentoItems.map((item, index) => (
             <motion.div
               key={item.title}

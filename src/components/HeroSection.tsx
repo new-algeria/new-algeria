@@ -1,43 +1,40 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import {
-  BrainCircuit,
-  Database,
-  Braces,
-  Code2,
-  Map,
-  GraduationCap,
-  FlaskConical,
-  ShieldCheck,
-  HeartPulse,
-  Users,
-  Sparkles,
-  ArrowDown,
-} from "lucide-react";
+import { Sparkles, ArrowDown } from "lucide-react";
 import JoinUsBtn from "./JoinUsBtn";
 import AlgerianFlag from "./AlgerianFlag";
 import { useEntrance } from "@/hooks/use-entrance";
 
-const topics = [
-  { key: "ai", icon: BrainCircuit },
-  { key: "data", icon: Database },
-  { key: "api", icon: Braces },
-  { key: "opensource", icon: Code2 },
-  { key: "geo", icon: Map },
-  { key: "education", icon: GraduationCap },
-  { key: "research", icon: FlaskConical },
-  { key: "security", icon: ShieldCheck },
-  { key: "health", icon: HeartPulse },
-  { key: "community", icon: Users },
+// Domaines qui défilent dans « Nous avons besoin de toi dans … », chacun avec sa couleur
+const fields = [
+  { key: "ai", emoji: "✨", color: "#8b5cf6" },
+  { key: "security", emoji: "🛡️", color: "#2563eb" },
+  { key: "health", emoji: "💊", color: "#e11d48" },
+  { key: "data", emoji: "📊", color: "#0d8a59" },
+  { key: "education", emoji: "🎓", color: "#d97706" },
+  { key: "research", emoji: "🔬", color: "#0891b2" },
+  { key: "opensource", emoji: "💻", color: "#334155" },
+  { key: "geo", emoji: "🗺️", color: "#059669" },
 ];
+
+const ROTATE_EVERY_MS = 2200;
 
 const HeroSection = () => {
   const { t } = useTranslation();
 
+  const [fieldIndex, setFieldIndex] = React.useState(0);
+
   useEntrance();
 
-  // La liste est doublée pour que le défilement boucle sans saut
-  const marquee = [...topics, ...topics];
+  React.useEffect(() => {
+    const timer = window.setInterval(
+      () => setFieldIndex((index) => (index + 1) % fields.length),
+      ROTATE_EVERY_MS
+    );
+    return () => window.clearInterval(timer);
+  }, []);
+
+  const field = fields[fieldIndex];
 
   return (
     <section className="dz-hero" id="home">
@@ -84,20 +81,16 @@ const HeroSection = () => {
         </div>
       </div>
 
-      <div className="dz-marquee" data-enter="unblur" data-enter-at="1200">
-        <ul className="dz-marquee-track">
-          {marquee.map(({ key, icon: Icon }, index) => (
-            <li
-              key={`${key}-${index}`}
-              className="dz-topic"
-              aria-hidden={index >= topics.length}
-            >
-              <Icon aria-hidden="true" />
-              {t(`hero.topics.${key}`)}
-            </li>
-          ))}
-        </ul>
-      </div>
+      <p className="dz-rotator" data-enter="rise" data-enter-at="1200" aria-live="polite">
+        <span className="dz-rotator-lead">{t("hero.needYou")}</span>
+        <span
+          key={field.key}
+          className="dz-rotator-word"
+          style={{ backgroundColor: field.color }}
+        >
+          {t(`hero.fields.${field.key}`)} {field.emoji}
+        </span>
+      </p>
     </section>
   );
 };

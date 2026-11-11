@@ -16,18 +16,17 @@
     },
     "subline": "Une communauté d'étudiants, de chercheurs, de développeurs, de scientifiques… qui crée des outils numériques utiles, gratuits et accessibles, par et pour tous les Algériens ❤️",
     "watch": "Voir nos projets",
-    "badge": "L'Algérie entre dans l'ère de l'IA",
-    "topics": {
-      "ai": "Intelligence artificielle",
-      "data": "Open data",
-      "api": "APIs",
-      "opensource": "Open source",
-      "geo": "Géomatique & cartes",
-      "education": "Éducation",
-      "research": "Recherche",
-      "security": "Cybersécurité",
-      "health": "Santé",
-      "community": "Communauté"
+    "badge": "L'Algérie entre dans la course technologique",
+    "needYou": "Nous avons besoin de toi dans",
+    "fields": {
+      "ai": "l'IA",
+      "security": "la cybersécurité",
+      "health": "la santé",
+      "data": "l'open data",
+      "education": "l'éducation",
+      "research": "la recherche",
+      "opensource": "l'open source",
+      "geo": "la géomatique"
     }
   },
   "services": {
@@ -99,7 +98,10 @@
     "pricing": "Tarification",
     "community": "Communauté",
     "contact": "Contact",
-    "copyright": "Tous droits réservés."
+    "copyright": "Tous droits réservés.",
+    "tagline": "Le futur numérique de l'Algérie, construit par et pour les Algériens.",
+    "madeWith": "Fait avec ❤️ en Algérie",
+    "join": "Rejoindre la communauté"
   },
   "joinUs": {
     "joinUs": "Rejoignez-nous",

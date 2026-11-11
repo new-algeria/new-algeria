@@ -3,9 +3,12 @@ import { useTranslation } from "react-i18next";
 import { ArrowUpRight } from "lucide-react";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useAutoSlide } from "@/hooks/use-auto-slide";
 
 const ProjectsSection = () => {
   const { t } = useTranslation();
+  const rowRef = React.useRef<HTMLDivElement>(null);
+  useAutoSlide(rowRef);
 
   const projects = [
     {
@@ -68,7 +71,7 @@ const ProjectsSection = () => {
             {t("projects.browse")} <span className="mb-chevron">›</span>
           </a>
         </div>
-        <div className="dz-projects-grid mb-row">
+        <div ref={rowRef} className="dz-projects-grid mb-row">
           {projects.map((project) => (
             <a
               key={project.key}

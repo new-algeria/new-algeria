@@ -3,9 +3,12 @@ import { motion } from "framer-motion";
 import { Trans, useTranslation } from "react-i18next";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Globe, Database, Code } from "lucide-react";
+import { useAutoSlide } from "@/hooks/use-auto-slide";
 
 const ServicesSection = () => {
   const { t } = useTranslation();
+  const rowRef = React.useRef<HTMLDivElement>(null);
+  useAutoSlide(rowRef);
 
   const services = [
     {
@@ -72,6 +75,7 @@ const ServicesSection = () => {
           ))}
         </motion.div>
         <motion.div
+          ref={rowRef}
           variants={containerVariants}
           className="mb-row grid md:grid-cols-3 gap-8"
         >
