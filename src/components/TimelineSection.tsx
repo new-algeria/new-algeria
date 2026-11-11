@@ -174,12 +174,12 @@ const TimelineSection = () => {
   ];
 
   return (
-    <section className="py-20" id="developers">
+    <section className="py-24" id="developers">
       <div className="container">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+        <h2 className="mb-section-title font-display mb-10 text-center">
           <Trans
             i18nKey="timeline.digitalExcellence"
-            components={[<span className="text-primary dark:text-accent" />]}
+            components={[<span className="mb-highlight" />]}
           />
         </h2>
         <div className="max-w-2xl mx-auto flex flex-col justify-center items-center gap-2">
@@ -188,7 +188,7 @@ const TimelineSection = () => {
             <AnimatedTooltip items={collaborators} />
           </div>
           {/* Rejoignez l'équipe Github ! */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 mt-4">
             <JoinUsBtn />
           </div>
         </div>

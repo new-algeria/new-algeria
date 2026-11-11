@@ -13,7 +13,7 @@ const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="container mx-auto pb-16 pt-10 text-gray-500 flex flex-col items-center text-center gap-6  dark:bg-black/25 bg-gray-100 w-full">
+    <footer className="w-full pb-16 pt-12 text-slate-500 flex flex-col items-center text-center gap-6 rounded-t-[2.5rem] bg-[#e7efdc] dark:bg-white/[0.03]">
       <img
         src={`${import.meta.env.VITE_R2_BUCKET_URI}/logo/logo-horizontal-small.png`}
         alt="New Algeria"
@@ -23,21 +23,21 @@ const Footer = () => {
       <div className="flex items-center gap-5">
         <a
           href="https://github.com/new-algeria"
-          className="hover:text-foreground"
+          className="hover:text-[#5b875c] transition-colors"
           target="_blank"
         >
           <FontAwesomeIcon icon={faGithub} className="text-2xl" />
         </a>
         <a
           href="https://x.com/newalgeria_org"
-          className="hover:text-foreground"
+          className="hover:text-[#5b875c] transition-colors"
           target="_blank"
         >
           <FontAwesomeIcon icon={faXTwitter} className="text-2xl" />
         </a>
         <a
           href="https://www.linkedin.com/company/106182021/"
-          className="hover:text-foreground"
+          className="hover:text-[#5b875c] transition-colors"
           target="_blank"
         >
           <FontAwesomeIcon icon={faLinkedin} className="text-2xl" />
@@ -76,7 +76,7 @@ const Footer = () => {
         </a>
       </div> */}
 
-      <hr className="w-1/4 border-primary/10 dark:border-primary-foreground/10" />
+      <hr className="w-1/4 border-[#5b875c]/20" />
 
       <div className="text-muted-foreground">
         ©{year} {t("footer.copyright")}

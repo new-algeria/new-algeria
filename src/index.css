@@ -1,4 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import "@fontsource/inter/latin-400.css";
+@import "@fontsource/inter/latin-500.css";
+@import "@fontsource/inter/latin-600.css";
+@import "@fontsource/inter/latin-700.css";
+@import "@fontsource/grandstander/latin-900.css";
+@import "@fontsource/baloo-bhaijaan-2/arabic-800.css";
+@import "@fontsource/baloo-bhaijaan-2/latin-800.css";
+@import "./styles/meadow.css";
 
 @tailwind base;
 @tailwind components;
@@ -6,7 +13,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 75 33% 96%;
     --foreground: 240 10% 3.9%;
 
     --card: 0 0% 100%;
@@ -48,7 +55,7 @@
   }
 
   .dark {
-    --background: 240 10% 3.9%;
+    --background: 224 45% 8%;
     --foreground: 0 0% 98%;
 
     --card: 240 10% 3.9%;

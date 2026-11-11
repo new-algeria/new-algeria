@@ -29,4 +29,14 @@ i18n
     }
   });
 
+// Langue et sens d'écriture du document (l'arabe se lit de droite à gauche)
+const applyDocumentLanguage = (lng: string) => {
+  const lang = lng.split("-")[0];
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+};
+
+applyDocumentLanguage(i18n.resolvedLanguage || i18n.language || "en");
+i18n.on("languageChanged", applyDocumentLanguage);
+
 export default i18n;

@@ -3,7 +3,8 @@
     "home": "Accueil",
     "services": "Services",
     "developers": "Développeurs",
-    "contact": "Contact"
+    "contact": "Contact",
+    "projects": "Projets"
   },
   "hero": {
     "title": "Le futur Numérique de l'Algérie",
@@ -12,7 +13,12 @@
       "forward": "Prospective",
       "accessibility": "Accessibilité",
       "development": "Développement"
-    }
+    },
+    "kicker": "Le futur numérique de l'Algérie",
+    "line1": "Place à l'IA",
+    "line2": "& à la data",
+    "subline": "Intelligence artificielle, open data et APIs :\nla communauté New Algeria construit les outils\nnumériques de demain, par et pour les Algériens.",
+    "watch": "Voir nos projets"
   },
   "services": {
     "title": "<0> Autonomiser </0> L'avenir numérique de l'Algérie",
@@ -102,5 +108,21 @@
     "motivations": "Les développeurs, les data scientists, les enseignants, les concepteurs et bien plus encore sont tous invités à nous rejoindre.  \nImpliquez-vous dans la communauté et aidez-nous à construire l’avenir de l’Algérie.",
     "motivations2": "Trouvez également des partenaires et des collaborateurs avec lesquels travailler.",
     "invitationSent": "Vérifiez votre boîte aux lettres, un e-mail a été envoyé!"
+  },
+  "projects": {
+    "title": "Projets",
+    "browse": "voir tous les projets",
+    "dataDz": {
+      "name": "data-dz",
+      "description": "La première plateforme de données ouvertes d'Algérie"
+    },
+    "apiDz": {
+      "name": "API-DZ",
+      "description": "La première plateforme d'API d'Algérie"
+    },
+    "community": {
+      "name": "Communauté",
+      "description": "Devs, data scientists, designers : rejoignez-nous sur GitHub"
+    }
   }
 }

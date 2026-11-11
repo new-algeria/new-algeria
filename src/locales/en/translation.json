@@ -3,7 +3,8 @@
     "home": "Home",
     "services": "Services",
     "developers": "Developers",
-    "contact": "Contact"
+    "contact": "Contact",
+    "projects": "Projects"
   },
   "hero": {
     "title": "Building a Digital Future for Algeria",
@@ -12,7 +13,12 @@
       "forward": "Forward-Thinking",
       "accessibility": "Accessibility",
       "development": "Development"
-    }
+    },
+    "kicker": "Building a Digital Future for Algeria",
+    "line1": "The age of",
+    "line2": "AI & data",
+    "subline": "Artificial intelligence, open data and APIs:\nthe New Algeria community is building tomorrow's\ndigital tools, by and for Algerians.",
+    "watch": "See our projects"
   },
   "services": {
     "title": "<0>Empowering</0> Algeria's Digital Future",
@@ -102,5 +108,21 @@
     "motivations": "Developers, Data Scientists, Teachers, Designers, and more are all welcome to join us.  Get involved in the community and help us to build the future of Algeria.",
     "motivations2": "Find also partners and collaborators to work with.",
     "invitationSent": "Check your mailbox, an email has been sent!"
+  },
+  "projects": {
+    "title": "Projects",
+    "browse": "browse all projects",
+    "dataDz": {
+      "name": "data-dz",
+      "description": "Algeria's first open data platform"
+    },
+    "apiDz": {
+      "name": "API-DZ",
+      "description": "Algeria's first API platform"
+    },
+    "community": {
+      "name": "Community",
+      "description": "Devs, data scientists, designers: join us on GitHub"
+    }
   }
 }

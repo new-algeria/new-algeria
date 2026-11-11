@@ -12,7 +12,11 @@ import { Modal } from "flowbite-react";
 import { Octokit } from "@octokit/core";
 import { useTranslation } from "react-i18next";
 
-const JoinUsBtn = () => {
+type JoinUsBtnProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+  [key: `data-${string}`]: string | undefined;
+};
+
+const JoinUsBtn = ({ className, children, ...buttonProps }: JoinUsBtnProps) => {
   const { t } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [email, setEmail] = useState("");
@@ -43,12 +47,17 @@ const JoinUsBtn = () => {
   };
 
   return (
-    <div>
+    <>
       <button
-        className="bg-black text-primary-foreground hover:bg-primary/90 dark:bg-accent dark:hover:bg-accent/90 py-2 px-4 rounded-lg"
+        type="button"
+        className={
+          className ??
+          "bg-[#5b875c] text-white hover:bg-[#4d754e] py-2.5 px-6 rounded-full shadow-[0_8px_24px_-8px_rgba(28,70,120,0.4)] transition-transform hover:-translate-y-0.5"
+        }
         onClick={() => setIsModalOpen(true)}
+        {...buttonProps}
       >
-        ✨ {t("joinUs.joinUs")}
+        {children ?? <>✨ {t("joinUs.joinUs")}</>}
       </button>
 
       {isModalOpen && (
@@ -148,7 +157,7 @@ const JoinUsBtn = () => {
           </Modal.Body>
         </Modal>
       )}
-    </div>
+    </>
   );
 };
 
