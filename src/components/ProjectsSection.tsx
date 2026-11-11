@@ -58,16 +58,17 @@ const ProjectsSection = () => {
     {
       key: "djazai",
       href: "https://www.data-dz.com/djazai",
+      // Même logo que data-dz, teinté en bleu
       logo: (
         <img
-          src="/assets/img/djazai-logo.svg"
+          src="/assets/img/data-dz-logo.png"
           alt="Logo DjazAI"
-          className="dz-project-logo-img"
+          className="dz-project-logo-img dz-logo-blue"
         />
       ),
       name: (
         <>
-          Djaz<span className="text-[#e11d48]">AI</span>
+          Djaz<span className="text-[#2f80ed]">AI</span>
         </>
       ),
       status: t("projects.djazai.status"),
