@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import BentoGridSection from "@/components/BentoGridSection";
 import ContactSection from "@/components/ContactSection";
@@ -10,6 +10,14 @@ import TimelineSection from "@/components/TimelineSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
+  // Arrivée depuis une autre page par « /#services » : la section n'existe qu'une fois la page affichée.
+  useEffect(() => {
+    const ancre = window.location.hash.slice(1);
+    if (!ancre) return;
+    const minuteur = window.setTimeout(() => document.getElementById(ancre)?.scrollIntoView({ behavior: "smooth" }), 150);
+    return () => window.clearTimeout(minuteur);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />

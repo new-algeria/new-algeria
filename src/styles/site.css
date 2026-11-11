@@ -1458,3 +1458,73 @@ a:hover > .mb-chevron {
     display: none;
   }
 }
+
+/* =========================================================
+   Compte (connexion, menu du membre)
+   ========================================================= */
+
+.mb-nav-login {
+  height: 46px;
+  padding: 0 20px;
+  font-size: 15.5px;
+}
+
+.mb-nav-login svg {
+  width: 18px;
+  height: 18px;
+}
+
+.mb-nav-compte {
+  height: 46px;
+  padding: 0 12px 0 4px;
+  gap: 8px;
+}
+
+.mb-nav-compte-nom {
+  max-width: 9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 15px;
+}
+
+@media (max-width: 1100px) {
+  .mb-nav-login,
+  .mb-nav-compte {
+    height: 44px;
+  }
+
+  .mb-nav-compte-nom {
+    display: none;
+  }
+}
+
+/* Écran moyen : le bouton de connexion se réduit à son icône pour ne pas toucher le menu central. */
+@media (min-width: 1101px) and (max-width: 1360px) {
+  .mb-nav-login {
+    width: 46px;
+    padding: 0;
+  }
+
+  .mb-nav-login span,
+  .mb-nav-compte-nom {
+    display: none;
+  }
+}
+
+/* Sur téléphone, « Nous rejoindre » reste dans le hero et le pied de page : la barre garde la connexion. */
+@media (max-width: 640px) {
+  .mb-nav-join {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .mb-nav-login {
+    width: 44px;
+    padding: 0;
+  }
+
+  .mb-nav-login span {
+    display: none;
+  }
+}

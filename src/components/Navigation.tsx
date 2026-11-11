@@ -8,6 +8,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import JoinUsBtn from "./JoinUsBtn";
+import { MenuCompte } from "./auth/MenuCompte";
+import { routes } from "@/lib/routes";
 
 const languages = [
   { code: "en", label: "English" },
@@ -15,7 +17,15 @@ const languages = [
   { code: "ar", label: "العربية" },
 ];
 
-const Navigation = () => {
+interface NavigationProps {
+  /** Barre toujours opaque (pages hors accueil, sans le hero derrière). */
+  solide?: boolean;
+}
+
+const Navigation = ({ solide = false }: NavigationProps) => {
+  // L'animation d'entrée n'est jouée que sur l'accueil (useEntrance dans le hero) : ailleurs, la barre s'affiche directement.
+  const entree = (debut: string) => (solide ? {} : { "data-enter": "drop", "data-enter-at": debut });
+
   const [isOpen, setIsOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
@@ -53,22 +63,22 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className={`mb-nav ${hasScrolled || isOpen ? "is-scrolled" : ""}`}>
-      <a href="#home" className="mb-logo font-display" data-enter="drop" data-enter-at="0">
+    <nav className={`mb-nav ${solide || hasScrolled || isOpen ? "is-scrolled" : ""}`}>
+      <a href={routes.accueil} className="mb-logo font-display" {...entree("0")}>
         <img src="/assets/img/logo.png" alt="" />
         <span>New Algeria</span>
       </a>
 
       {/* Desktop Menu */}
-      <div className="mb-nav-pill" data-enter="drop" data-enter-at="80">
+      <div className="mb-nav-pill" {...entree("80")}>
         {menuItems.map((item) => (
-          <a key={item.key} href={`#${item.key}`}>
+          <a key={item.key} href={routes.section(item.key)}>
             {item.label}
           </a>
         ))}
       </div>
 
-      <div className="mb-nav-actions" data-enter="drop" data-enter-at="160">
+      <div className="mb-nav-actions" {...entree("160")}>
         {/* Language Selector */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -105,6 +115,8 @@ const Navigation = () => {
           {t("joinUs.joinUs")}
         </JoinUsBtn>
 
+        <MenuCompte />
+
         {/* Mobile Menu Button */}
         <button
           type="button"
@@ -121,7 +133,7 @@ const Navigation = () => {
       {isOpen && (
         <div className="mb-mobile-menu">
           {menuItems.map((item) => (
-            <a key={item.key} href={`#${item.key}`} onClick={() => setIsOpen(false)}>
+            <a key={item.key} href={routes.section(item.key)} onClick={() => setIsOpen(false)}>
               {item.label}
             </a>
           ))}
