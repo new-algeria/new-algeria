@@ -7,6 +7,7 @@ import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
 import { FournisseurAuth } from "@/contexte/FournisseurAuth";
 import { RouteProtegee } from "@/components/auth/RouteProtegee";
 import { routes } from "@/lib/routes";
+import { BoutonGithubFlottant } from "@/components/BoutonGithubFlottant";
 import Index from "./pages/Index";
 
 // Pages du compte chargées à la demande : la vitrine reste aussi légère qu'avant.
@@ -47,6 +48,7 @@ const App = () => (
               <Route path="*" element={<Navigate to={routes.accueil} replace />} />
             </Routes>
           </Suspense>
+          <BoutonGithubFlottant />
         </BrowserRouter>
       </TooltipProvider>
     </FournisseurAuth>

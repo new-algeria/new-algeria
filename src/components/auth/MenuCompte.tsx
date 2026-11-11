@@ -1,5 +1,5 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { ChevronDown, Database, LogIn, LogOut, UserRound } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { Database, LogOut, UserRound } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import {
   DropdownMenu,
@@ -13,30 +13,15 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { AvatarMembre } from "@/components/AvatarMembre";
 import { useAuth } from "@/contexte/ContexteAuth";
 import { deconnecter } from "@/lib/auth";
-import { avecSuite, routes, URL_DATA_DZ } from "@/lib/routes";
+import { routes, URL_DATA_DZ } from "@/lib/routes";
 
-/** Visiteur : bouton vert « Se connecter ». Membre : avatar + nom ▾ (profil, data-dz, déconnexion). */
+/** Membre connecté : sa photo de profil, qui ouvre le menu du compte (profil, data-dz, déconnexion). Rien pour un visiteur. */
 export const MenuCompte = () => {
   const { t } = useTranslation();
   const { session, utilisateur, profil, chargement } = useAuth();
-  const emplacement = useLocation();
   const naviguer = useNavigate();
 
-  if (chargement) return <Skeleton className="h-[46px] w-[46px] rounded-full" />;
-
-  if (!session) {
-    const suite = `${emplacement.pathname}${emplacement.search}`;
-    return (
-      <Link
-        to={avecSuite(routes.connexion, emplacement.pathname === routes.connexion ? "/" : suite)}
-        className="mb-pill mb-pill-green mb-nav-login"
-        aria-label={t("auth.seConnecter")}
-      >
-        <LogIn aria-hidden="true" />
-        <span>{t("auth.seConnecter")}</span>
-      </Link>
-    );
-  }
+  if (chargement || !session) return null;
 
   const quitter = async () => {
     try {
@@ -50,12 +35,8 @@ export const MenuCompte = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button type="button" className="mb-pill mb-pill-glass mb-nav-compte" aria-label={t("auth.menuCompte")}>
-          {profil ? <AvatarMembre profil={profil} className="h-9 w-9" /> : <Skeleton className="h-9 w-9 rounded-full" />}
-          <span className="mb-nav-compte-nom" dir="auto">
-            {nom}
-          </span>
-          <ChevronDown className="h-4 w-4 opacity-60" aria-hidden="true" />
+        <button type="button" className="mb-nav-compte" aria-label={t("auth.menuCompte")}>
+          {profil ? <AvatarMembre profil={profil} className="h-full w-full" /> : <Skeleton className="h-full w-full rounded-full" />}
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-64">

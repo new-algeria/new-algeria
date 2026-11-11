@@ -10,6 +10,7 @@ import {
 import JoinUsBtn from "./JoinUsBtn";
 import { MenuCompte } from "./auth/MenuCompte";
 import { routes } from "@/lib/routes";
+import { useAuth } from "@/contexte/ContexteAuth";
 
 const languages = [
   { code: "en", label: "English" },
@@ -30,6 +31,7 @@ const Navigation = ({ solide = false }: NavigationProps) => {
   const [isDark, setIsDark] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
   const { t, i18n } = useTranslation();
+  const { session } = useAuth();
 
   useEffect(() => {
     const isDarkMode = document.documentElement.classList.contains("dark");
@@ -111,11 +113,14 @@ const Navigation = ({ solide = false }: NavigationProps) => {
           {isDark ? <Sun /> : <Moon />}
         </button>
 
-        <JoinUsBtn className="mb-pill mb-pill-green mb-nav-join">
-          {t("joinUs.joinUs")}
-        </JoinUsBtn>
-
-        <MenuCompte />
+        {/* Visiteur : « Rejoignez-nous » mène à la connexion. Membre : sa photo de profil, qui ouvre le menu du compte. */}
+        {session ? (
+          <MenuCompte />
+        ) : (
+          <JoinUsBtn className="mb-pill mb-pill-green mb-nav-join">
+            {t("joinUs.joinUs")}
+          </JoinUsBtn>
+        )}
 
         {/* Mobile Menu Button */}
         <button

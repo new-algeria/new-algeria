@@ -1460,71 +1460,91 @@ a:hover > .mb-chevron {
 }
 
 /* =========================================================
-   Compte (connexion, menu du membre)
+   Compte : photo de profil dans la barre, bouton GitHub flottant
    ========================================================= */
 
-.mb-nav-login {
-  height: 46px;
-  padding: 0 20px;
-  font-size: 15.5px;
-}
-
-.mb-nav-login svg {
-  width: 18px;
-  height: 18px;
-}
-
 .mb-nav-compte {
+  width: 46px;
   height: 46px;
-  padding: 0 12px 0 4px;
-  gap: 8px;
+  padding: 2px;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 6px 18px -8px rgba(15, 47, 79, 0.45);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.mb-nav-compte-nom {
-  max-width: 9rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 15px;
+.mb-nav-compte:hover {
+  transform: translateY(-2px);
+}
+
+.mb-nav-compte:focus-visible {
+  outline: 2px solid var(--na-green);
+  outline-offset: 2px;
 }
 
 @media (max-width: 1100px) {
-  .mb-nav-login,
   .mb-nav-compte {
+    width: 44px;
     height: 44px;
   }
-
-  .mb-nav-compte-nom {
-    display: none;
-  }
 }
 
-/* Écran moyen : le bouton de connexion se réduit à son icône pour ne pas toucher le menu central. */
-@media (min-width: 1101px) and (max-width: 1360px) {
-  .mb-nav-login {
-    width: 46px;
-    padding: 0;
-  }
-
-  .mb-nav-login span,
-  .mb-nav-compte-nom {
-    display: none;
-  }
+.dz-fab-github {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 52px;
+  padding: 0 20px 0 16px;
+  border-radius: 999px;
+  background: #1f2328;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15.5px;
+  box-shadow: 0 14px 30px -12px rgba(15, 47, 79, 0.6);
+  transition: transform 0.25s ease, background-color 0.25s ease, opacity 0.25s ease;
 }
 
-/* Sur téléphone, « Nous rejoindre » reste dans le hero et le pied de page : la barre garde la connexion. */
-@media (max-width: 640px) {
-  .mb-nav-join {
-    display: none;
-  }
+.dz-fab-github.is-hidden {
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+}
+
+.dz-fab-github svg {
+  width: 24px;
+  height: 24px;
+}
+
+.dz-fab-github:hover {
+  transform: translateY(-3px);
+  background: #0d8a59;
+}
+
+.dz-fab-github:focus-visible {
+  outline: 3px solid var(--na-green);
+  outline-offset: 3px;
+}
+
+.dark .dz-fab-github {
+  background: #fff;
+  color: #1f2328;
+}
+
+.dark .dz-fab-github:hover {
+  background: #14b87c;
+  color: #fff;
 }
 
 @media (max-width: 420px) {
-  .mb-nav-login {
-    width: 44px;
-    padding: 0;
-  }
-
-  .mb-nav-login span {
-    display: none;
+  .dz-fab-github {
+    right: 16px;
+    bottom: 16px;
+    height: 48px;
+    padding: 0 16px 0 14px;
+    font-size: 15px;
   }
 }

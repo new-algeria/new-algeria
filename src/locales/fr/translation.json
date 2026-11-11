@@ -117,7 +117,9 @@
     "invitationSent": "Vérifiez votre boîte aux lettres, un e-mail a été envoyé!",
     "modalTitle": "Rejoignez New Algeria",
     "modalSubtitle": "Construisons ensemble l'Algérie numérique de demain",
-    "writeDescription": "Une idée, un projet, une question ? Écrivez-nous."
+    "writeDescription": "Une idée, un projet, une question ? Écrivez-nous.",
+    "fab": "Rejoindre",
+    "fabLabel": "Rejoindre l'organisation New Algeria sur GitHub"
   },
   "projects": {
     "title": "Projets",
