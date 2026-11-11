@@ -3,7 +3,8 @@
     "home": "Accueil",
     "services": "Services",
     "developers": "Développeurs",
-    "contact": "Contact"
+    "contact": "Contact",
+    "projects": "Projets"
   },
   "hero": {
     "title": "Le futur Numérique de l'Algérie",
@@ -12,6 +13,20 @@
       "forward": "Prospective",
       "accessibility": "Accessibilité",
       "development": "Développement"
+    },
+    "subline": "Une communauté d'étudiants, de chercheurs, de développeurs, de scientifiques… qui crée des outils numériques utiles, gratuits et accessibles, par et pour tous les Algériens ❤️",
+    "watch": "Voir nos projets",
+    "badge": "L'Algérie entre dans la course technologique",
+    "needYou": "Nous avons besoin de toi dans",
+    "fields": {
+      "ai": "l'IA",
+      "security": "la cybersécurité",
+      "health": "la santé",
+      "data": "l'open data",
+      "education": "l'éducation",
+      "research": "la recherche",
+      "opensource": "l'open source",
+      "geo": "la géomatique"
     }
   },
   "services": {
@@ -83,7 +98,10 @@
     "pricing": "Tarification",
     "community": "Communauté",
     "contact": "Contact",
-    "copyright": "Tous droits réservés."
+    "copyright": "Tous droits réservés.",
+    "tagline": "Le futur numérique de l'Algérie, construit par et pour les Algériens.",
+    "madeWith": "Fait avec ❤️ en Algérie",
+    "join": "Rejoindre la communauté"
   },
   "joinUs": {
     "joinUs": "Rejoignez-nous",
@@ -93,14 +111,28 @@
     "join": "Rejoindre",
     "writeUs": "Écrivez-nous !",
     "writeToUs": "Écrivez-nous",
-    "connectWithUs": "Connectez-vous avec nous",
-    "invitationSuccess": "Invitation envoyée avec succès !",
     "invitationFailure": "Échec de l'envoi de l'invitation. Veuillez réessayer plus tard.",
-    "writeAlert": "Écrivez-nous !",
     "emailSubject": "Demande de Contact - NewAlgeria",
     "emailBody": "Bonjour,\n\nJe suis intéressé(e) par en savoir plus sur la Plateforme Numérique NewAlgeria.\n\nCordialement,",
-    "motivations": "Les développeurs, les data scientists, les enseignants, les concepteurs et bien plus encore sont tous invités à nous rejoindre.  \nImpliquez-vous dans la communauté et aidez-nous à construire l’avenir de l’Algérie.",
-    "motivations2": "Trouvez également des partenaires et des collaborateurs avec lesquels travailler.",
-    "invitationSent": "Vérifiez votre boîte aux lettres, un e-mail a été envoyé!"
+    "invitationSent": "Vérifiez votre boîte aux lettres, un e-mail a été envoyé!",
+    "modalTitle": "Rejoignez New Algeria",
+    "modalSubtitle": "Construisons ensemble l'Algérie numérique de demain",
+    "writeDescription": "Une idée, un projet, une question ? Écrivez-nous."
+  },
+  "projects": {
+    "title": "Projets",
+    "browse": "voir tous les projets",
+    "dataDz": {
+      "name": "data-dz",
+      "description": "La première plateforme de données ouvertes d'Algérie"
+    },
+    "apiDz": {
+      "name": "data-dz/api",
+      "description": "La première plateforme d'API d'Algérie, dans la continuité de data-dz"
+    },
+    "community": {
+      "name": "Communauté",
+      "description": "Devs, data scientists, designers : rejoignez-nous sur GitHub"
+    }
   }
 }

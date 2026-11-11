@@ -3,7 +3,8 @@
     "home": "Home",
     "services": "Services",
     "developers": "Developers",
-    "contact": "Contact"
+    "contact": "Contact",
+    "projects": "Projects"
   },
   "hero": {
     "title": "Building a Digital Future for Algeria",
@@ -12,6 +13,20 @@
       "forward": "Forward-Thinking",
       "accessibility": "Accessibility",
       "development": "Development"
+    },
+    "subline": "A community of students, researchers, developers, scientists… creating useful, free and accessible digital tools, by and for all Algerians ❤️",
+    "watch": "See our projects",
+    "badge": "Algeria joins the tech race",
+    "needYou": "We need you in",
+    "fields": {
+      "ai": "AI",
+      "security": "cybersecurity",
+      "health": "health",
+      "data": "open data",
+      "education": "education",
+      "research": "research",
+      "opensource": "open source",
+      "geo": "geomatics"
     }
   },
   "services": {
@@ -83,7 +98,10 @@
     "pricing": "Pricing",
     "community": "Community",
     "contact": "Contact",
-    "copyright": "All rights reserved."
+    "copyright": "All rights reserved.",
+    "tagline": "Algeria's digital future, built by and for Algerians.",
+    "madeWith": "Made with ❤️ in Algeria",
+    "join": "Join the community"
   },
   "joinUs": {
     "joinUs": "Join Us",
@@ -93,14 +111,28 @@
     "join": "Join",
     "writeUs": "Write Us!",
     "writeToUs": "Write to Us",
-    "connectWithUs": "Connect with us",
-    "invitationSuccess": "Invitation sent successfully!",
     "invitationFailure": "Failed to send invitation. Please try again later.",
-    "writeAlert": "Write to us!",
     "emailSubject": "Contact Request - New Algeria",
     "emailBody": "Hello,\n\nI am interested in learning more about the New Algeria Digital Platform.\n\nBest regards,",
-    "motivations": "Developers, Data Scientists, Teachers, Designers, and more are all welcome to join us.  Get involved in the community and help us to build the future of Algeria.",
-    "motivations2": "Find also partners and collaborators to work with.",
-    "invitationSent": "Check your mailbox, an email has been sent!"
+    "invitationSent": "Check your mailbox, an email has been sent!",
+    "modalTitle": "Join New Algeria",
+    "modalSubtitle": "Let's build tomorrow's digital Algeria together",
+    "writeDescription": "An idea, a project, a question? Write to us."
+  },
+  "projects": {
+    "title": "Projects",
+    "browse": "browse all projects",
+    "dataDz": {
+      "name": "data-dz",
+      "description": "Algeria's first open data platform"
+    },
+    "apiDz": {
+      "name": "data-dz/api",
+      "description": "Algeria's first API platform, building on data-dz"
+    },
+    "community": {
+      "name": "Community",
+      "description": "Devs, data scientists, designers: join us on GitHub"
+    }
   }
 }

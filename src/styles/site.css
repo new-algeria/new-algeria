@@ -1,0 +1,1394 @@
+/*
+ * Identité visuelle New Algeria : une aube paisible sur Alger,
+ * traversée par un réseau de données discret.
+ */
+:root {
+  --na-green: #0d8a59;
+  --na-green-dark: #006233;
+  --na-red: #d21034;
+  --na-ink: #0f2f4f;
+  --na-ink-soft: #2c4a66;
+}
+
+.dark {
+  --na-ink: #f4f7fb;
+  --na-ink-soft: #c9d6e6;
+}
+
+html {
+  overflow-x: clip;
+}
+
+.font-display {
+  font-family: "Grandstander", "Baloo Bhaijaan 2", system-ui, sans-serif;
+  font-weight: 900;
+}
+
+[lang="ar"] .font-display {
+  font-family: "Baloo Bhaijaan 2", "Grandstander", system-ui, sans-serif;
+  font-weight: 800;
+}
+
+/* =========================================================
+   Hero : la prairie, le ciel et un drapeau qui flotte
+   ========================================================= */
+
+.dz-hero {
+  position: relative;
+  height: 100svh;
+  min-height: 640px;
+  max-height: 1100px;
+  overflow: hidden;
+  color: #fff;
+  background: #368bc9;
+  /* L'image est dimensionnée comme un « cover », en unités du hero */
+  container-type: size;
+  isolation: isolate;
+}
+
+.dz-plate {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: max(100cqw, 112.5cqh);
+  height: max(100cqh, 88.889cqw);
+  transform: translate(-50%, -50%);
+}
+
+.dz-plate-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Léger voile bleu en haut pour la lisibilité du texte blanc */
+.dz-hero-shade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 45% at 50% 34%, rgba(18, 62, 128, 0.32), transparent 70%),
+    linear-gradient(180deg, rgba(18, 62, 128, 0.28), transparent 30%);
+}
+
+.dark .dz-hero-shade {
+  background:
+    radial-gradient(ellipse 60% 45% at 50% 34%, rgba(6, 14, 40, 0.45), transparent 70%),
+    linear-gradient(180deg, rgba(8, 16, 46, 0.7), rgba(16, 20, 60, 0.45) 60%, rgba(5, 10, 25, 0.55));
+}
+
+/* ----- Drapeau planté dans l'herbe, à droite (PC) ----- */
+
+.dz-hero-flag {
+  --pole: 178%;
+  position: absolute;
+  left: 72%;
+  top: 44.5%;
+  width: 13%;
+}
+
+.dz-flag {
+  aspect-ratio: 3 / 2;
+  /* Les bandes doivent rester dans l'ordre, même en arabe (RTL) */
+  direction: ltr;
+}
+
+.dz-flag-pole {
+  position: absolute;
+  left: 0;
+  top: -5%;
+  width: 2.6%;
+  height: var(--pole, 420%);
+  border-radius: 999px;
+  background: linear-gradient(90deg, #8b939d, #f1f3f6 45%, #7f8892);
+  box-shadow: 1px 0 4px rgba(15, 47, 79, 0.3);
+}
+
+.dz-flag-pole::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  width: 260%;
+  aspect-ratio: 1;
+  translate: -50% 35%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fff6d6, #d9a93c 60%, #a87a1e);
+}
+
+.dz-flag-cloth {
+  position: absolute;
+  inset: 0 0 0 2.4%;
+  display: flex;
+  filter: drop-shadow(0 10px 14px rgba(15, 47, 79, 0.3));
+}
+
+.dz-flag-strip {
+  flex: 1 0 0;
+  margin-right: -1px;
+  background-repeat: no-repeat;
+  animation: dz-wave 2.8s ease-in-out infinite;
+  animation-delay: calc(var(--i) * -0.05s);
+}
+
+@keyframes dz-wave {
+  0%, 100% {
+    transform: translateY(calc(var(--a) * -4%));
+    filter: brightness(1.04);
+  }
+  50% {
+    transform: translateY(calc(var(--a) * 4%));
+    filter: brightness(0.9);
+  }
+}
+
+/* Fondu de l'herbe vers le fond de page */
+.dz-hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 90px;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent, hsl(var(--background)));
+}
+
+/* ----- Texte ----- */
+
+.dz-hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: clamp(104px, 15cqh, 150px) 20px 0;
+  text-align: center;
+}
+
+.dz-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.16);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.dz-badge svg {
+  width: 17px;
+  height: 17px;
+  color: #c6f6d5;
+}
+
+.dz-title {
+  margin-top: 18px;
+  font-size: clamp(46px, 8.6vw, 132px);
+  line-height: 0.95;
+  text-transform: uppercase;
+  white-space: nowrap;
+  /* « New Algeria » reste dans cet ordre, même en arabe */
+  direction: ltr;
+  unicode-bidi: isolate;
+  text-shadow: 0 4px 24px rgba(16, 52, 110, 0.45);
+}
+
+.dz-title span {
+  display: inline-block;
+}
+
+.dz-sub {
+  max-width: 620px;
+  margin-top: 18px;
+  font-size: clamp(15.5px, 1.3vw, 19px);
+  line-height: 1.55;
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(16, 52, 110, 0.55), 0 2px 18px rgba(16, 52, 110, 0.5);
+}
+
+.dz-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+/* ----- Boutons ----- */
+
+.dz-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 52px;
+  padding: 0 26px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.dz-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.dz-btn:hover {
+  transform: translateY(-2px);
+}
+
+.dz-btn:disabled {
+  opacity: 0.55;
+  transform: none;
+  cursor: not-allowed;
+}
+
+.dz-btn-primary {
+  background: var(--na-green);
+  color: #fff;
+  box-shadow: 0 12px 28px -12px rgba(13, 138, 89, 0.75);
+}
+
+.dz-btn-primary:hover {
+  background: #0b774d;
+}
+
+.dz-btn-white {
+  background: #fff;
+  color: var(--na-green);
+  box-shadow: 0 12px 30px -12px rgba(16, 52, 110, 0.55);
+}
+
+.dz-btn-glass {
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.18);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  color: #fff;
+}
+
+.dz-btn-glass:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+/* ----- « Nous avons besoin de toi dans … » ----- */
+
+.dz-rotator {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: clamp(30px, 6.5cqh, 70px);
+  translate: -50% 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  max-width: calc(100% - 32px);
+  padding: 8px 8px 8px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(14, 40, 30, 0.28);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 30px -16px rgba(0, 0, 0, 0.5);
+  font-size: clamp(15px, 1.25vw, 18px);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+[dir="rtl"] .dz-rotator {
+  padding: 8px 18px 8px 8px;
+}
+
+.dz-rotator-lead {
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+}
+
+.dz-rotator-word {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  color: #fff;
+  box-shadow: 0 6px 16px -6px rgba(0, 0, 0, 0.45);
+  transition: background-color 0.4s ease;
+  animation: dz-word-in 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes dz-word-in {
+  from {
+    opacity: 0;
+    transform: translateY(60%);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+/* Légère respiration des boutons du hero (translate, pour garder l'effet au survol) */
+@keyframes dz-float {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -4px; }
+}
+
+/* ----- Animation d'entrée ----- */
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-enter] {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dz-hero *,
+  .mb-nav * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* =========================================================
+   Projets
+   ========================================================= */
+
+.dz-projects {
+  position: relative;
+  padding: 80px 0 24px;
+}
+
+.dz-projects-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.dz-projects-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: var(--na-green);
+  white-space: nowrap;
+}
+
+.dark .dz-projects-link {
+  color: #6ee7b7;
+}
+
+.dz-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.dz-project {
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+}
+
+.dz-project-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.dz-project-logo-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.dz-project-logo-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
+  background: #e1f3ea;
+  color: var(--na-green);
+  font-size: 28px;
+}
+
+.dz-project-logo-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.dz-project-logo-dark {
+  background: var(--na-ink);
+  color: #fff;
+}
+
+.dark .dz-project-logo-icon {
+  background: rgba(110, 231, 183, 0.12);
+  color: #6ee7b7;
+}
+
+.dark .dz-project-logo-dark {
+  background: #fff;
+  color: #0f172a;
+}
+
+.dz-project-arrow {
+  width: 22px;
+  height: 22px;
+  color: var(--na-ink-soft);
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.dz-project:hover .dz-project-arrow {
+  transform: translate(3px, -3px);
+  color: var(--na-green);
+}
+
+.dz-project-name {
+  font-size: 30px;
+  line-height: 1.1;
+  color: var(--na-ink);
+}
+
+.dz-project-desc {
+  margin-top: 8px;
+  color: var(--na-ink-soft);
+}
+
+/* =========================================================
+   Fenêtre « Rejoignez-nous »
+   ========================================================= */
+
+.dz-join {
+  max-height: calc(100svh - 2rem);
+  overflow-y: auto;
+  background: hsl(var(--background));
+  box-shadow: 0 40px 90px -30px rgba(15, 47, 79, 0.55);
+}
+
+.dz-join > button:last-child {
+  top: 18px;
+  right: 18px;
+  padding: 6px;
+  border-radius: 999px;
+  color: #fff;
+  opacity: 0.9;
+  background: rgba(255, 255, 255, 0.16) !important;
+}
+
+[dir="rtl"] .dz-join > button:last-child {
+  right: auto;
+  left: 18px;
+}
+
+.dz-join-header {
+  position: relative;
+  overflow: hidden;
+  padding: 28px 24px 22px;
+  color: #fff;
+  text-align: start;
+  background:
+    radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.28), transparent 42%),
+    linear-gradient(140deg, #0d8a59 0%, #0f6f78 55%, #1f4f8f 100%);
+}
+
+.dz-join-dots {
+  position: absolute;
+  inset: 0;
+  opacity: 0.22;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.9) 1.2px, transparent 1.4px);
+  background-size: 22px 22px;
+  mask-image: linear-gradient(120deg, transparent 30%, #000 90%);
+}
+
+.dz-join-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dz-join-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.dz-join .dz-join-title {
+  position: relative;
+  margin-top: 14px;
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.dz-join .dz-join-subtitle {
+  position: relative;
+  margin-top: 6px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.dz-join-body {
+  display: grid;
+  gap: 12px;
+  padding: 20px;
+}
+
+.dz-join-card {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(15, 47, 79, 0.1);
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.dark .dz-join-card {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.dz-join-card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--na-ink);
+}
+
+.dz-join-card-desc {
+  display: block;
+  font-size: 13.5px;
+  color: var(--na-ink-soft);
+}
+
+.dz-join-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.dz-join-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1 1 220px;
+  height: 50px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 47, 79, 0.15);
+  background: #fff;
+  color: var(--na-ink-soft);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dz-join-input:focus-within {
+  border-color: var(--na-green);
+  box-shadow: 0 0 0 4px rgba(13, 138, 89, 0.15);
+}
+
+.dz-join-input svg {
+  width: 18px;
+  height: 18px;
+  flex: none;
+}
+
+.dz-join-input input {
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+  background: transparent;
+  color: var(--na-ink);
+  /* 16px minimum : évite le zoom automatique sur iPhone */
+  font-size: 16px;
+}
+
+.dark .dz-join-input {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.dz-join-submit {
+  flex: 1 1 auto;
+  height: 50px;
+  font-size: 16px;
+}
+
+.dz-join-success {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--na-green);
+}
+
+.dz-join-success svg {
+  width: 20px;
+  height: 20px;
+}
+
+.dz-join-error {
+  font-size: 13.5px;
+  color: #c2410c;
+}
+
+/* Carte « Écrivez-nous » : toute la carte est cliquable */
+.dz-join-write {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.dz-join-write:hover {
+  border-color: var(--na-green);
+  transform: translateY(-1px);
+}
+
+.dz-join-write-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border-radius: 14px;
+  background: #e1f3ea;
+  color: var(--na-green);
+}
+
+.dz-join-write-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.dark .dz-join-write-icon {
+  background: rgba(110, 231, 183, 0.12);
+  color: #6ee7b7;
+}
+
+.dz-join-write-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.dz-join-write-arrow {
+  width: 20px;
+  height: 20px;
+  color: var(--na-ink-soft);
+}
+
+[dir="rtl"] .dz-join-write-arrow {
+  transform: scaleX(-1);
+}
+
+/* =========================================================
+   Navigation
+   ========================================================= */
+
+.mb-nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  height: 76px;
+  color: var(--na-ink);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mb-nav.is-scrolled {
+  background: rgba(255, 255, 255, 0.72);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 6px 30px -10px rgba(15, 47, 79, 0.25);
+}
+
+.dark .mb-nav.is-scrolled {
+  background: rgba(8, 15, 36, 0.78);
+}
+
+.mb-logo {
+  position: absolute;
+  inset-inline-start: 28px;
+  top: 17px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+  line-height: 1;
+  color: var(--na-ink);
+}
+
+.mb-logo img {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 3px;
+  box-shadow: 0 4px 12px rgba(15, 47, 79, 0.2);
+}
+
+.mb-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 999px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.mb-pill:hover {
+  transform: translateY(-2px);
+}
+
+.mb-pill-white {
+  background: #fff;
+  color: var(--na-green);
+  box-shadow: 0 8px 22px -10px rgba(15, 47, 79, 0.35);
+}
+
+.mb-pill-green {
+  background: var(--na-green);
+  color: #fff;
+  box-shadow: 0 10px 24px -12px rgba(13, 138, 89, 0.8);
+}
+
+.mb-pill-green:hover {
+  background: #0b774d;
+}
+
+.mb-pill-glass {
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.6);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  color: var(--na-ink);
+}
+
+.dark .mb-pill-glass {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.mb-nav-pill {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  height: 48px;
+  padding: 0 30px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.6);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  font-size: 15.5px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.dark .mb-nav-pill {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.mb-nav-pill a {
+  transition: color 0.2s ease;
+}
+
+.mb-nav-pill a:hover {
+  color: var(--na-green);
+}
+
+.mb-nav-actions {
+  position: absolute;
+  top: 14px;
+  inset-inline-end: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mb-icon-btn {
+  width: 46px;
+  height: 46px;
+}
+
+.mb-icon-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.mb-nav-join {
+  height: 46px;
+  padding: 0 22px;
+  font-size: 15.5px;
+  max-width: 240px;
+  overflow: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease, max-width 0.35s ease, padding 0.35s ease, margin 0.35s ease, background-color 0.25s ease;
+}
+
+/* En haut de page, le hero a déjà son bouton : on évite le doublon */
+.mb-nav:not(.is-scrolled) .mb-nav-join {
+  max-width: 0;
+  padding-inline: 0;
+  margin-inline-start: -10px;
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+}
+
+/* Logo en blanc sur le ciel, en couleur une fois la barre affichée */
+.mb-nav:not(.is-scrolled) .mb-logo {
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(16, 52, 110, 0.45);
+}
+
+.mb-chevron {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+a:hover > .mb-chevron {
+  transform: translateX(4px);
+}
+
+[dir="rtl"] .mb-chevron {
+  transform: scaleX(-1);
+}
+
+.mb-burger,
+.mb-mobile-menu {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  .mb-nav-pill,
+  .mb-nav-actions .mb-icon-btn {
+    display: none;
+  }
+
+  .mb-burger {
+    display: inline-flex;
+    width: 44px;
+    height: 44px;
+  }
+
+  .mb-burger svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .mb-mobile-menu {
+    position: absolute;
+    top: 70px;
+    inset-inline: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-width: 420px;
+    margin-inline-start: auto;
+    padding: 12px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.96);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 20px 50px -16px rgba(15, 47, 79, 0.4);
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .dark .mb-mobile-menu {
+    background: rgba(12, 20, 44, 0.97);
+  }
+
+  .mb-mobile-menu a,
+  .mb-mobile-menu button {
+    padding: 10px 12px;
+    border-radius: 12px;
+    text-align: start;
+  }
+
+  .mb-mobile-menu a:hover,
+  .mb-mobile-menu button:hover {
+    background: rgba(13, 138, 89, 0.1);
+  }
+
+  .mb-mobile-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(15, 47, 79, 0.1);
+  }
+
+  .mb-mobile-row button {
+    flex: 1;
+    text-align: center;
+    background: rgba(15, 47, 79, 0.05);
+  }
+
+  .dark .mb-mobile-row button {
+    background: rgba(255, 255, 255, 0.06);
+  }
+}
+
+/* =========================================================
+   Téléphones et tablettes
+   ========================================================= */
+
+@media (max-width: 860px) {
+  /* L'image se décale pour garder le garçon et son chien à l'écran */
+  /* Agrandie de 12 % pour que le décalage vers le bas ne laisse pas de bande en haut */
+  .dz-plate {
+    left: 18%;
+    top: 56%;
+    width: max(126cqh, 100cqw);
+    height: max(112cqh, 88.889cqw);
+    transform: translate(-18%, -50%);
+  }
+
+  /* Le drapeau est planté juste à côté du chien */
+  .dz-hero-flag {
+    --pole: 145%;
+    left: 35%;
+    top: 42%;
+    width: 11%;
+  }
+
+  /* Le contenu couvre tout le hero pour que les boutons puissent se poser sur l'herbe */
+  .dz-hero-content {
+    position: absolute;
+    inset: 0;
+    padding-top: 92px;
+  }
+
+  .dz-badge {
+    font-size: 13px;
+  }
+
+  .dz-title {
+    margin-top: 14px;
+    font-size: clamp(38px, 11.4vw, 72px);
+  }
+
+  .dz-sub {
+    font-size: 15px;
+  }
+
+  /* Les boutons descendent sur l'herbe, sous le garçon et son chien */
+  .dz-ctas {
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: calc(clamp(30px, 6.5cqh, 70px) + 92px);
+    gap: 10px;
+    margin-top: 0;
+  }
+
+  .dz-ctas > * {
+    animation: dz-float 3.2s ease-in-out infinite;
+  }
+
+  .dz-ctas > *:nth-child(2) {
+    animation-delay: -1.6s;
+  }
+
+  /* Sur mobile, le mot coloré passe sous la phrase */
+  .dz-rotator,
+  [dir="rtl"] .dz-rotator {
+    flex-direction: column;
+    gap: 6px;
+    width: max-content;
+    padding: 8px 10px;
+    border-radius: 22px;
+    font-size: 14px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .dz-rotator-word {
+    padding: 5px 12px;
+  }
+
+  .dz-ctas .dz-btn {
+    height: 46px;
+    padding: 0 16px;
+    gap: 6px;
+    font-size: 14.5px;
+  }
+
+  /* Sur mobile, les cartes défilent sur une ligne au lieu d'une colonne */
+  .mb-row.mb-row {
+    display: flex;
+    gap: 14px;
+    margin: 0 -2rem;
+    padding: 6px 2rem 18px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 2rem;
+    scrollbar-width: none;
+  }
+
+  .mb-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mb-row > * {
+    flex: 0 0 min(82%, 340px);
+    scroll-snap-align: start;
+  }
+
+  .mb-nav {
+    height: 68px;
+  }
+
+  .mb-logo {
+    inset-inline-start: 16px;
+    top: 14px;
+    gap: 8px;
+    font-size: 19px;
+  }
+
+  .mb-logo img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .mb-nav-actions {
+    top: 13px;
+    inset-inline-end: 16px;
+    gap: 8px;
+  }
+
+  .mb-nav-join {
+    height: 42px;
+    padding: 0 16px;
+    font-size: 14px;
+  }
+
+  .mb-nav:not(.is-scrolled) .mb-nav-join {
+    padding-inline: 0;
+    margin-inline-start: -8px;
+  }
+}
+
+@media (max-width: 370px) {
+  .mb-nav-join {
+    display: none;
+  }
+}
+
+/* =========================================================
+   Sections sous le hero
+   ========================================================= */
+
+.mb-section-title {
+  font-size: clamp(2rem, 4.2vw, 3.25rem);
+  line-height: 1.1;
+  color: var(--na-ink);
+  text-wrap: balance;
+}
+
+.mb-highlight {
+  color: var(--na-green);
+}
+
+.dark .mb-highlight {
+  color: #6ee7b7;
+}
+
+.mb-surface {
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(15, 47, 79, 0.06);
+  box-shadow: 0 18px 50px -24px rgba(15, 47, 79, 0.35);
+}
+
+.dark .mb-surface {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 18px 50px -22px rgba(0, 0, 0, 0.6);
+}
+
+.mb-lift {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.mb-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 26px 60px -24px rgba(15, 47, 79, 0.45);
+}
+
+.mb-icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 1.1rem;
+  background: #e1f3ea;
+  color: var(--na-green);
+}
+
+.dark .mb-icon-badge {
+  background: rgba(110, 231, 183, 0.12);
+  color: #6ee7b7;
+}
+
+/* Bandeau de contact : un coin de ciel de la prairie */
+.mb-sky-banner {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2rem;
+  color: #fff;
+  background: #3f8fdc url("/assets/img/hero-meadow.jpg") center 30% / cover no-repeat;
+  box-shadow: 0 30px 70px -30px rgba(15, 47, 79, 0.6);
+}
+
+.mb-sky-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(18, 62, 128, 0.25), rgba(20, 60, 30, 0.3));
+}
+
+.dark .mb-sky-banner::before {
+  background: linear-gradient(180deg, rgba(8, 16, 46, 0.65), rgba(5, 10, 25, 0.6));
+}
+
+.mb-sky-banner > * {
+  position: relative;
+}
+
+/* data-dz/api : même logo que data-dz, en violet */
+.dz-logo-violet {
+  filter: hue-rotate(115deg) saturate(1.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mb-lift,
+  .mb-lift:hover {
+    transition: none;
+    transform: none;
+  }
+}
+
+/* =========================================================
+   Footer
+   ========================================================= */
+
+.dz-footer {
+  position: relative;
+  overflow: hidden;
+  margin-top: 40px;
+  padding: 64px 0 28px;
+  border-radius: 2.5rem 2.5rem 0 0;
+  color: rgba(255, 255, 255, 0.82);
+  background: linear-gradient(160deg, #0b4a35 0%, #0d3b4a 55%, #102a52 100%);
+}
+
+.dz-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.16;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.9) 1px, transparent 1.3px);
+  background-size: 24px 24px;
+  mask-image: linear-gradient(180deg, #000, transparent 75%);
+  pointer-events: none;
+}
+
+.dz-footer-glow {
+  position: absolute;
+  top: -180px;
+  left: 50%;
+  width: 720px;
+  height: 360px;
+  translate: -50% 0;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(52, 211, 153, 0.35), transparent);
+  pointer-events: none;
+}
+
+.dz-footer-inner,
+.dz-footer-bottom {
+  position: relative;
+}
+
+.dz-footer-inner {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 40px;
+}
+
+.dz-footer-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 28px;
+  color: #fff;
+}
+
+.dz-footer-logo img {
+  width: 48px;
+  height: 48px;
+  padding: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.dz-footer-tagline {
+  max-width: 340px;
+  margin-top: 14px;
+  line-height: 1.6;
+}
+
+.dz-footer-socials {
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.dz-footer-socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 18px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.dz-footer-socials a:hover {
+  background: var(--na-green);
+  transform: translateY(-2px);
+}
+
+.dz-footer-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.dz-footer-col h3 {
+  margin-bottom: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6ee7b7;
+}
+
+[lang="ar"] .dz-footer-col h3 {
+  letter-spacing: 0;
+}
+
+.dz-footer-col a {
+  transition: color 0.2s ease;
+}
+
+.dz-footer-col a:hover {
+  color: #fff;
+}
+
+.dz-footer-join {
+  margin-top: 6px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--na-green);
+  font-weight: 600;
+  transition: transform 0.2s ease;
+}
+
+.dz-footer-join:hover {
+  transform: translateY(-2px);
+}
+
+.dz-footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 48px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.dz-footer-top {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  transition: background-color 0.2s ease;
+}
+
+.dz-footer-top:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.dz-footer-top svg {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 860px) {
+  .dz-footer {
+    padding-top: 48px;
+    border-radius: 2rem 2rem 0 0;
+  }
+
+  .dz-footer-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 20px;
+  }
+
+  .dz-footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .dz-footer-bottom {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .dz-footer-top {
+    display: none;
+  }
+}

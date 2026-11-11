@@ -4,6 +4,7 @@ import BentoGridSection from "@/components/BentoGridSection";
 import ContactSection from "@/components/ContactSection";
 import FAQSection from "@/components/FAQSection";
 import HeroSection from "@/components/HeroSection";
+import ProjectsSection from "@/components/ProjectsSection";
 import ServicesSection from "@/components/ServicesSection";
 import TimelineSection from "@/components/TimelineSection";
 import Footer from "@/components/Footer";
@@ -15,6 +16,9 @@ const Index = () => {
 
       {/* Hero Section */}
       <HeroSection />
+
+      {/* Projects Section */}
+      <ProjectsSection />
 
       {/* Services Section */}
       <ServicesSection />

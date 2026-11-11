@@ -33,7 +33,8 @@ Ce dépôt contient le **site vitrine officiel** de l'organisation, [newalgeria.
 
 ## ✨ Fonctionnalités du site
 
-- 🏠 **Hero animé** avec une vidéo de fond et les valeurs du projet
+- 🏠 **Hero** : une prairie ensoleillée avec un drapeau algérien animé et un défilé discret des thèmes (IA, open data, APIs…)
+- 🗂️ **Projets** : data-dz, API-DZ et la communauté GitHub
 - 🧩 **Services** : services numériques, jeux de données utiles, outils de développement
 - 🍱 **Bento grid** : infrastructure numérique, cybersécurité, communauté
 - 🕒 **Timeline** des projets lancés (data-dz, API-DZ) avec démos vidéo
@@ -47,7 +48,7 @@ Ce dépôt contient le **site vitrine officiel** de l'organisation, [newalgeria.
 
 - [React 18](https://react.dev) + [TypeScript](https://www.typescriptlang.org)
 - [Vite](https://vitejs.dev) (avec SWC)
-- [Tailwind CSS](https://tailwindcss.com) + [shadcn/ui](https://ui.shadcn.com) (Radix UI) + [Flowbite React](https://flowbite-react.com)
+- [Tailwind CSS](https://tailwindcss.com) + [shadcn/ui](https://ui.shadcn.com) (Radix UI)
 - [Framer Motion](https://www.framer.com/motion/) pour les animations
 - [i18next](https://www.i18next.com) / react-i18next pour l'internationalisation
 - [Octokit](https://github.com/octokit) pour l'intégration GitHub

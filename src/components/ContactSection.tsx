@@ -1,6 +1,5 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
 
 const ContactSection = () => {
@@ -11,23 +10,19 @@ const ContactSection = () => {
   )}&body=${encodeURIComponent(t("contact.body"))}`;
 
   return (
-    <section className="py-20">
+    <section className="py-24" id="contact">
       <div className="container">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">
+        <div className="mb-sky-banner mx-auto max-w-5xl px-6 py-16 md:py-24 text-center">
+          <h2 className="font-display text-4xl md:text-6xl uppercase mb-8 [text-shadow:0_4px_18px_rgba(28,70,120,0.35)]">
             {t("contact.title")}
           </h2>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href={mailtoLink}>
-              <Button
-                size="lg"
-                className="bg-primary hover:bg-primary/90 dark:bg-accent dark:hover:bg-accent/90"
-              >
-                {t("nav.contact")}
-                <ChevronRight className="ml-2" size={16} />
-              </Button>
-            </a>
-          </div>
+          <a
+            href={mailtoLink}
+            className="mb-pill mb-pill-white inline-flex h-14 px-8 text-lg"
+          >
+            {t("nav.contact")}
+            <ChevronRight size={18} className="rtl:-scale-x-100" />
+          </a>
         </div>
       </div>
     </section>
