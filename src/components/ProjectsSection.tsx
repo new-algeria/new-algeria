@@ -55,6 +55,23 @@ const ProjectsSection = () => {
       ),
       name: t("projects.community.name"),
     },
+    {
+      key: "djazai",
+      href: "https://www.data-dz.com/djazai",
+      logo: (
+        <img
+          src="/assets/img/djazai-logo.svg"
+          alt="Logo DjazAI"
+          className="dz-project-logo-img"
+        />
+      ),
+      name: (
+        <>
+          Djaz<span className="text-[#e11d48]">AI</span>
+        </>
+      ),
+      status: t("projects.djazai.status"),
+    },
   ];
 
   return (
@@ -88,6 +105,12 @@ const ProjectsSection = () => {
               <span className="dz-project-desc">
                 {t(`projects.${project.key}.description`)}
               </span>
+              {project.status && (
+                <span className="dz-project-status">
+                  <span className="dz-project-status-dot" aria-hidden="true" />
+                  {project.status}
+                </span>
+              )}
             </a>
           ))}
         </div>

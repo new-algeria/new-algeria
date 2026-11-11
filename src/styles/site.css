@@ -400,8 +400,47 @@ html {
 
 .dz-projects-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+@media (min-width: 861px) and (max-width: 1180px) {
+  .dz-projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Pastille « En cours d'amélioration » */
+.dz-project-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  margin-top: 16px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #fff4e5;
+  color: #b45309;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.dark .dz-project-status {
+  background: rgba(251, 191, 36, 0.12);
+  color: #fbbf24;
+}
+
+.dz-project-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: currentColor;
+  animation: dz-status 1.6s ease-in-out infinite;
+}
+
+@keyframes dz-status {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
 }
 
 .dz-project {
