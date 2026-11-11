@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="DjazAI">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d8a59"/>
+      <stop offset=".55" stop-color="#0f6f78"/>
+      <stop offset="1" stop-color="#1f4f8f"/>
+    </linearGradient>
+    <radialGradient id="shine" cx=".3" cy=".2" r=".8">
+      <stop offset="0" stop-color="#fff" stop-opacity=".35"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <mask id="crescent">
+      <rect width="120" height="120" fill="#000"/>
+      <circle cx="54" cy="60" r="34" fill="#fff"/>
+      <circle cx="65" cy="60" r="27.5" fill="#000"/>
+    </mask>
+  </defs>
+  <rect width="120" height="120" rx="30" fill="url(#bg)"/>
+  <rect width="120" height="120" rx="30" fill="url(#shine)"/>
+  <!-- Croissant du drapeau algérien -->
+  <rect width="120" height="120" fill="#fff" mask="url(#crescent)"/>
+  <!-- Étincelle « IA » à la place de l'étoile -->
+  <path fill="#fff" d="M72 40c2.2 11 6.8 15.6 18 18-11.2 2.4-15.8 7-18 18-2.2-11-6.8-15.6-18-18 11.2-2.4 15.8-7 18-18z"/>
+  <path fill="#ff5a6e" d="M93 26c.9 4.4 2.7 6.2 7 7-4.3.8-6.1 2.6-7 7-.9-4.4-2.7-6.2-7-7 4.3-.8 6.1-2.6 7-7z"/>
+</svg>

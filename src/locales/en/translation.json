@@ -133,6 +133,11 @@
     "community": {
       "name": "Community",
       "description": "Devs, data scientists, designers: join us on GitHub"
+    },
+    "djazai": {
+      "name": "DjazAI",
+      "description": "The first Algerian AI, trained on Algeria's data",
+      "status": "Being improved"
     }
   }
 }
