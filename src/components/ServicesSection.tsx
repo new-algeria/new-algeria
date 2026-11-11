@@ -73,7 +73,7 @@ const ServicesSection = () => {
         </motion.div>
         <motion.div
           variants={containerVariants}
-          className="grid md:grid-cols-3 gap-8"
+          className="mb-row grid md:grid-cols-3 gap-8"
         >
           {services.map((service) => (
             <motion.div key={service.title} variants={itemVariants}>

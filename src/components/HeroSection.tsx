@@ -1,29 +1,52 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { BrainCircuit, Database, Braces, Sparkles, ArrowDown } from "lucide-react";
+import {
+  BrainCircuit,
+  Database,
+  Braces,
+  Code2,
+  Map,
+  GraduationCap,
+  FlaskConical,
+  ShieldCheck,
+  HeartPulse,
+  Users,
+  Sparkles,
+  ArrowDown,
+} from "lucide-react";
 import JoinUsBtn from "./JoinUsBtn";
 import AlgerianFlag from "./AlgerianFlag";
-import { SceneBack, SceneFront } from "./AlgiersScene";
 import { useEntrance } from "@/hooks/use-entrance";
+
+const topics = [
+  { key: "ai", icon: BrainCircuit },
+  { key: "data", icon: Database },
+  { key: "api", icon: Braces },
+  { key: "opensource", icon: Code2 },
+  { key: "geo", icon: Map },
+  { key: "education", icon: GraduationCap },
+  { key: "research", icon: FlaskConical },
+  { key: "security", icon: ShieldCheck },
+  { key: "health", icon: HeartPulse },
+  { key: "community", icon: Users },
+];
 
 const HeroSection = () => {
   const { t } = useTranslation();
 
   useEntrance();
 
-  const features = [
-    { key: "ai", icon: <BrainCircuit /> },
-    { key: "data", icon: <Database /> },
-    { key: "api", icon: <Braces /> },
-  ];
+  // La liste est doublée pour que le défilement boucle sans saut
+  const marquee = [...topics, ...topics];
 
   return (
     <section className="dz-hero" id="home">
-      <div className="dz-scene">
-        <SceneBack />
-        <div className="dz-haze" />
+      {/* L'image garde ses proportions : le drapeau reste planté au même endroit de l'herbe */}
+      <div className="dz-plate">
+        <img src="/assets/img/hero-meadow.jpg" alt="" className="dz-plate-img" />
+        {/* Le voile passe sous le drapeau pour qu'il reste bien visible */}
+        <div className="dz-hero-shade" aria-hidden="true" />
         <AlgerianFlag className="dz-hero-flag" />
-        <SceneFront />
       </div>
 
       <div className="dz-hero-content">
@@ -32,30 +55,20 @@ const HeroSection = () => {
           {t("hero.badge")}
         </p>
 
-        <div className="dz-heading">
-          <h1 className="dz-title font-display">
-            <span className="dz-title-new" data-enter="spring" data-enter-at="460">
-              New
-            </span>{" "}
-            <span className="dz-title-algeria" data-enter="spring" data-enter-at="620">
-              Algeria
-            </span>
-          </h1>
-          <p className="dz-aside" data-enter="rise" data-enter-at="760">
-            <span className="dz-aside-kicker">{t("hero.kicker")}</span>
-            <span className="dz-aside-lead">{t("hero.lead")}</span>
-          </p>
-        </div>
+        <h1 className="dz-title font-display">
+          <span data-enter="spring" data-enter-at="460">New</span>{" "}
+          <span data-enter="spring" data-enter-at="600">Algeria</span>
+        </h1>
 
-        <p className="dz-sub" data-enter="rise" data-enter-at="900">
+        <p className="dz-sub" data-enter="rise" data-enter-at="800">
           {t("hero.subline")}
         </p>
 
         <div className="dz-ctas">
           <JoinUsBtn
-            className="dz-btn dz-btn-primary"
+            className="dz-btn dz-btn-white"
             data-enter="rise"
-            data-enter-at="1000"
+            data-enter-at="920"
           >
             ✨ {t("joinUs.joinUs")}
           </JoinUsBtn>
@@ -63,32 +76,24 @@ const HeroSection = () => {
             href="#projets"
             className="dz-btn dz-btn-glass"
             data-enter="rise"
-            data-enter-at="1080"
+            data-enter-at="1000"
           >
             {t("hero.watch")}
             <ArrowDown aria-hidden="true" />
           </a>
         </div>
+      </div>
 
-        <ul className="dz-features">
-          {features.map((feature, index) => (
+      <div className="dz-marquee" data-enter="unblur" data-enter-at="1200">
+        <ul className="dz-marquee-track">
+          {marquee.map(({ key, icon: Icon }, index) => (
             <li
-              key={feature.key}
-              className="dz-feature"
-              data-enter="rise"
-              data-enter-at={String(1180 + index * 90)}
+              key={`${key}-${index}`}
+              className="dz-topic"
+              aria-hidden={index >= topics.length}
             >
-              <span className="dz-feature-icon" aria-hidden="true">
-                {feature.icon}
-              </span>
-              <span>
-                <span className="dz-feature-title">
-                  {t(`hero.features.${feature.key}.title`)}
-                </span>
-                <span className="dz-feature-desc">
-                  {t(`hero.features.${feature.key}.description`)}
-                </span>
-              </span>
+              <Icon aria-hidden="true" />
+              {t(`hero.topics.${key}`)}
             </li>
           ))}
         </ul>

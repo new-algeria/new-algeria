@@ -46,7 +46,7 @@ const BentoGridSection = () => {
             components={[<span className="mb-highlight" />]}
           />
         </motion.h2>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="mb-row grid md:grid-cols-3 gap-6">
           {bentoItems.map((item, index) => (
             <motion.div
               key={item.title}

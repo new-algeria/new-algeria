@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { ArrowUpRight, Braces } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -27,14 +27,18 @@ const ProjectsSection = () => {
     {
       key: "apiDz",
       href: "https://www.data-dz.com/api",
+      // Même logo que data-dz, teinté en violet
       logo: (
-        <span className="dz-project-logo-icon">
-          <Braces />
-        </span>
+        <img
+          src="/assets/img/data-dz-logo.png"
+          alt="Logo data-dz/api"
+          className="dz-project-logo-img dz-logo-violet"
+        />
       ),
       name: (
         <>
-          API<span className="text-[#10b981]">-DZ</span>
+          data<span className="text-[#10b981]">-dz</span>
+          <span className="text-[#8b5cf6]">/api</span>
         </>
       ),
     },
@@ -64,7 +68,7 @@ const ProjectsSection = () => {
             {t("projects.browse")} <span className="mb-chevron">›</span>
           </a>
         </div>
-        <div className="dz-projects-grid">
+        <div className="dz-projects-grid mb-row">
           {projects.map((project) => (
             <a
               key={project.key}

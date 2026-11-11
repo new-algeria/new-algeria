@@ -4,7 +4,7 @@ import React from "react";
 const FLAG_SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600"><path fill="#fff" d="M0 0h900v600H0z"/><path fill="#006233" d="M0 0h450v600H0z"/><path fill="#d21034" d="M579.904 225a150 150 0 1 0 0 150 120 120 0 1 1 0-150m3.6 75L450 256.603l82.442 113.471v-140.148L450 343.397z"/></svg>`;
 const FLAG_URL = `url("data:image/svg+xml,${encodeURIComponent(FLAG_SVG)}")`;
 
-const STRIPS = 60;
+const STRIPS = 40;
 
 type AlgerianFlagProps = {
   className?: string;

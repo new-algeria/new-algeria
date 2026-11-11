@@ -30,206 +30,61 @@ html {
 }
 
 /* =========================================================
-   Hero
+   Hero : la prairie, le ciel et un drapeau qui flotte
    ========================================================= */
 
 .dz-hero {
-  /* Palette du décor (jour) */
-  --dz-sky: linear-gradient(180deg, #9fd0f3 0%, #cfe7f7 34%, #f3ede2 60%, #fbdcbc 76%, #f8cfa8 100%);
-  --dz-sun: #fff3c9;
-  --dz-sun-glow: #ffd49a;
-  --dz-sea-top: #86c5e8;
-  --dz-sea-bottom: #3f8fc7;
-  --dz-mountain-far: #b9c7e3;
-  --dz-mountain-near: #9fb5d8;
-  --dz-headland: #8fb98b;
-  --dz-hill: #7db46d;
-  --dz-shrub: #5d9a52;
-  --dz-ground: #4c8b44;
-  --dz-house-0: #ffffff;
-  --dz-house-1: #f7f2e8;
-  --dz-house-2: #eef3f9;
-  --dz-house-side: #dbe1ea;
-  --dz-window: #50698a;
-  --dz-window-lit: #50698a;
-  --dz-arcade: #fbfaf6;
-  --dz-arch: #c3cfdc;
-  --dz-concrete: #f3eee5;
-  --dz-concrete-shade: #d8cfc1;
-  --dz-concrete-mid: #e8e1d5;
-  --dz-palm-trunk: #8a6948;
-  --dz-palm-crown: #3d8749;
-  --dz-cloud: rgba(255, 255, 255, 0.92);
-  --dz-gull: #3a536d;
-  --dz-shimmer: rgba(255, 255, 255, 0.8);
-  --dz-link: rgba(13, 100, 110, 0.2);
-  --dz-node: #0d8a59;
-  --dz-node-halo: rgba(13, 138, 89, 0.18);
-  --dz-pulse: #10b981;
-  --dz-haze: rgba(255, 255, 255, 0.62);
-
   position: relative;
-  min-height: max(100svh, 760px);
+  height: 100svh;
+  min-height: 640px;
+  max-height: 1100px;
   overflow: hidden;
-  background: var(--dz-sky);
-  color: var(--na-ink);
+  color: #fff;
+  background: #3d8fdc;
+  /* L'image est dimensionnée comme un « cover », en unités du hero */
+  container-type: size;
   isolation: isolate;
 }
 
-.dark .dz-hero {
-  /* La nuit tombe : étoiles, lune et lumières de la ville */
-  --dz-sky: linear-gradient(180deg, #060e26 0%, #0e1b42 40%, #26295a 66%, #45386a 80%, #2b2850 100%);
-  --dz-sun: #eef0ff;
-  --dz-sun-glow: #7d8fdc;
-  --dz-sea-top: #29386a;
-  --dz-sea-bottom: #0f1a38;
-  --dz-mountain-far: #2b3463;
-  --dz-mountain-near: #212a56;
-  --dz-headland: #22362f;
-  --dz-hill: #1d3829;
-  --dz-shrub: #16301f;
-  --dz-ground: #10241a;
-  --dz-house-0: #c6cee0;
-  --dz-house-1: #b8c1d6;
-  --dz-house-2: #d0d7e6;
-  --dz-house-side: #929db8;
-  --dz-window: #3a4566;
-  --dz-window-lit: #ffd36b;
-  --dz-arcade: #b3bcd3;
-  --dz-arch: #f6c56a;
-  --dz-concrete: #c4c8d9;
-  --dz-concrete-shade: #8b91ad;
-  --dz-concrete-mid: #a9aec4;
-  --dz-palm-trunk: #2a2632;
-  --dz-palm-crown: #142b25;
-  --dz-cloud: rgba(130, 145, 200, 0.22);
-  --dz-gull: #8e9ac4;
-  --dz-shimmer: rgba(200, 215, 255, 0.35);
-  --dz-link: rgba(170, 210, 255, 0.2);
-  --dz-node: #8fd3ff;
-  --dz-node-halo: rgba(143, 211, 255, 0.22);
-  --dz-pulse: #9fe7ff;
-  --dz-haze: rgba(6, 14, 38, 0.6);
-}
-
-/* Voile doux sur le ciel, derrière le texte, pour une lecture confortable */
-.dz-haze {
+.dz-plate {
   position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 58% 62% at 24% 42%, var(--dz-haze), transparent 72%);
+  left: 50%;
+  top: 50%;
+  width: max(100cqw, 112.5cqh);
+  height: max(100cqh, 88.889cqw);
+  transform: translate(-50%, -50%);
 }
 
-[dir="rtl"] .dz-haze {
-  background: radial-gradient(ellipse 58% 62% at 76% 42%, var(--dz-haze), transparent 72%);
-}
-
-.dz-scene,
-.dz-scene-layer {
-  position: absolute;
-  inset: 0;
+.dz-plate-img {
+  display: block;
   width: 100%;
   height: 100%;
 }
 
-.dz-scene {
-  z-index: 0;
+/* Léger voile bleu en haut pour la lisibilité du texte blanc */
+.dz-hero-shade {
+  position: absolute;
+  inset: 0;
   pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 45% at 50% 34%, rgba(18, 62, 128, 0.32), transparent 70%),
+    linear-gradient(180deg, rgba(18, 62, 128, 0.28), transparent 30%);
 }
 
-/* ----- Couleurs du décor ----- */
-
-.dz-sun { fill: var(--dz-sun); }
-.dz-cloud { fill: var(--dz-cloud); animation: dz-drift 100s ease-in-out infinite alternate; }
-.dz-mountain-far { fill: var(--dz-mountain-far); }
-.dz-mountain-near { fill: var(--dz-mountain-near); }
-.dz-headland { fill: var(--dz-headland); }
-.dz-basilica { fill: var(--dz-concrete); }
-.dz-hill { fill: var(--dz-hill); }
-.dz-shrubs { fill: var(--dz-shrub); }
-.dz-ground { fill: var(--dz-ground); }
-.dz-house.dz-tone-0 { fill: var(--dz-house-0); }
-.dz-house.dz-tone-1 { fill: var(--dz-house-1); }
-.dz-house.dz-tone-2 { fill: var(--dz-house-2); }
-.dz-house-side { fill: var(--dz-house-side); }
-.dz-window { fill: var(--dz-window); }
-.dz-window-lit { fill: var(--dz-window-lit); }
-.dz-minaret { fill: var(--dz-house-0); }
-.dz-arcades { fill: var(--dz-arcade); }
-.dz-arch { fill: var(--dz-arch); }
-.dz-maqam { fill: var(--dz-concrete); }
-.dz-maqam-shade { fill: var(--dz-concrete-shade); }
-.dz-maqam-mid { fill: var(--dz-concrete-mid); }
-.dz-maqam-base { fill: var(--dz-concrete-shade); }
-.dz-palm-trunk { fill: var(--dz-palm-trunk); }
-.dz-palm-crown { fill: var(--dz-palm-crown); }
-.dz-gull { fill: var(--dz-gull); animation: dz-glide 7s ease-in-out infinite; transform-box: fill-box; }
-.dz-shimmer rect { fill: var(--dz-shimmer); animation: dz-shimmer 6s ease-in-out infinite; }
-
-.dz-stars circle {
-  fill: #fff;
-  opacity: 0;
+.dark .dz-hero-shade {
+  background:
+    radial-gradient(ellipse 60% 45% at 50% 34%, rgba(6, 14, 40, 0.45), transparent 70%),
+    linear-gradient(180deg, rgba(8, 16, 46, 0.7), rgba(16, 20, 60, 0.45) 60%, rgba(5, 10, 25, 0.55));
 }
 
-.dark .dz-stars circle {
-  animation: dz-twinkle 4s ease-in-out infinite;
-}
-
-.dark .dz-window-lit,
-.dark .dz-arch {
-  filter: drop-shadow(0 0 3px rgba(255, 200, 90, 0.85));
-}
-
-/* ----- Réseau de données ----- */
-
-.dz-link {
-  stroke: var(--dz-link);
-  stroke-width: 1.2;
-}
-
-.dz-uplink {
-  stroke: var(--dz-link);
-  stroke-width: 1.2;
-  stroke-dasharray: 3 6;
-}
-
-.dz-node {
-  fill: var(--dz-node);
-}
-
-.dz-node-halo {
-  fill: var(--dz-node-halo);
-  animation: dz-breathe 5s ease-in-out infinite;
-  animation-delay: inherit;
-  transform-box: fill-box;
-  transform-origin: center;
-}
-
-.dz-pulse {
-  stroke: var(--dz-pulse);
-  stroke-width: 2.6;
-  stroke-linecap: round;
-  stroke-dasharray: 4 100;
-  stroke-dashoffset: 104;
-  animation: dz-flow 6s linear infinite;
-  filter: drop-shadow(0 0 3px var(--dz-pulse));
-}
-
-.dz-pulse-up {
-  animation-duration: 4.5s;
-}
-
-/* ----- Drapeau algérien ----- */
+/* ----- Drapeau planté dans l'herbe, à droite (PC) ----- */
 
 .dz-hero-flag {
+  --pole: 178%;
   position: absolute;
-  right: 10%;
-  bottom: 30%;
-  width: clamp(250px, 30vw, 460px);
-}
-
-[dir="rtl"] .dz-hero-flag {
-  right: auto;
-  left: 10%;
+  left: 72%;
+  top: 44.5%;
+  width: 13%;
 }
 
 .dz-flag {
@@ -242,11 +97,11 @@ html {
   position: absolute;
   left: 0;
   top: -5%;
-  width: 2.4%;
-  height: 420%;
+  width: 2.6%;
+  height: var(--pole, 420%);
   border-radius: 999px;
   background: linear-gradient(90deg, #8b939d, #f1f3f6 45%, #7f8892);
-  box-shadow: 1px 0 4px rgba(15, 47, 79, 0.25);
+  box-shadow: 1px 0 4px rgba(15, 47, 79, 0.3);
 }
 
 .dz-flag-pole::before {
@@ -263,30 +118,52 @@ html {
 
 .dz-flag-cloth {
   position: absolute;
-  inset: 0 0 0 2.2%;
+  inset: 0 0 0 2.4%;
   display: flex;
-  filter: drop-shadow(0 14px 18px rgba(15, 47, 79, 0.22));
+  filter: drop-shadow(0 10px 14px rgba(15, 47, 79, 0.3));
 }
 
 .dz-flag-strip {
   flex: 1 0 0;
-  margin-right: -0.6px;
+  margin-right: -1px;
   background-repeat: no-repeat;
   animation: dz-wave 2.8s ease-in-out infinite;
   animation-delay: calc(var(--i) * -0.05s);
 }
 
-/* ----- Contenu ----- */
+@keyframes dz-wave {
+  0%, 100% {
+    transform: translateY(calc(var(--a) * -4%));
+    filter: brightness(1.04);
+  }
+  50% {
+    transform: translateY(calc(var(--a) * 4%));
+    filter: brightness(0.9);
+  }
+}
+
+/* Fondu de l'herbe vers le fond de page */
+.dz-hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 90px;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent, hsl(var(--background)));
+}
+
+/* ----- Texte ----- */
 
 .dz-hero-content {
   position: relative;
   z-index: 2;
-  max-width: 1440px;
-  padding: 128px clamp(20px, 5.5vw, 84px) 64px;
-}
-
-.dz-hero-content > * {
-  max-width: min(780px, 58vw);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: clamp(104px, 15cqh, 150px) 20px 0;
+  text-align: center;
 }
 
 .dz-badge {
@@ -295,121 +172,48 @@ html {
   gap: 8px;
   padding: 8px 16px 8px 12px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.85);
-  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.16);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
-  box-shadow: 0 8px 24px -12px rgba(15, 47, 79, 0.35);
   font-size: 14px;
   font-weight: 600;
-  color: var(--na-ink);
 }
 
 .dz-badge svg {
-  width: 18px;
-  height: 18px;
-  color: var(--na-green);
-}
-
-.dark .dz-badge {
-  border-color: rgba(255, 255, 255, 0.14);
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.dark .dz-badge svg {
-  color: #6ee7b7;
-}
-
-.dz-heading {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-areas:
-    "new aside"
-    "algeria algeria";
-  align-items: center;
-  column-gap: clamp(18px, 2.4vw, 36px);
-  margin-top: 22px;
+  width: 17px;
+  height: 17px;
+  color: #c6f6d5;
 }
 
 .dz-title {
-  display: contents;
+  margin-top: 18px;
+  font-size: clamp(46px, 8.6vw, 132px);
+  line-height: 0.95;
   text-transform: uppercase;
+  white-space: nowrap;
+  text-shadow: 0 4px 24px rgba(16, 52, 110, 0.45);
 }
 
-.dz-title-new,
-.dz-title-algeria {
-  display: block;
-  font-size: clamp(64px, 9.4vw, 150px);
-  line-height: 0.9;
-  letter-spacing: 0.005em;
-}
-
-.dz-title-new {
-  grid-area: new;
-  color: var(--na-ink);
-}
-
-.dz-title-algeria {
-  grid-area: algeria;
-  padding-bottom: 0.06em;
-  background: linear-gradient(92deg, var(--na-green-dark) 0%, var(--na-green) 55%, #14b87c 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  filter: drop-shadow(0 3px 0 rgba(255, 255, 255, 0.7));
-}
-
-.dark .dz-title-algeria {
-  background-image: linear-gradient(92deg, #34d399 0%, #6ee7b7 60%, #a7f3d0 100%);
-  filter: none;
-}
-
-.dz-aside {
-  grid-area: aside;
-  max-width: 340px;
-  padding-inline-start: clamp(14px, 1.6vw, 22px);
-  border-inline-start: 3px solid var(--na-red);
-}
-
-.dz-aside-kicker {
-  display: block;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--na-green);
-}
-
-.dark .dz-aside-kicker {
-  color: #6ee7b7;
-}
-
-[lang="ar"] .dz-aside-kicker {
-  letter-spacing: 0;
-}
-
-.dz-aside-lead {
-  display: block;
-  margin-top: 6px;
-  font-size: clamp(15px, 1.25vw, 18px);
-  line-height: 1.45;
-  font-weight: 500;
-  color: var(--na-ink);
+.dz-title span {
+  display: inline-block;
 }
 
 .dz-sub {
-  max-width: 560px !important;
-  margin-top: 22px;
-  font-size: clamp(16px, 1.25vw, 18px);
-  line-height: 1.6;
-  color: var(--na-ink-soft);
+  max-width: 620px;
+  margin-top: 18px;
+  font-size: clamp(15.5px, 1.3vw, 19px);
+  line-height: 1.55;
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(16, 52, 110, 0.55), 0 2px 18px rgba(16, 52, 110, 0.5);
 }
 
 .dz-ctas {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 12px;
-  margin-top: 30px;
+  margin-top: 28px;
 }
 
 /* ----- Boutons ----- */
@@ -451,142 +255,76 @@ html {
 
 .dz-btn-primary:hover {
   background: #0b774d;
-  box-shadow: 0 16px 32px -12px rgba(13, 138, 89, 0.8);
+}
+
+.dz-btn-white {
+  background: #fff;
+  color: var(--na-green);
+  box-shadow: 0 12px 30px -12px rgba(16, 52, 110, 0.55);
 }
 
 .dz-btn-glass {
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.18);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
-  color: var(--na-ink);
-  box-shadow: 0 10px 26px -14px rgba(15, 47, 79, 0.4);
+  color: #fff;
 }
 
-.dark .dz-btn-glass {
-  border-color: rgba(255, 255, 255, 0.16);
-  background: rgba(255, 255, 255, 0.08);
+.dz-btn-glass:hover {
+  background: rgba(255, 255, 255, 0.28);
 }
 
-.dz-btn-soft {
-  height: 44px;
-  padding: 0 20px;
-  background: #e3f4ec;
-  color: var(--na-green);
-  font-size: 15px;
+/* ----- Défilé discret des thèmes ----- */
+
+.dz-marquee {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  bottom: clamp(28px, 6cqh, 64px);
+  overflow: hidden;
+  direction: ltr;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
 }
 
-.dark .dz-btn-soft {
-  background: rgba(110, 231, 183, 0.12);
-  color: #6ee7b7;
-}
-
-/* ----- Petites cartes IA / Data / APIs ----- */
-
-.dz-features {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-  margin-top: 34px;
-}
-
-.dz-feature {
+.dz-marquee-track {
   display: flex;
-  align-items: center;
   gap: 10px;
-  padding: 10px 12px 10px 10px;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.85);
-  background: rgba(255, 255, 255, 0.64);
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 10px 26px -18px rgba(15, 47, 79, 0.45);
+  width: max-content;
+  animation: dz-marquee 60s linear infinite;
 }
 
-.dark .dz-feature {
-  border-color: rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.06);
+.dz-marquee:hover .dz-marquee-track {
+  animation-play-state: paused;
 }
 
-.dz-feature-icon {
+.dz-topic {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  flex: none;
-  border-radius: 12px;
-  background: #e1f3ea;
-  color: var(--na-green);
+  gap: 7px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.12);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
 }
 
-.dz-feature-icon svg {
-  width: 20px;
-  height: 20px;
+.dz-topic svg {
+  width: 15px;
+  height: 15px;
+  opacity: 0.85;
 }
 
-.dark .dz-feature-icon {
-  background: rgba(110, 231, 183, 0.12);
-  color: #6ee7b7;
-}
-
-.dz-feature-title {
-  display: block;
-  font-size: 13.5px;
-  line-height: 1.25;
-  font-weight: 600;
-  color: var(--na-ink);
-}
-
-.dz-feature-desc {
-  display: block;
-  margin-top: 2px;
-  font-size: 12px;
-  line-height: 1.35;
-  color: var(--na-ink-soft);
-}
-
-/* ----- Animations du décor ----- */
-
-@keyframes dz-drift {
-  from { transform: translateX(-30px); }
-  to { transform: translateX(70px); }
-}
-
-@keyframes dz-flow {
-  from { stroke-dashoffset: 104; }
-  to { stroke-dashoffset: 0; }
-}
-
-@keyframes dz-breathe {
-  0%, 100% { opacity: 0.35; transform: scale(0.8); }
-  50% { opacity: 1; transform: scale(1.25); }
-}
-
-@keyframes dz-twinkle {
-  0%, 100% { opacity: 0.25; }
-  50% { opacity: 1; }
-}
-
-@keyframes dz-shimmer {
-  0%, 100% { opacity: 0.15; transform: translateX(0); }
-  50% { opacity: 0.9; transform: translateX(14px); }
-}
-
-@keyframes dz-glide {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(10px, -6px); }
-}
-
-@keyframes dz-wave {
-  0%, 100% {
-    transform: translateY(calc(var(--a) * -4%));
-    filter: brightness(1.04);
-  }
-  50% {
-    transform: translateY(calc(var(--a) * 4%));
-    filter: brightness(0.9);
-  }
+@keyframes dz-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-50% - 5px)); }
 }
 
 /* ----- Animation d'entrée ----- */
@@ -720,12 +458,14 @@ html {
    ========================================================= */
 
 .dz-join {
+  max-height: calc(100svh - 2rem);
+  overflow-y: auto;
   background: hsl(var(--background));
   box-shadow: 0 40px 90px -30px rgba(15, 47, 79, 0.55);
 }
 
 .dz-join > button:last-child {
-  top: 22px;
+  top: 18px;
   right: 18px;
   padding: 6px;
   border-radius: 999px;
@@ -742,19 +482,12 @@ html {
 .dz-join-header {
   position: relative;
   overflow: hidden;
-  padding: 34px 28px 26px;
+  padding: 28px 24px 22px;
   color: #fff;
   text-align: start;
   background:
     radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.28), transparent 42%),
     linear-gradient(140deg, #0d8a59 0%, #0f6f78 55%, #1f4f8f 100%);
-}
-
-.dz-join-flagbar {
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 6px;
-  background: linear-gradient(90deg, var(--na-green-dark) 0 46%, #fff 46% 88%, var(--na-red) 88%);
 }
 
 .dz-join-dots {
@@ -771,23 +504,23 @@ html {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 16px;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
   background: rgba(255, 255, 255, 0.18);
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .dz-join-icon svg {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
 }
 
 .dz-join .dz-join-title {
   position: relative;
+  margin-top: 14px;
+  font-size: 28px;
   font-weight: 900;
-  margin-top: 16px;
-  font-size: 30px;
   line-height: 1.1;
 }
 
@@ -801,57 +534,21 @@ html {
 .dz-join-body {
   display: grid;
   gap: 12px;
-  max-height: min(62vh, 560px);
-  overflow-y: auto;
-  padding: 22px 24px 26px;
-}
-
-.dz-join-intro {
-  font-size: 14px;
-  line-height: 1.55;
-  color: var(--na-ink-soft);
-  white-space: pre-line;
+  padding: 20px;
 }
 
 .dz-join-card {
-  display: flex;
-  gap: 14px;
+  display: grid;
+  gap: 12px;
   padding: 16px;
   border-radius: 18px;
   border: 1px solid rgba(15, 47, 79, 0.1);
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.75);
 }
 
 .dark .dz-join-card {
   border-color: rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.03);
-}
-
-.dz-join-step {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 30px;
-  flex: none;
-  border-radius: 999px;
-  background: #e1f3ea;
-  color: var(--na-green);
-  font-weight: 700;
-  font-size: 14px;
-}
-
-.dark .dz-join-step {
-  background: rgba(110, 231, 183, 0.12);
-  color: #6ee7b7;
-}
-
-.dz-join-card-body {
-  display: grid;
-  gap: 8px;
-  flex: 1;
-  min-width: 0;
-  justify-items: start;
 }
 
 .dz-join-card-title {
@@ -864,7 +561,7 @@ html {
 }
 
 .dz-join-card-desc {
-  margin-top: -4px;
+  display: block;
   font-size: 13.5px;
   color: var(--na-ink-soft);
 }
@@ -873,15 +570,14 @@ html {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  width: 100%;
 }
 
 .dz-join-input {
   display: flex;
   align-items: center;
   gap: 8px;
-  flex: 1 1 200px;
-  height: 46px;
+  flex: 1 1 220px;
+  height: 50px;
   padding: 0 16px;
   border-radius: 999px;
   border: 1px solid rgba(15, 47, 79, 0.15);
@@ -910,7 +606,8 @@ html {
   box-shadow: none;
   background: transparent;
   color: var(--na-ink);
-  font-size: 15px;
+  /* 16px minimum : évite le zoom automatique sur iPhone */
+  font-size: 16px;
 }
 
 .dark .dz-join-input {
@@ -919,9 +616,9 @@ html {
 }
 
 .dz-join-submit {
-  height: 46px;
-  padding: 0 22px;
-  font-size: 15px;
+  flex: 1 1 auto;
+  height: 50px;
+  font-size: 16px;
 }
 
 .dz-join-success {
@@ -942,32 +639,54 @@ html {
   color: #c2410c;
 }
 
-.dz-join-socials {
+/* Carte « Écrivez-nous » : toute la carte est cliquable */
+.dz-join-write {
   display: flex;
-  gap: 10px;
+  align-items: center;
+  gap: 14px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
-.dz-join-social {
+.dz-join-write:hover {
+  border-color: var(--na-green);
+  transform: translateY(-1px);
+}
+
+.dz-join-write-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 44px;
   height: 44px;
-  border-radius: 999px;
-  background: rgba(15, 47, 79, 0.06);
-  color: var(--na-ink);
-  font-size: 19px;
-  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  flex: none;
+  border-radius: 14px;
+  background: #e1f3ea;
+  color: var(--na-green);
 }
 
-.dz-join-social:hover {
-  background: var(--na-green);
-  color: #fff;
-  transform: translateY(-2px);
+.dz-join-write-icon svg {
+  width: 20px;
+  height: 20px;
 }
 
-.dark .dz-join-social {
-  background: rgba(255, 255, 255, 0.08);
+.dark .dz-join-write-icon {
+  background: rgba(110, 231, 183, 0.12);
+  color: #6ee7b7;
+}
+
+.dz-join-write-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.dz-join-write-arrow {
+  width: 20px;
+  height: 20px;
+  color: var(--na-ink-soft);
+}
+
+[dir="rtl"] .dz-join-write-arrow {
+  transform: scaleX(-1);
 }
 
 /* =========================================================
@@ -1115,6 +834,25 @@ html {
   height: 46px;
   padding: 0 22px;
   font-size: 15.5px;
+  max-width: 240px;
+  overflow: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease, max-width 0.35s ease, padding 0.35s ease, margin 0.35s ease, background-color 0.25s ease;
+}
+
+/* En haut de page, le hero a déjà son bouton : on évite le doublon */
+.mb-nav:not(.is-scrolled) .mb-nav-join {
+  max-width: 0;
+  padding-inline: 0;
+  margin-inline-start: -10px;
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+}
+
+/* Logo en blanc sur le ciel, en couleur une fois la barre affichée */
+.mb-nav:not(.is-scrolled) .mb-logo {
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(16, 52, 110, 0.45);
 }
 
 .mb-chevron {
@@ -1211,105 +949,69 @@ a:hover > .mb-chevron {
    ========================================================= */
 
 @media (max-width: 860px) {
-  .dz-hero {
-    min-height: 100svh;
+  /* L'image se décale pour garder le garçon et son chien à l'écran */
+  .dz-plate {
+    left: 18%;
+    top: 56%;
+    transform: translate(-18%, -50%);
   }
 
-  .dz-haze {
-    background: linear-gradient(180deg, var(--dz-haze) 0%, var(--dz-haze) 55%, transparent 80%);
-  }
-
-  [dir="rtl"] .dz-haze {
-    background: linear-gradient(180deg, var(--dz-haze) 0%, var(--dz-haze) 55%, transparent 80%);
+  /* Le drapeau est planté juste à côté du chien */
+  .dz-hero-flag {
+    --pole: 150%;
+    left: 37%;
+    top: 40.5%;
+    width: 13%;
   }
 
   .dz-hero-content {
-    padding: 96px 18px clamp(200px, 52vw, 300px);
+    padding-top: 92px;
   }
 
-  .dz-hero-content > * {
-    max-width: 100%;
+  .dz-badge {
+    font-size: 13px;
   }
 
-  /* Le drapeau flotte à côté de « NEW », son mât planté derrière « ALGERIA » */
-  .dz-hero-flag,
-  [dir="rtl"] .dz-hero-flag {
-    top: calc(96px + 56px + clamp(4px, 3vw, 20px));
-    right: 6%;
-    bottom: auto;
-    left: auto;
-    width: clamp(140px, 38vw, 260px);
-  }
-
-  .dz-hero-flag .dz-flag-pole {
-    height: 118%;
-  }
-
-  .dz-heading {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "new"
-      "algeria"
-      "aside";
-    margin-top: 18px;
-  }
-
-  .dz-title-new,
-  .dz-title-algeria {
-    font-size: clamp(56px, 17vw, 96px);
-  }
-
-  .dz-aside {
-    margin-top: 16px;
-    max-width: 30rem;
+  .dz-title {
+    margin-top: 14px;
+    font-size: clamp(38px, 11.4vw, 72px);
   }
 
   .dz-sub {
     font-size: 15px;
-    line-height: 1.55;
   }
 
   .dz-ctas {
     gap: 10px;
-    margin-top: 22px;
+    margin-top: 20px;
   }
 
   .dz-ctas .dz-btn {
-    height: 48px;
+    height: 46px;
     padding: 0 16px;
     gap: 6px;
     font-size: 14.5px;
   }
 
-  .dz-features {
+  /* Sur mobile, les cartes défilent sur une ligne au lieu d'une colonne */
+  .mb-row.mb-row {
     display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 20px;
+    gap: 14px;
+    margin: 0 -2rem;
+    padding: 6px 2rem 18px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 2rem;
+    scrollbar-width: none;
   }
 
-  .dz-feature {
-    padding: 6px 12px 6px 6px;
-    border-radius: 999px;
-  }
-
-  .dz-feature-icon {
-    width: 30px;
-    height: 30px;
-    border-radius: 999px;
-  }
-
-  .dz-feature-icon svg {
-    width: 16px;
-    height: 16px;
-  }
-
-  .dz-feature-desc {
+  .mb-row::-webkit-scrollbar {
     display: none;
   }
 
-  .dz-projects-grid {
-    grid-template-columns: 1fr;
+  .mb-row > * {
+    flex: 0 0 min(82%, 340px);
+    scroll-snap-align: start;
   }
 
   .mb-nav {
@@ -1339,11 +1041,10 @@ a:hover > .mb-chevron {
     padding: 0 16px;
     font-size: 14px;
   }
-}
 
-@media (min-width: 640px) and (max-width: 860px) {
-  .dz-projects-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .mb-nav:not(.is-scrolled) .mb-nav-join {
+    padding-inline: 0;
+    margin-inline-start: -8px;
   }
 }
 
@@ -1410,15 +1111,13 @@ a:hover > .mb-chevron {
   color: #6ee7b7;
 }
 
-/* Bandeau de contact : ciel connecté aux couleurs de New Algeria */
+/* Bandeau de contact : un coin de ciel de la prairie */
 .mb-sky-banner {
   position: relative;
   overflow: hidden;
   border-radius: 2rem;
   color: #fff;
-  background:
-    radial-gradient(circle at 82% 18%, rgba(255, 255, 255, 0.3), transparent 40%),
-    linear-gradient(135deg, #0d8a59 0%, #0f6f78 50%, #1f4f8f 100%);
+  background: #3f8fdc url("/assets/img/hero-meadow.jpg") center 30% / cover no-repeat;
   box-shadow: 0 30px 70px -30px rgba(15, 47, 79, 0.6);
 }
 
@@ -1426,22 +1125,20 @@ a:hover > .mb-chevron {
   content: "";
   position: absolute;
   inset: 0;
-  opacity: 0.2;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.9) 1.2px, transparent 1.4px);
-  background-size: 26px 26px;
-  mask-image: radial-gradient(ellipse at center, transparent 30%, #000 85%);
+  background: linear-gradient(180deg, rgba(18, 62, 128, 0.25), rgba(20, 60, 30, 0.3));
 }
 
-.mb-sky-banner::after {
-  content: "";
-  position: absolute;
-  inset: auto 0 0 0;
-  height: 6px;
-  background: linear-gradient(90deg, var(--na-green-dark) 0 46%, #fff 46% 88%, var(--na-red) 88%);
+.dark .mb-sky-banner::before {
+  background: linear-gradient(180deg, rgba(8, 16, 46, 0.65), rgba(5, 10, 25, 0.6));
 }
 
 .mb-sky-banner > * {
   position: relative;
+}
+
+/* data-dz/api : même logo que data-dz, en violet */
+.dz-logo-violet {
+  filter: hue-rotate(115deg) saturate(1.15);
 }
 
 @media (prefers-reduced-motion: reduce) {

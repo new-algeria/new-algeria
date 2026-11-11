@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faGithub,
-  faXTwitter,
-  faLinkedin,
-} from "@fortawesome/free-brands-svg-icons";
-import { Mail, PenLine, CheckCircle2, Loader2, Users } from "lucide-react";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { Mail, PenLine, CheckCircle2, Loader2, Users, ChevronRight } from "lucide-react";
 import { Octokit } from "@octokit/core";
 import { useTranslation } from "react-i18next";
 import {
@@ -54,16 +50,6 @@ const JoinUsBtn = ({ className, children, ...buttonProps }: JoinUsBtnProps) => {
     t("joinUs.emailSubject")
   )}&body=${encodeURIComponent(t("joinUs.emailBody"))}`;
 
-  const socials = [
-    { href: "https://github.com/new-algeria", icon: faGithub, label: "GitHub" },
-    { href: "https://x.com/newalgeria_org", icon: faXTwitter, label: "X" },
-    {
-      href: "https://www.linkedin.com/company/106182021",
-      icon: faLinkedin,
-      label: "LinkedIn",
-    },
-  ];
-
   return (
     <>
       <button
@@ -81,7 +67,6 @@ const JoinUsBtn = ({ className, children, ...buttonProps }: JoinUsBtnProps) => {
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogContent className="dz-join w-[calc(100%-2rem)] max-w-xl gap-0 overflow-hidden rounded-[1.75rem] border-0 p-0 sm:rounded-[1.75rem]">
           <div className="dz-join-header">
-            <span className="dz-join-flagbar" aria-hidden="true" />
             <span className="dz-join-dots" aria-hidden="true" />
             <span className="dz-join-icon" aria-hidden="true">
               <Users />
@@ -95,92 +80,60 @@ const JoinUsBtn = ({ className, children, ...buttonProps }: JoinUsBtnProps) => {
           </div>
 
           <div className="dz-join-body">
-            <p className="dz-join-intro">
-              {t("joinUs.motivations")} {t("joinUs.motivations2")}
-            </p>
-
-            {/* 1. Rejoindre l'organisation GitHub */}
+            {/* Rejoindre l'organisation GitHub */}
             <section className="dz-join-card">
-              <span className="dz-join-step">1</span>
-              <div className="dz-join-card-body">
-                <h3 className="dz-join-card-title">
-                  <FontAwesomeIcon icon={faGithub} /> {t("joinUs.joinGithub")}
-                </h3>
-                <p className="dz-join-card-desc">{t("joinUs.githubDescription")}</p>
-                {status === "sent" ? (
-                  <p className="dz-join-success">
-                    <CheckCircle2 aria-hidden="true" />
-                    {t("joinUs.invitationSent")}
-                  </p>
-                ) : (
-                  <form className="dz-join-form" onSubmit={handleJoinOrganization}>
-                    <label className="dz-join-input">
-                      <Mail aria-hidden="true" />
-                      <input
-                        type="email"
-                        required
-                        value={email}
-                        onChange={(e) => {
-                          setEmail(e.target.value);
-                          if (status === "error") setStatus("idle");
-                        }}
-                        placeholder={t("joinUs.emailPlaceholder")}
-                        aria-label={t("joinUs.emailPlaceholder")}
-                      />
-                    </label>
-                    <button
-                      type="submit"
-                      className="dz-btn dz-btn-primary dz-join-submit"
-                      disabled={!email || status === "sending"}
-                    >
-                      {status === "sending" && (
-                        <Loader2 className="animate-spin" aria-hidden="true" />
-                      )}
-                      {t("joinUs.join")}
-                    </button>
-                  </form>
-                )}
-                {status === "error" && (
-                  <p className="dz-join-error">{t("joinUs.invitationFailure")}</p>
-                )}
-              </div>
+              <h3 className="dz-join-card-title">
+                <FontAwesomeIcon icon={faGithub} /> {t("joinUs.joinGithub")}
+              </h3>
+              {status === "sent" ? (
+                <p className="dz-join-success">
+                  <CheckCircle2 aria-hidden="true" />
+                  {t("joinUs.invitationSent")}
+                </p>
+              ) : (
+                <form className="dz-join-form" onSubmit={handleJoinOrganization}>
+                  <label className="dz-join-input">
+                    <Mail aria-hidden="true" />
+                    <input
+                      type="email"
+                      required
+                      value={email}
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                        if (status === "error") setStatus("idle");
+                      }}
+                      placeholder={t("joinUs.emailPlaceholder")}
+                      aria-label={t("joinUs.emailPlaceholder")}
+                    />
+                  </label>
+                  <button
+                    type="submit"
+                    className="dz-btn dz-btn-primary dz-join-submit"
+                    disabled={!email || status === "sending"}
+                  >
+                    {status === "sending" && (
+                      <Loader2 className="animate-spin" aria-hidden="true" />
+                    )}
+                    {t("joinUs.join")}
+                  </button>
+                </form>
+              )}
+              {status === "error" && (
+                <p className="dz-join-error">{t("joinUs.invitationFailure")}</p>
+              )}
             </section>
 
-            {/* 2. Nous écrire */}
-            <section className="dz-join-card">
-              <span className="dz-join-step">2</span>
-              <div className="dz-join-card-body">
-                <h3 className="dz-join-card-title">{t("joinUs.writeUs")}</h3>
-                <p className="dz-join-card-desc">{t("joinUs.writeDescription")}</p>
-                <a href={mailtoLink} className="dz-btn dz-btn-soft">
-                  <PenLine aria-hidden="true" />
-                  {t("joinUs.writeToUs")}
-                </a>
-              </div>
-            </section>
-
-            {/* 3. Nous suivre */}
-            <section className="dz-join-card">
-              <span className="dz-join-step">3</span>
-              <div className="dz-join-card-body">
-                <h3 className="dz-join-card-title">{t("joinUs.connectWithUs")}</h3>
-                <p className="dz-join-card-desc">{t("joinUs.followDescription")}</p>
-                <div className="dz-join-socials">
-                  {socials.map((social) => (
-                    <a
-                      key={social.label}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={social.label}
-                      className="dz-join-social"
-                    >
-                      <FontAwesomeIcon icon={social.icon} />
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </section>
+            {/* Nous écrire */}
+            <a href={mailtoLink} className="dz-join-card dz-join-write">
+              <span className="dz-join-write-icon" aria-hidden="true">
+                <PenLine />
+              </span>
+              <span className="dz-join-write-text">
+                <span className="dz-join-card-title">{t("joinUs.writeUs")}</span>
+                <span className="dz-join-card-desc">{t("joinUs.writeDescription")}</span>
+              </span>
+              <ChevronRight className="dz-join-write-arrow" aria-hidden="true" />
+            </a>
           </div>
         </DialogContent>
       </Dialog>
