@@ -19,7 +19,11 @@ const AlgerianFlag = ({ className = "" }: AlgerianFlagProps) => (
     aria-label="Drapeau de l'Algérie"
   >
     <span className="dz-flag-pole" aria-hidden="true" />
-    <span className="dz-flag-cloth" aria-hidden="true">
+    <span
+      className="dz-flag-cloth"
+      aria-hidden="true"
+      style={{ "--n": STRIPS } as React.CSSProperties}
+    >
       {Array.from({ length: STRIPS }, (_, i) => (
         <span
           key={i}
@@ -29,8 +33,6 @@ const AlgerianFlag = ({ className = "" }: AlgerianFlagProps) => (
               "--i": i,
               "--a": (0.15 + (0.85 * i) / (STRIPS - 1)).toFixed(3),
               backgroundImage: FLAG_URL,
-              backgroundSize: `${STRIPS * 100}% 100%`,
-              backgroundPosition: `${(i / (STRIPS - 1)) * 100}% 0`,
             } as React.CSSProperties
           }
         />

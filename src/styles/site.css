@@ -87,8 +87,14 @@ html {
   width: 13%;
 }
 
+/* Hauteur = 2/3 de la largeur via un pseudo-élément (fiable partout, même sans aspect-ratio) */
+.dz-flag::before {
+  content: "";
+  display: block;
+  padding-top: 66.667%;
+}
+
 .dz-flag {
-  aspect-ratio: 3 / 2;
   /* Les bandes doivent rester dans l'ordre, même en arabe (RTL) */
   direction: ltr;
 }
@@ -120,13 +126,20 @@ html {
   position: absolute;
   inset: 0 0 0 2.4%;
   display: flex;
+  /* Les bandes se calculent sur la largeur réelle du drapeau (cqw) */
+  container-type: inline-size;
   filter: drop-shadow(0 10px 14px rgba(15, 47, 79, 0.3));
 }
 
+/* Chaque bande montre sa tranche exacte du drapeau, avec 1px de recouvrement
+   pour éviter les fentes, sans déformer l'image quelle que soit sa taille */
 .dz-flag-strip {
-  flex: 1 0 0;
+  flex: none;
+  width: calc(100cqw / var(--n) + 1px);
   margin-right: -1px;
   background-repeat: no-repeat;
+  background-size: 100cqw 100%;
+  background-position: calc(var(--i) * -100cqw / var(--n)) 0;
   animation: dz-wave 2.8s ease-in-out infinite;
   animation-delay: calc(var(--i) * -0.05s);
 }
@@ -973,10 +986,10 @@ a:hover > .mb-chevron {
 
   /* Le drapeau est planté juste à côté du chien */
   .dz-hero-flag {
-    --pole: 145%;
+    --pole: 135%;
     left: 35%;
     top: 42%;
-    width: 11%;
+    width: 12%;
   }
 
   /* Le contenu couvre tout le hero pour que les boutons puissent se poser sur l'herbe */
@@ -1004,7 +1017,7 @@ a:hover > .mb-chevron {
     position: absolute;
     left: 16px;
     right: 16px;
-    bottom: calc(clamp(30px, 6.5cqh, 70px) + 92px);
+    bottom: calc(clamp(30px, 6.5cqh, 70px) + 84px);
     gap: 10px;
     margin-top: 0;
   }
@@ -1017,17 +1030,26 @@ a:hover > .mb-chevron {
     animation-delay: -1.6s;
   }
 
-  /* Sur mobile, le mot coloré passe sous la phrase */
+  /* Sur mobile : pas de carte, juste la phrase et le mot coloré en dessous */
   .dz-rotator,
   [dir="rtl"] .dz-rotator {
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
     width: max-content;
-    padding: 8px 10px;
-    border-radius: 22px;
-    font-size: 14px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: none;
+    font-size: 15px;
     white-space: normal;
     text-align: center;
+  }
+
+  .dz-rotator-lead {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55), 0 2px 14px rgba(0, 0, 0, 0.45);
   }
 
   .dz-rotator-word {
