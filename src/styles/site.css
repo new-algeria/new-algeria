@@ -1,0 +1,1453 @@
+/*
+ * Identité visuelle New Algeria : une aube paisible sur Alger,
+ * traversée par un réseau de données discret.
+ */
+:root {
+  --na-green: #0d8a59;
+  --na-green-dark: #006233;
+  --na-red: #d21034;
+  --na-ink: #0f2f4f;
+  --na-ink-soft: #2c4a66;
+}
+
+.dark {
+  --na-ink: #f4f7fb;
+  --na-ink-soft: #c9d6e6;
+}
+
+html {
+  overflow-x: clip;
+}
+
+.font-display {
+  font-family: "Grandstander", "Baloo Bhaijaan 2", system-ui, sans-serif;
+  font-weight: 900;
+}
+
+[lang="ar"] .font-display {
+  font-family: "Baloo Bhaijaan 2", "Grandstander", system-ui, sans-serif;
+  font-weight: 800;
+}
+
+/* =========================================================
+   Hero
+   ========================================================= */
+
+.dz-hero {
+  /* Palette du décor (jour) */
+  --dz-sky: linear-gradient(180deg, #9fd0f3 0%, #cfe7f7 34%, #f3ede2 60%, #fbdcbc 76%, #f8cfa8 100%);
+  --dz-sun: #fff3c9;
+  --dz-sun-glow: #ffd49a;
+  --dz-sea-top: #86c5e8;
+  --dz-sea-bottom: #3f8fc7;
+  --dz-mountain-far: #b9c7e3;
+  --dz-mountain-near: #9fb5d8;
+  --dz-headland: #8fb98b;
+  --dz-hill: #7db46d;
+  --dz-shrub: #5d9a52;
+  --dz-ground: #4c8b44;
+  --dz-house-0: #ffffff;
+  --dz-house-1: #f7f2e8;
+  --dz-house-2: #eef3f9;
+  --dz-house-side: #dbe1ea;
+  --dz-window: #50698a;
+  --dz-window-lit: #50698a;
+  --dz-arcade: #fbfaf6;
+  --dz-arch: #c3cfdc;
+  --dz-concrete: #f3eee5;
+  --dz-concrete-shade: #d8cfc1;
+  --dz-concrete-mid: #e8e1d5;
+  --dz-palm-trunk: #8a6948;
+  --dz-palm-crown: #3d8749;
+  --dz-cloud: rgba(255, 255, 255, 0.92);
+  --dz-gull: #3a536d;
+  --dz-shimmer: rgba(255, 255, 255, 0.8);
+  --dz-link: rgba(13, 100, 110, 0.2);
+  --dz-node: #0d8a59;
+  --dz-node-halo: rgba(13, 138, 89, 0.18);
+  --dz-pulse: #10b981;
+  --dz-haze: rgba(255, 255, 255, 0.62);
+
+  position: relative;
+  min-height: max(100svh, 760px);
+  overflow: hidden;
+  background: var(--dz-sky);
+  color: var(--na-ink);
+  isolation: isolate;
+}
+
+.dark .dz-hero {
+  /* La nuit tombe : étoiles, lune et lumières de la ville */
+  --dz-sky: linear-gradient(180deg, #060e26 0%, #0e1b42 40%, #26295a 66%, #45386a 80%, #2b2850 100%);
+  --dz-sun: #eef0ff;
+  --dz-sun-glow: #7d8fdc;
+  --dz-sea-top: #29386a;
+  --dz-sea-bottom: #0f1a38;
+  --dz-mountain-far: #2b3463;
+  --dz-mountain-near: #212a56;
+  --dz-headland: #22362f;
+  --dz-hill: #1d3829;
+  --dz-shrub: #16301f;
+  --dz-ground: #10241a;
+  --dz-house-0: #c6cee0;
+  --dz-house-1: #b8c1d6;
+  --dz-house-2: #d0d7e6;
+  --dz-house-side: #929db8;
+  --dz-window: #3a4566;
+  --dz-window-lit: #ffd36b;
+  --dz-arcade: #b3bcd3;
+  --dz-arch: #f6c56a;
+  --dz-concrete: #c4c8d9;
+  --dz-concrete-shade: #8b91ad;
+  --dz-concrete-mid: #a9aec4;
+  --dz-palm-trunk: #2a2632;
+  --dz-palm-crown: #142b25;
+  --dz-cloud: rgba(130, 145, 200, 0.22);
+  --dz-gull: #8e9ac4;
+  --dz-shimmer: rgba(200, 215, 255, 0.35);
+  --dz-link: rgba(170, 210, 255, 0.2);
+  --dz-node: #8fd3ff;
+  --dz-node-halo: rgba(143, 211, 255, 0.22);
+  --dz-pulse: #9fe7ff;
+  --dz-haze: rgba(6, 14, 38, 0.6);
+}
+
+/* Voile doux sur le ciel, derrière le texte, pour une lecture confortable */
+.dz-haze {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 58% 62% at 24% 42%, var(--dz-haze), transparent 72%);
+}
+
+[dir="rtl"] .dz-haze {
+  background: radial-gradient(ellipse 58% 62% at 76% 42%, var(--dz-haze), transparent 72%);
+}
+
+.dz-scene,
+.dz-scene-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.dz-scene {
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ----- Couleurs du décor ----- */
+
+.dz-sun { fill: var(--dz-sun); }
+.dz-cloud { fill: var(--dz-cloud); animation: dz-drift 100s ease-in-out infinite alternate; }
+.dz-mountain-far { fill: var(--dz-mountain-far); }
+.dz-mountain-near { fill: var(--dz-mountain-near); }
+.dz-headland { fill: var(--dz-headland); }
+.dz-basilica { fill: var(--dz-concrete); }
+.dz-hill { fill: var(--dz-hill); }
+.dz-shrubs { fill: var(--dz-shrub); }
+.dz-ground { fill: var(--dz-ground); }
+.dz-house.dz-tone-0 { fill: var(--dz-house-0); }
+.dz-house.dz-tone-1 { fill: var(--dz-house-1); }
+.dz-house.dz-tone-2 { fill: var(--dz-house-2); }
+.dz-house-side { fill: var(--dz-house-side); }
+.dz-window { fill: var(--dz-window); }
+.dz-window-lit { fill: var(--dz-window-lit); }
+.dz-minaret { fill: var(--dz-house-0); }
+.dz-arcades { fill: var(--dz-arcade); }
+.dz-arch { fill: var(--dz-arch); }
+.dz-maqam { fill: var(--dz-concrete); }
+.dz-maqam-shade { fill: var(--dz-concrete-shade); }
+.dz-maqam-mid { fill: var(--dz-concrete-mid); }
+.dz-maqam-base { fill: var(--dz-concrete-shade); }
+.dz-palm-trunk { fill: var(--dz-palm-trunk); }
+.dz-palm-crown { fill: var(--dz-palm-crown); }
+.dz-gull { fill: var(--dz-gull); animation: dz-glide 7s ease-in-out infinite; transform-box: fill-box; }
+.dz-shimmer rect { fill: var(--dz-shimmer); animation: dz-shimmer 6s ease-in-out infinite; }
+
+.dz-stars circle {
+  fill: #fff;
+  opacity: 0;
+}
+
+.dark .dz-stars circle {
+  animation: dz-twinkle 4s ease-in-out infinite;
+}
+
+.dark .dz-window-lit,
+.dark .dz-arch {
+  filter: drop-shadow(0 0 3px rgba(255, 200, 90, 0.85));
+}
+
+/* ----- Réseau de données ----- */
+
+.dz-link {
+  stroke: var(--dz-link);
+  stroke-width: 1.2;
+}
+
+.dz-uplink {
+  stroke: var(--dz-link);
+  stroke-width: 1.2;
+  stroke-dasharray: 3 6;
+}
+
+.dz-node {
+  fill: var(--dz-node);
+}
+
+.dz-node-halo {
+  fill: var(--dz-node-halo);
+  animation: dz-breathe 5s ease-in-out infinite;
+  animation-delay: inherit;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.dz-pulse {
+  stroke: var(--dz-pulse);
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-dasharray: 4 100;
+  stroke-dashoffset: 104;
+  animation: dz-flow 6s linear infinite;
+  filter: drop-shadow(0 0 3px var(--dz-pulse));
+}
+
+.dz-pulse-up {
+  animation-duration: 4.5s;
+}
+
+/* ----- Drapeau algérien ----- */
+
+.dz-hero-flag {
+  position: absolute;
+  right: 10%;
+  bottom: 30%;
+  width: clamp(250px, 30vw, 460px);
+}
+
+[dir="rtl"] .dz-hero-flag {
+  right: auto;
+  left: 10%;
+}
+
+.dz-flag {
+  aspect-ratio: 3 / 2;
+  /* Les bandes doivent rester dans l'ordre, même en arabe (RTL) */
+  direction: ltr;
+}
+
+.dz-flag-pole {
+  position: absolute;
+  left: 0;
+  top: -5%;
+  width: 2.4%;
+  height: 420%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #8b939d, #f1f3f6 45%, #7f8892);
+  box-shadow: 1px 0 4px rgba(15, 47, 79, 0.25);
+}
+
+.dz-flag-pole::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  width: 260%;
+  aspect-ratio: 1;
+  translate: -50% 35%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fff6d6, #d9a93c 60%, #a87a1e);
+}
+
+.dz-flag-cloth {
+  position: absolute;
+  inset: 0 0 0 2.2%;
+  display: flex;
+  filter: drop-shadow(0 14px 18px rgba(15, 47, 79, 0.22));
+}
+
+.dz-flag-strip {
+  flex: 1 0 0;
+  margin-right: -0.6px;
+  background-repeat: no-repeat;
+  animation: dz-wave 2.8s ease-in-out infinite;
+  animation-delay: calc(var(--i) * -0.05s);
+}
+
+/* ----- Contenu ----- */
+
+.dz-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1440px;
+  padding: 128px clamp(20px, 5.5vw, 84px) 64px;
+}
+
+.dz-hero-content > * {
+  max-width: min(780px, 58vw);
+}
+
+.dz-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.7);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px -12px rgba(15, 47, 79, 0.35);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--na-ink);
+}
+
+.dz-badge svg {
+  width: 18px;
+  height: 18px;
+  color: var(--na-green);
+}
+
+.dark .dz-badge {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.dark .dz-badge svg {
+  color: #6ee7b7;
+}
+
+.dz-heading {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "new aside"
+    "algeria algeria";
+  align-items: center;
+  column-gap: clamp(18px, 2.4vw, 36px);
+  margin-top: 22px;
+}
+
+.dz-title {
+  display: contents;
+  text-transform: uppercase;
+}
+
+.dz-title-new,
+.dz-title-algeria {
+  display: block;
+  font-size: clamp(64px, 9.4vw, 150px);
+  line-height: 0.9;
+  letter-spacing: 0.005em;
+}
+
+.dz-title-new {
+  grid-area: new;
+  color: var(--na-ink);
+}
+
+.dz-title-algeria {
+  grid-area: algeria;
+  padding-bottom: 0.06em;
+  background: linear-gradient(92deg, var(--na-green-dark) 0%, var(--na-green) 55%, #14b87c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 3px 0 rgba(255, 255, 255, 0.7));
+}
+
+.dark .dz-title-algeria {
+  background-image: linear-gradient(92deg, #34d399 0%, #6ee7b7 60%, #a7f3d0 100%);
+  filter: none;
+}
+
+.dz-aside {
+  grid-area: aside;
+  max-width: 340px;
+  padding-inline-start: clamp(14px, 1.6vw, 22px);
+  border-inline-start: 3px solid var(--na-red);
+}
+
+.dz-aside-kicker {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--na-green);
+}
+
+.dark .dz-aside-kicker {
+  color: #6ee7b7;
+}
+
+[lang="ar"] .dz-aside-kicker {
+  letter-spacing: 0;
+}
+
+.dz-aside-lead {
+  display: block;
+  margin-top: 6px;
+  font-size: clamp(15px, 1.25vw, 18px);
+  line-height: 1.45;
+  font-weight: 500;
+  color: var(--na-ink);
+}
+
+.dz-sub {
+  max-width: 560px !important;
+  margin-top: 22px;
+  font-size: clamp(16px, 1.25vw, 18px);
+  line-height: 1.6;
+  color: var(--na-ink-soft);
+}
+
+.dz-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+/* ----- Boutons ----- */
+
+.dz-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 52px;
+  padding: 0 26px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.dz-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.dz-btn:hover {
+  transform: translateY(-2px);
+}
+
+.dz-btn:disabled {
+  opacity: 0.55;
+  transform: none;
+  cursor: not-allowed;
+}
+
+.dz-btn-primary {
+  background: var(--na-green);
+  color: #fff;
+  box-shadow: 0 12px 28px -12px rgba(13, 138, 89, 0.75);
+}
+
+.dz-btn-primary:hover {
+  background: #0b774d;
+  box-shadow: 0 16px 32px -12px rgba(13, 138, 89, 0.8);
+}
+
+.dz-btn-glass {
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.72);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  color: var(--na-ink);
+  box-shadow: 0 10px 26px -14px rgba(15, 47, 79, 0.4);
+}
+
+.dark .dz-btn-glass {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.dz-btn-soft {
+  height: 44px;
+  padding: 0 20px;
+  background: #e3f4ec;
+  color: var(--na-green);
+  font-size: 15px;
+}
+
+.dark .dz-btn-soft {
+  background: rgba(110, 231, 183, 0.12);
+  color: #6ee7b7;
+}
+
+/* ----- Petites cartes IA / Data / APIs ----- */
+
+.dz-features {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 34px;
+}
+
+.dz-feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px 10px 10px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.64);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 26px -18px rgba(15, 47, 79, 0.45);
+}
+
+.dark .dz-feature {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.dz-feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex: none;
+  border-radius: 12px;
+  background: #e1f3ea;
+  color: var(--na-green);
+}
+
+.dz-feature-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.dark .dz-feature-icon {
+  background: rgba(110, 231, 183, 0.12);
+  color: #6ee7b7;
+}
+
+.dz-feature-title {
+  display: block;
+  font-size: 13.5px;
+  line-height: 1.25;
+  font-weight: 600;
+  color: var(--na-ink);
+}
+
+.dz-feature-desc {
+  display: block;
+  margin-top: 2px;
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--na-ink-soft);
+}
+
+/* ----- Animations du décor ----- */
+
+@keyframes dz-drift {
+  from { transform: translateX(-30px); }
+  to { transform: translateX(70px); }
+}
+
+@keyframes dz-flow {
+  from { stroke-dashoffset: 104; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes dz-breathe {
+  0%, 100% { opacity: 0.35; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.25); }
+}
+
+@keyframes dz-twinkle {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 1; }
+}
+
+@keyframes dz-shimmer {
+  0%, 100% { opacity: 0.15; transform: translateX(0); }
+  50% { opacity: 0.9; transform: translateX(14px); }
+}
+
+@keyframes dz-glide {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(10px, -6px); }
+}
+
+@keyframes dz-wave {
+  0%, 100% {
+    transform: translateY(calc(var(--a) * -4%));
+    filter: brightness(1.04);
+  }
+  50% {
+    transform: translateY(calc(var(--a) * 4%));
+    filter: brightness(0.9);
+  }
+}
+
+/* ----- Animation d'entrée ----- */
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-enter] {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dz-hero *,
+  .mb-nav * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* =========================================================
+   Projets
+   ========================================================= */
+
+.dz-projects {
+  position: relative;
+  padding: 80px 0 24px;
+}
+
+.dz-projects-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.dz-projects-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: var(--na-green);
+  white-space: nowrap;
+}
+
+.dark .dz-projects-link {
+  color: #6ee7b7;
+}
+
+.dz-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.dz-project {
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+}
+
+.dz-project-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.dz-project-logo-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.dz-project-logo-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
+  background: #e1f3ea;
+  color: var(--na-green);
+  font-size: 28px;
+}
+
+.dz-project-logo-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.dz-project-logo-dark {
+  background: var(--na-ink);
+  color: #fff;
+}
+
+.dark .dz-project-logo-icon {
+  background: rgba(110, 231, 183, 0.12);
+  color: #6ee7b7;
+}
+
+.dark .dz-project-logo-dark {
+  background: #fff;
+  color: #0f172a;
+}
+
+.dz-project-arrow {
+  width: 22px;
+  height: 22px;
+  color: var(--na-ink-soft);
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.dz-project:hover .dz-project-arrow {
+  transform: translate(3px, -3px);
+  color: var(--na-green);
+}
+
+.dz-project-name {
+  font-size: 30px;
+  line-height: 1.1;
+  color: var(--na-ink);
+}
+
+.dz-project-desc {
+  margin-top: 8px;
+  color: var(--na-ink-soft);
+}
+
+/* =========================================================
+   Fenêtre « Rejoignez-nous »
+   ========================================================= */
+
+.dz-join {
+  background: hsl(var(--background));
+  box-shadow: 0 40px 90px -30px rgba(15, 47, 79, 0.55);
+}
+
+.dz-join > button:last-child {
+  top: 22px;
+  right: 18px;
+  padding: 6px;
+  border-radius: 999px;
+  color: #fff;
+  opacity: 0.9;
+  background: rgba(255, 255, 255, 0.16) !important;
+}
+
+[dir="rtl"] .dz-join > button:last-child {
+  right: auto;
+  left: 18px;
+}
+
+.dz-join-header {
+  position: relative;
+  overflow: hidden;
+  padding: 34px 28px 26px;
+  color: #fff;
+  text-align: start;
+  background:
+    radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.28), transparent 42%),
+    linear-gradient(140deg, #0d8a59 0%, #0f6f78 55%, #1f4f8f 100%);
+}
+
+.dz-join-flagbar {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--na-green-dark) 0 46%, #fff 46% 88%, var(--na-red) 88%);
+}
+
+.dz-join-dots {
+  position: absolute;
+  inset: 0;
+  opacity: 0.22;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.9) 1.2px, transparent 1.4px);
+  background-size: 22px 22px;
+  mask-image: linear-gradient(120deg, transparent 30%, #000 90%);
+}
+
+.dz-join-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dz-join-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.dz-join .dz-join-title {
+  position: relative;
+  font-weight: 900;
+  margin-top: 16px;
+  font-size: 30px;
+  line-height: 1.1;
+}
+
+.dz-join .dz-join-subtitle {
+  position: relative;
+  margin-top: 6px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.dz-join-body {
+  display: grid;
+  gap: 12px;
+  max-height: min(62vh, 560px);
+  overflow-y: auto;
+  padding: 22px 24px 26px;
+}
+
+.dz-join-intro {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--na-ink-soft);
+  white-space: pre-line;
+}
+
+.dz-join-card {
+  display: flex;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(15, 47, 79, 0.1);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.dark .dz-join-card {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.dz-join-step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  flex: none;
+  border-radius: 999px;
+  background: #e1f3ea;
+  color: var(--na-green);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.dark .dz-join-step {
+  background: rgba(110, 231, 183, 0.12);
+  color: #6ee7b7;
+}
+
+.dz-join-card-body {
+  display: grid;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+  justify-items: start;
+}
+
+.dz-join-card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--na-ink);
+}
+
+.dz-join-card-desc {
+  margin-top: -4px;
+  font-size: 13.5px;
+  color: var(--na-ink-soft);
+}
+
+.dz-join-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+}
+
+.dz-join-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1 1 200px;
+  height: 46px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 47, 79, 0.15);
+  background: #fff;
+  color: var(--na-ink-soft);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dz-join-input:focus-within {
+  border-color: var(--na-green);
+  box-shadow: 0 0 0 4px rgba(13, 138, 89, 0.15);
+}
+
+.dz-join-input svg {
+  width: 18px;
+  height: 18px;
+  flex: none;
+}
+
+.dz-join-input input {
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+  background: transparent;
+  color: var(--na-ink);
+  font-size: 15px;
+}
+
+.dark .dz-join-input {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.dz-join-submit {
+  height: 46px;
+  padding: 0 22px;
+  font-size: 15px;
+}
+
+.dz-join-success {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--na-green);
+}
+
+.dz-join-success svg {
+  width: 20px;
+  height: 20px;
+}
+
+.dz-join-error {
+  font-size: 13.5px;
+  color: #c2410c;
+}
+
+.dz-join-socials {
+  display: flex;
+  gap: 10px;
+}
+
+.dz-join-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: rgba(15, 47, 79, 0.06);
+  color: var(--na-ink);
+  font-size: 19px;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.dz-join-social:hover {
+  background: var(--na-green);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.dark .dz-join-social {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* =========================================================
+   Navigation
+   ========================================================= */
+
+.mb-nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  height: 76px;
+  color: var(--na-ink);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mb-nav.is-scrolled {
+  background: rgba(255, 255, 255, 0.72);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 6px 30px -10px rgba(15, 47, 79, 0.25);
+}
+
+.dark .mb-nav.is-scrolled {
+  background: rgba(8, 15, 36, 0.78);
+}
+
+.mb-logo {
+  position: absolute;
+  inset-inline-start: 28px;
+  top: 17px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+  line-height: 1;
+  color: var(--na-ink);
+}
+
+.mb-logo img {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 3px;
+  box-shadow: 0 4px 12px rgba(15, 47, 79, 0.2);
+}
+
+.mb-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 999px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.mb-pill:hover {
+  transform: translateY(-2px);
+}
+
+.mb-pill-white {
+  background: #fff;
+  color: var(--na-green);
+  box-shadow: 0 8px 22px -10px rgba(15, 47, 79, 0.35);
+}
+
+.mb-pill-green {
+  background: var(--na-green);
+  color: #fff;
+  box-shadow: 0 10px 24px -12px rgba(13, 138, 89, 0.8);
+}
+
+.mb-pill-green:hover {
+  background: #0b774d;
+}
+
+.mb-pill-glass {
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.6);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  color: var(--na-ink);
+}
+
+.dark .mb-pill-glass {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.mb-nav-pill {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  height: 48px;
+  padding: 0 30px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.6);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  font-size: 15.5px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.dark .mb-nav-pill {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.mb-nav-pill a {
+  transition: color 0.2s ease;
+}
+
+.mb-nav-pill a:hover {
+  color: var(--na-green);
+}
+
+.mb-nav-actions {
+  position: absolute;
+  top: 14px;
+  inset-inline-end: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mb-icon-btn {
+  width: 46px;
+  height: 46px;
+}
+
+.mb-icon-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.mb-nav-join {
+  height: 46px;
+  padding: 0 22px;
+  font-size: 15.5px;
+}
+
+.mb-chevron {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+a:hover > .mb-chevron {
+  transform: translateX(4px);
+}
+
+[dir="rtl"] .mb-chevron {
+  transform: scaleX(-1);
+}
+
+.mb-burger,
+.mb-mobile-menu {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  .mb-nav-pill,
+  .mb-nav-actions .mb-icon-btn {
+    display: none;
+  }
+
+  .mb-burger {
+    display: inline-flex;
+    width: 44px;
+    height: 44px;
+  }
+
+  .mb-burger svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .mb-mobile-menu {
+    position: absolute;
+    top: 70px;
+    inset-inline: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-width: 420px;
+    margin-inline-start: auto;
+    padding: 12px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.96);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 20px 50px -16px rgba(15, 47, 79, 0.4);
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .dark .mb-mobile-menu {
+    background: rgba(12, 20, 44, 0.97);
+  }
+
+  .mb-mobile-menu a,
+  .mb-mobile-menu button {
+    padding: 10px 12px;
+    border-radius: 12px;
+    text-align: start;
+  }
+
+  .mb-mobile-menu a:hover,
+  .mb-mobile-menu button:hover {
+    background: rgba(13, 138, 89, 0.1);
+  }
+
+  .mb-mobile-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(15, 47, 79, 0.1);
+  }
+
+  .mb-mobile-row button {
+    flex: 1;
+    text-align: center;
+    background: rgba(15, 47, 79, 0.05);
+  }
+
+  .dark .mb-mobile-row button {
+    background: rgba(255, 255, 255, 0.06);
+  }
+}
+
+/* =========================================================
+   Téléphones et tablettes
+   ========================================================= */
+
+@media (max-width: 860px) {
+  .dz-hero {
+    min-height: 100svh;
+  }
+
+  .dz-haze {
+    background: linear-gradient(180deg, var(--dz-haze) 0%, var(--dz-haze) 55%, transparent 80%);
+  }
+
+  [dir="rtl"] .dz-haze {
+    background: linear-gradient(180deg, var(--dz-haze) 0%, var(--dz-haze) 55%, transparent 80%);
+  }
+
+  .dz-hero-content {
+    padding: 96px 18px clamp(200px, 52vw, 300px);
+  }
+
+  .dz-hero-content > * {
+    max-width: 100%;
+  }
+
+  /* Le drapeau flotte à côté de « NEW », son mât planté derrière « ALGERIA » */
+  .dz-hero-flag,
+  [dir="rtl"] .dz-hero-flag {
+    top: calc(96px + 56px + clamp(4px, 3vw, 20px));
+    right: 6%;
+    bottom: auto;
+    left: auto;
+    width: clamp(140px, 38vw, 260px);
+  }
+
+  .dz-hero-flag .dz-flag-pole {
+    height: 118%;
+  }
+
+  .dz-heading {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "new"
+      "algeria"
+      "aside";
+    margin-top: 18px;
+  }
+
+  .dz-title-new,
+  .dz-title-algeria {
+    font-size: clamp(56px, 17vw, 96px);
+  }
+
+  .dz-aside {
+    margin-top: 16px;
+    max-width: 30rem;
+  }
+
+  .dz-sub {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .dz-ctas {
+    gap: 10px;
+    margin-top: 22px;
+  }
+
+  .dz-ctas .dz-btn {
+    height: 48px;
+    padding: 0 16px;
+    gap: 6px;
+    font-size: 14.5px;
+  }
+
+  .dz-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .dz-feature {
+    padding: 6px 12px 6px 6px;
+    border-radius: 999px;
+  }
+
+  .dz-feature-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 999px;
+  }
+
+  .dz-feature-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .dz-feature-desc {
+    display: none;
+  }
+
+  .dz-projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mb-nav {
+    height: 68px;
+  }
+
+  .mb-logo {
+    inset-inline-start: 16px;
+    top: 14px;
+    gap: 8px;
+    font-size: 19px;
+  }
+
+  .mb-logo img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .mb-nav-actions {
+    top: 13px;
+    inset-inline-end: 16px;
+    gap: 8px;
+  }
+
+  .mb-nav-join {
+    height: 42px;
+    padding: 0 16px;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 860px) {
+  .dz-projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 370px) {
+  .mb-nav-join {
+    display: none;
+  }
+}
+
+/* =========================================================
+   Sections sous le hero
+   ========================================================= */
+
+.mb-section-title {
+  font-size: clamp(2rem, 4.2vw, 3.25rem);
+  line-height: 1.1;
+  color: var(--na-ink);
+  text-wrap: balance;
+}
+
+.mb-highlight {
+  color: var(--na-green);
+}
+
+.dark .mb-highlight {
+  color: #6ee7b7;
+}
+
+.mb-surface {
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(15, 47, 79, 0.06);
+  box-shadow: 0 18px 50px -24px rgba(15, 47, 79, 0.35);
+}
+
+.dark .mb-surface {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 18px 50px -22px rgba(0, 0, 0, 0.6);
+}
+
+.mb-lift {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.mb-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 26px 60px -24px rgba(15, 47, 79, 0.45);
+}
+
+.mb-icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 1.1rem;
+  background: #e1f3ea;
+  color: var(--na-green);
+}
+
+.dark .mb-icon-badge {
+  background: rgba(110, 231, 183, 0.12);
+  color: #6ee7b7;
+}
+
+/* Bandeau de contact : ciel connecté aux couleurs de New Algeria */
+.mb-sky-banner {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2rem;
+  color: #fff;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(255, 255, 255, 0.3), transparent 40%),
+    linear-gradient(135deg, #0d8a59 0%, #0f6f78 50%, #1f4f8f 100%);
+  box-shadow: 0 30px 70px -30px rgba(15, 47, 79, 0.6);
+}
+
+.mb-sky-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.2;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.9) 1.2px, transparent 1.4px);
+  background-size: 26px 26px;
+  mask-image: radial-gradient(ellipse at center, transparent 30%, #000 85%);
+}
+
+.mb-sky-banner::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--na-green-dark) 0 46%, #fff 46% 88%, var(--na-red) 88%);
+}
+
+.mb-sky-banner > * {
+  position: relative;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mb-lift,
+  .mb-lift:hover {
+    transition: none;
+    transform: none;
+  }
+}

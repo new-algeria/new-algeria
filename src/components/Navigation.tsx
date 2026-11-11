@@ -101,7 +101,7 @@ const Navigation = () => {
           {isDark ? <Sun /> : <Moon />}
         </button>
 
-        <JoinUsBtn className="mb-pill mb-pill-white mb-nav-join">
+        <JoinUsBtn className="mb-pill mb-pill-green mb-nav-join">
           {t("joinUs.joinUs")}
         </JoinUsBtn>
 

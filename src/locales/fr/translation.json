@@ -15,10 +15,24 @@
       "development": "Développement"
     },
     "kicker": "Le futur numérique de l'Algérie",
-    "line1": "Place à l'IA",
-    "line2": "& à la data",
-    "subline": "Intelligence artificielle, open data et APIs :\nla communauté New Algeria construit les outils\nnumériques de demain, par et pour les Algériens.",
-    "watch": "Voir nos projets"
+    "subline": "Une communauté de développeurs, data scientists et designers qui crée des outils numériques utiles, ouverts et accessibles, par et pour les Algériens.",
+    "watch": "Voir nos projets",
+    "badge": "L'Algérie entre dans l'ère de l'IA",
+    "lead": "IA, data et APIs ouvertes : on construit ensemble l'Algérie connectée de demain.",
+    "features": {
+      "ai": {
+        "title": "Intelligence artificielle",
+        "description": "Des outils d'IA pensés pour l'Algérie"
+      },
+      "data": {
+        "title": "Open data",
+        "description": "Des données publiques ouvertes à tous"
+      },
+      "api": {
+        "title": "APIs",
+        "description": "Des briques pour bâtir les apps de demain"
+      }
+    }
   },
   "services": {
     "title": "<0> Autonomiser </0> L'avenir numérique de l'Algérie",
@@ -107,7 +121,12 @@
     "emailBody": "Bonjour,\n\nJe suis intéressé(e) par en savoir plus sur la Plateforme Numérique NewAlgeria.\n\nCordialement,",
     "motivations": "Les développeurs, les data scientists, les enseignants, les concepteurs et bien plus encore sont tous invités à nous rejoindre.  \nImpliquez-vous dans la communauté et aidez-nous à construire l’avenir de l’Algérie.",
     "motivations2": "Trouvez également des partenaires et des collaborateurs avec lesquels travailler.",
-    "invitationSent": "Vérifiez votre boîte aux lettres, un e-mail a été envoyé!"
+    "invitationSent": "Vérifiez votre boîte aux lettres, un e-mail a été envoyé!",
+    "modalTitle": "Rejoignez New Algeria",
+    "modalSubtitle": "Construisons ensemble l'Algérie numérique de demain",
+    "githubDescription": "Recevez une invitation à l'organisation par e-mail.",
+    "writeDescription": "Une idée, un projet, une question ? Écrivez-nous.",
+    "followDescription": "Suivez nos actualités et nos lancements."
   },
   "projects": {
     "title": "Projets",

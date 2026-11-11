@@ -1,144 +1,97 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { BrainCircuit, Database, Braces, Sparkles, ArrowDown } from "lucide-react";
 import JoinUsBtn from "./JoinUsBtn";
+import AlgerianFlag from "./AlgerianFlag";
+import { SceneBack, SceneFront } from "./AlgiersScene";
 import { useEntrance } from "@/hooks/use-entrance";
-
-const PlayIcon = ({ className }: { className: string }) => (
-  <svg className={className} viewBox="0 0 18 20" aria-hidden="true">
-    <path
-      d="M3.6 1.2c-1.3-.8-3 .2-3 1.7v14.2c0 1.5 1.7 2.5 3 1.7l12-7.1c1.3-.8 1.3-2.6 0-3.4z"
-      fill="currentColor"
-    />
-  </svg>
-);
 
 const HeroSection = () => {
   const { t } = useTranslation();
-  const [reducedMotion] = React.useState(
-    () => window.matchMedia("(prefers-reduced-motion: reduce)").matches
-  );
-  const [isPlaying, setIsPlaying] = React.useState(false);
 
   useEntrance();
 
-  const projects = [
-    {
-      key: "dataDz",
-      href: "https://www.data-dz.com",
-      art: "/assets/hero/card-garden.webp",
-    },
-    {
-      key: "apiDz",
-      href: "https://www.data-dz.com/api",
-      art: "/assets/hero/card-path.webp",
-    },
-    {
-      key: "community",
-      href: "https://github.com/new-algeria",
-      art: "/assets/hero/card-kite.webp",
-    },
+  const features = [
+    { key: "ai", icon: <BrainCircuit /> },
+    { key: "data", icon: <Database /> },
+    { key: "api", icon: <Braces /> },
   ];
 
   return (
-    <section className="mb-hero" id="home">
-      <div className="mb-frame">
-        {/* La scène n'est jamais dessinée en code : image fixe + vidéo en boucle */}
-        <div className="mb-scene" aria-hidden="true">
-          <img className="mb-plate" src="/assets/hero/meadow.jpg" alt="" />
-          {!reducedMotion && (
-            <video
-              className={`mb-video ${isPlaying ? "is-playing" : ""}`}
-              src="/assets/hero/meadow.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="auto"
-              onPlaying={() => setIsPlaying(true)}
-            />
-          )}
-          <div className="mb-dusk" />
-        </div>
-        <div className="mb-fade" />
+    <section className="dz-hero" id="home">
+      <div className="dz-scene">
+        <SceneBack />
+        <div className="dz-haze" />
+        <AlgerianFlag className="dz-hero-flag" />
+        <SceneFront />
+      </div>
 
-        <div className="mb-copy">
-          <p className="mb-kicker font-display" data-enter="unblur" data-enter-at="350">
-            {t("hero.kicker")}
-          </p>
-          <h1 className="mb-title font-display">
-            <span className="mb-line" data-enter="spring" data-enter-at="560">
-              {t("hero.line1")}
-            </span>
-            <span className="mb-line" data-enter="spring" data-enter-at="720">
-              {t("hero.line2")}
+      <div className="dz-hero-content">
+        <p className="dz-badge" data-enter="unblur" data-enter-at="300">
+          <Sparkles aria-hidden="true" />
+          {t("hero.badge")}
+        </p>
+
+        <div className="dz-heading">
+          <h1 className="dz-title font-display">
+            <span className="dz-title-new" data-enter="spring" data-enter-at="460">
+              New
+            </span>{" "}
+            <span className="dz-title-algeria" data-enter="spring" data-enter-at="620">
+              Algeria
             </span>
           </h1>
-          <p className="mb-sub" data-enter="rise" data-enter-at="1050">
-            {t("hero.subline")}
+          <p className="dz-aside" data-enter="rise" data-enter-at="760">
+            <span className="dz-aside-kicker">{t("hero.kicker")}</span>
+            <span className="dz-aside-lead">{t("hero.lead")}</span>
           </p>
-          <div className="mb-ctas">
-            <JoinUsBtn
-              className="mb-pill mb-pill-white mb-btn-join"
-              data-enter="rise"
-              data-enter-at="1150"
-            >
-              {t("joinUs.joinUs")}
-            </JoinUsBtn>
-            <a
-              href="#projets"
-              className="mb-pill mb-pill-glass mb-btn-watch"
-              data-enter="rise"
-              data-enter-at="1230"
-            >
-              <PlayIcon className="mb-play" />
-              {t("hero.watch")}
-            </a>
-          </div>
         </div>
 
-        <div className="mb-projects" id="projets">
-          <div className="mb-proj-head">
-            <h2 className="mb-proj-title font-display" data-enter="rise" data-enter-at="1400">
-              {t("projects.title")}
-            </h2>
-            <a
-              href="https://github.com/new-algeria"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mb-proj-link"
-              data-enter="rise"
-              data-enter-at="1460"
-            >
-              {t("projects.browse")} <span className="mb-chevron">›</span>
-            </a>
-          </div>
-          <div className="mb-cards">
-            {projects.map((project, index) => (
-              <a
-                key={project.key}
-                href={project.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mb-card"
-                data-enter="rise"
-                data-enter-at={String(1540 + index * 110)}
-              >
-                <img className="mb-card-art" src={project.art} alt="" loading="lazy" />
-                <span className="mb-card-body">
-                  <PlayIcon className="mb-card-play" />
-                  <span>
-                    <span className="mb-card-name font-display">
-                      {t(`projects.${project.key}.name`)}
-                    </span>
-                    <span className="mb-card-desc">
-                      {t(`projects.${project.key}.description`)}
-                    </span>
-                  </span>
-                </span>
-              </a>
-            ))}
-          </div>
+        <p className="dz-sub" data-enter="rise" data-enter-at="900">
+          {t("hero.subline")}
+        </p>
+
+        <div className="dz-ctas">
+          <JoinUsBtn
+            className="dz-btn dz-btn-primary"
+            data-enter="rise"
+            data-enter-at="1000"
+          >
+            ✨ {t("joinUs.joinUs")}
+          </JoinUsBtn>
+          <a
+            href="#projets"
+            className="dz-btn dz-btn-glass"
+            data-enter="rise"
+            data-enter-at="1080"
+          >
+            {t("hero.watch")}
+            <ArrowDown aria-hidden="true" />
+          </a>
         </div>
+
+        <ul className="dz-features">
+          {features.map((feature, index) => (
+            <li
+              key={feature.key}
+              className="dz-feature"
+              data-enter="rise"
+              data-enter-at={String(1180 + index * 90)}
+            >
+              <span className="dz-feature-icon" aria-hidden="true">
+                {feature.icon}
+              </span>
+              <span>
+                <span className="dz-feature-title">
+                  {t(`hero.features.${feature.key}.title`)}
+                </span>
+                <span className="dz-feature-desc">
+                  {t(`hero.features.${feature.key}.description`)}
+                </span>
+              </span>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

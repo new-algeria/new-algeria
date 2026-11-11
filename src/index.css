@@ -5,7 +5,7 @@
 @import "@fontsource/grandstander/latin-900.css";
 @import "@fontsource/baloo-bhaijaan-2/arabic-800.css";
 @import "@fontsource/baloo-bhaijaan-2/latin-800.css";
-@import "./styles/meadow.css";
+@import "./styles/site.css";
 
 @tailwind base;
 @tailwind components;
