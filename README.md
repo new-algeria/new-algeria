@@ -156,6 +156,17 @@ Pensez à lancer `npm run lint` avant d'ouvrir votre PR.
 
 Et tous les [membres de l'organisation](https://github.com/orgs/new-algeria/people) qui font vivre le projet ❤️
 
+## Comptes membres (connexion partagée avec data-dz)
+
+Le site utilise **le même projet Supabase que data-dz** : un compte créé sur l'un fonctionne sur l'autre (table `profils`, avatars, rôles).
+
+- Pages : `/login`, `/signup`, `/forgot-password`, `/reset-password`, `/auth/callback`, `/profile` (connecté), `/members/:username`.
+- Code repris de data-dz : `src/lib/auth.ts`, `src/lib/supabase.ts`, `src/lib/profils.ts`, `src/lib/erreurs.ts`, `src/contexte/`, `src/components/auth/`, `src/pages/auth/`.
+- Variables : copier `.env.example` en `.env.local` (clé **publishable** uniquement, jamais la clé secrète).
+- **À faire dans Supabase** (Authentication → URL Configuration → Redirect URLs) : ajouter `https://newalgeria.org/**`, `https://www.newalgeria.org/**`, les aperçus Vercel du projet et `http://localhost:8080/**`. Sans cela, Google et les liens des emails renvoient vers data-dz.
+- Les sessions ne sont pas partagées entre domaines : on se reconnecte sur chaque site, avec le même compte.
+- `vercel.json` renvoie toutes les URL vers `index.html` (sinon `/login` répond 404 en production).
+
 ## 📬 Nous suivre
 
 - 🐙 GitHub : [@new-algeria](https://github.com/new-algeria)

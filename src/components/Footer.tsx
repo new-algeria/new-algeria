@@ -28,7 +28,7 @@ const Footer = () => {
       <div className="dz-footer-glow" aria-hidden="true" />
       <div className="container dz-footer-inner">
         <div className="dz-footer-brand">
-          <a href="#home" className="dz-footer-logo font-display">
+          <a href="/" className="dz-footer-logo font-display">
             <img src="/assets/img/logo.png" alt="" />
             New Algeria
           </a>
@@ -73,7 +73,15 @@ const Footer = () => {
           © {year} New Algeria · {t("footer.copyright")}
         </span>
         <span>{t("footer.madeWith")}</span>
-        <a href="#home" className="dz-footer-top" aria-label="Haut de page">
+        <a
+          href="#home"
+          className="dz-footer-top"
+          aria-label="Haut de page"
+          onClick={(evenement) => {
+            evenement.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+        >
           <ArrowUp aria-hidden="true" />
         </a>
       </div>
