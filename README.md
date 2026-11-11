@@ -33,7 +33,7 @@ Ce dépôt contient le **site vitrine officiel** de l'organisation, [newalgeria.
 
 ## ✨ Fonctionnalités du site
 
-- 🏠 **Hero illustré** : une aube paisible sur Alger (Casbah, Maqam Echahid, Notre-Dame d'Afrique), un drapeau algérien qui flotte et un réseau de données animé dans le ciel
+- 🏠 **Hero** : une prairie ensoleillée avec un drapeau algérien animé et un défilé discret des thèmes (IA, open data, APIs…)
 - 🗂️ **Projets** : data-dz, API-DZ et la communauté GitHub
 - 🧩 **Services** : services numériques, jeux de données utiles, outils de développement
 - 🍱 **Bento grid** : infrastructure numérique, cybersécurité, communauté
