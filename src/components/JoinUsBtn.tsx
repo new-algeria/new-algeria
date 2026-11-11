@@ -1,54 +1,36 @@
 import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { Mail, PenLine, CheckCircle2, Loader2, Users, ChevronRight } from "lucide-react";
-import { Octokit } from "@octokit/core";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { useAuth } from "@/contexte/ContexteAuth";
+import { avecSuite, routes } from "@/lib/routes";
+import { DialogueRejoindre } from "./DialogueRejoindre";
 
 type JoinUsBtnProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   [key: `data-${string}`]: string | undefined;
 };
 
-type InvitationStatus = "idle" | "sending" | "sent" | "error";
-
+/**
+ * « Rejoignez-nous » : un visiteur est envoyé vers la connexion (il revient ensuite sur la même page) ;
+ * un membre connecté ouvre la fenêtre pour rejoindre l'organisation GitHub ou nous écrire.
+ *
+ * Toujours le même <button> : la session arrive après le premier affichage, et changer d'élément à ce moment-là
+ * laisserait le nouveau bloqué avant son animation d'entrée (data-enter), donc invisible.
+ */
 const JoinUsBtn = ({ className, children, ...buttonProps }: JoinUsBtnProps) => {
   const { t } = useTranslation();
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<InvitationStatus>("idle");
+  const { session } = useAuth();
+  const emplacement = useLocation();
+  const naviguer = useNavigate();
+  const [ouvert, setOuvert] = useState(false);
 
-  const handleJoinOrganization = async (event: React.FormEvent) => {
-    event.preventDefault();
-    setStatus("sending");
-    try {
-      const octokit = new Octokit({
-        auth: import.meta.env.VITE_GITHUB_COLLABORATORS_TOKEN,
-      });
-
-      await octokit.request("POST /orgs/{org}/invitations", {
-        org: "new-algeria",
-        email: email,
-        headers: {
-          "X-GitHub-Api-Version": "2022-11-28",
-        },
-      });
-
-      setStatus("sent");
-    } catch (error) {
-      console.error("Error sending invitation:", error);
-      setStatus("error");
+  const cliquer = () => {
+    if (session) {
+      setOuvert(true);
+      return;
     }
+    const suite = `${emplacement.pathname}${emplacement.search}${emplacement.hash}`;
+    naviguer(avecSuite(routes.connexion, suite));
   };
-
-  const mailtoLink = `mailto:admin@newalgeria.org?subject=${encodeURIComponent(
-    t("joinUs.emailSubject")
-  )}&body=${encodeURIComponent(t("joinUs.emailBody"))}`;
 
   return (
     <>
@@ -58,85 +40,12 @@ const JoinUsBtn = ({ className, children, ...buttonProps }: JoinUsBtnProps) => {
           className ??
           "bg-[#0d8a59] text-white hover:bg-[#0b774d] py-2.5 px-6 rounded-full shadow-[0_8px_24px_-8px_rgba(13,138,89,0.6)] transition-transform hover:-translate-y-0.5"
         }
-        onClick={() => setIsModalOpen(true)}
+        onClick={cliquer}
         {...buttonProps}
       >
         {children ?? <>✨ {t("joinUs.joinUs")}</>}
       </button>
-
-      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="dz-join w-[calc(100%-2rem)] max-w-xl gap-0 overflow-hidden rounded-[1.75rem] border-0 p-0 sm:rounded-[1.75rem]">
-          <div className="dz-join-header">
-            <span className="dz-join-dots" aria-hidden="true" />
-            <span className="dz-join-icon" aria-hidden="true">
-              <Users />
-            </span>
-            <DialogTitle className="dz-join-title font-display">
-              {t("joinUs.modalTitle")}
-            </DialogTitle>
-            <DialogDescription className="dz-join-subtitle">
-              {t("joinUs.modalSubtitle")}
-            </DialogDescription>
-          </div>
-
-          <div className="dz-join-body">
-            {/* Rejoindre l'organisation GitHub */}
-            <section className="dz-join-card">
-              <h3 className="dz-join-card-title">
-                <FontAwesomeIcon icon={faGithub} /> {t("joinUs.joinGithub")}
-              </h3>
-              {status === "sent" ? (
-                <p className="dz-join-success">
-                  <CheckCircle2 aria-hidden="true" />
-                  {t("joinUs.invitationSent")}
-                </p>
-              ) : (
-                <form className="dz-join-form" onSubmit={handleJoinOrganization}>
-                  <label className="dz-join-input">
-                    <Mail aria-hidden="true" />
-                    <input
-                      type="email"
-                      required
-                      value={email}
-                      onChange={(e) => {
-                        setEmail(e.target.value);
-                        if (status === "error") setStatus("idle");
-                      }}
-                      placeholder={t("joinUs.emailPlaceholder")}
-                      aria-label={t("joinUs.emailPlaceholder")}
-                    />
-                  </label>
-                  <button
-                    type="submit"
-                    className="dz-btn dz-btn-primary dz-join-submit"
-                    disabled={!email || status === "sending"}
-                  >
-                    {status === "sending" && (
-                      <Loader2 className="animate-spin" aria-hidden="true" />
-                    )}
-                    {t("joinUs.join")}
-                  </button>
-                </form>
-              )}
-              {status === "error" && (
-                <p className="dz-join-error">{t("joinUs.invitationFailure")}</p>
-              )}
-            </section>
-
-            {/* Nous écrire */}
-            <a href={mailtoLink} className="dz-join-card dz-join-write">
-              <span className="dz-join-write-icon" aria-hidden="true">
-                <PenLine />
-              </span>
-              <span className="dz-join-write-text">
-                <span className="dz-join-card-title">{t("joinUs.writeUs")}</span>
-                <span className="dz-join-card-desc">{t("joinUs.writeDescription")}</span>
-              </span>
-              <ChevronRight className="dz-join-write-arrow" aria-hidden="true" />
-            </a>
-          </div>
-        </DialogContent>
-      </Dialog>
+      {session && <DialogueRejoindre ouvert={ouvert} onOuvertChange={setOuvert} />}
     </>
   );
 };

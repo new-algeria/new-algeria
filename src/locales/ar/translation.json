@@ -117,7 +117,9 @@
     "invitationSent": "تحقق من صندوق البريد الخاص بك ، تم إرسال بريد إلكتروني!",
     "modalTitle": "انضم إلى New Algeria",
     "modalSubtitle": "لنبنِ معًا جزائر الغد الرقمية",
-    "writeDescription": "فكرة، مشروع أو سؤال؟ راسلنا."
+    "writeDescription": "فكرة، مشروع أو سؤال؟ راسلنا.",
+    "fab": "انضم",
+    "fabLabel": "انضم إلى منظمة New Algeria على GitHub"
   },
   "projects": {
     "title": "المشاريع",

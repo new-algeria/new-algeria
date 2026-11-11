@@ -117,7 +117,9 @@
     "invitationSent": "Check your mailbox, an email has been sent!",
     "modalTitle": "Join New Algeria",
     "modalSubtitle": "Let's build tomorrow's digital Algeria together",
-    "writeDescription": "An idea, a project, a question? Write to us."
+    "writeDescription": "An idea, a project, a question? Write to us.",
+    "fab": "Join",
+    "fabLabel": "Join the New Algeria organisation on GitHub"
   },
   "projects": {
     "title": "Projects",
