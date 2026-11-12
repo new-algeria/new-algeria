@@ -1277,6 +1277,15 @@ a:hover > .mb-chevron {
   background: linear-gradient(160deg, #0b4a35 0%, #0d3b4a 55%, #102a52 100%);
 }
 
+/* Le fennec assis sur le bord du pied de page : la marge passe au-dessus de lui pour qu'il touche la bordure. */
+.mascotte-pied {
+  margin-top: 40px;
+}
+
+.mascotte-pied + .dz-footer {
+  margin-top: 0;
+}
+
 .dz-footer::before {
   content: "";
   position: absolute;
