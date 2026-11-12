@@ -74,7 +74,9 @@
     "achievements": "Réalisations",
     "we": "Fondateurs",
     "joinTeam": "Rejoindre l'équipe !",
-    "apiPlatform": "🌍 Nous avons lancé <0> API-DZ </0>: <1> La première plateforme API d'Algérie </1> comme continuation de notre portail de données!"
+    "apiPlatform": "🌍 Nous avons lancé <0> data-dz/api </0>: <1> La première plateforme API d'Algérie </1> comme continuation de notre portail de données!",
+    "djazai": "🤖 Nous avons lancé <0> DjazAI </0>: <1> la 1ʳᵉ IA algérienne entraînée sur les données de l'Algérie </1>, qui répond à vos questions en citant ses sources data-dz !",
+    "openSite": "Ouvrir {{name}}"
   },
   "faqs": {
     "0": {

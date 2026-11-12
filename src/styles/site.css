@@ -1557,3 +1557,22 @@ a:hover > .mb-chevron {
     font-size: 15px;
   }
 }
+
+/* Réalisations : logo et nom au format des cartes « Projets » */
+.dz-timeline-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+.dz-timeline-logo .dz-project-name {
+  font-size: 26px;
+}
+@media (max-width: 767px) {
+  .dz-timeline-logo .dz-project-logo-img {
+    width: 44px;
+    height: 44px;
+  }
+  .dz-timeline-logo .dz-project-name {
+    font-size: 22px;
+  }
+}
