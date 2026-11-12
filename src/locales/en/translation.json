@@ -76,7 +76,9 @@
     "joinTeam": "Join the team!",
     "apiPlatform": " 🌍 We have launched <0> data-dz/api </0> : <1>Algeria's first API platform</1> as a continuation of our data portal! ",
     "djazai": "🤖 We launched <0> DjazAI </0>: <1> the first Algerian AI trained on Algeria's data </1>, answering your questions and citing its data-dz sources!",
-    "openSite": "Open {{name}}"
+    "openSite": "Open {{name}}",
+    "previewLoading": "Loading preview…",
+    "previewShow": "Show preview"
   },
   "faqs": {
     "0": {
