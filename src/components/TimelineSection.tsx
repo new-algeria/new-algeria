@@ -6,6 +6,7 @@ import { AnimatedTooltip } from "./ui/animates-tooltip";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import JoinUsBtn from "./JoinUsBtn";
+import ApercuSite from "./ApercuSite";
 
 interface Collaborator {
   id: number;
@@ -105,73 +106,60 @@ const TimelineSection = () => {
     fetchCollaborators();
   }, []);
 
-  const timelineData = [
+  // Même logo et même nom que dans la section « Projets » (teinte violette pour l'API, bleue pour DjazAI).
+  const logoProjet = (teinte: string, nom: React.ReactNode, alt: string) => (
+    <span className="dz-timeline-logo">
+      <img src="/assets/img/data-dz-logo.png" alt={alt} className={`dz-project-logo-img ${teinte}`} />
+      <span className="dz-project-name font-display">{nom}</span>
+    </span>
+  );
+
+  const lienTexte = (href: string) => [
+    <a href={href} target="_blank" rel="noopener noreferrer" className="underline text-primary dark:text-accent" />,
+    <b></b>,
+  ];
+
+  const realisations = [
+    {
+      title: "nov 2026",
+      url: "https://www.data-dz.com/djazai",
+      nom: "DjazAI",
+      cle: "timeline.djazai",
+      logo: logoProjet("dz-logo-blue", <>Djaz<span className="text-[#2f80ed]">AI</span></>, "Logo DjazAI"),
+    },
     {
       title: "jan 2025",
-      logo: `${import.meta.env.VITE_R2_BUCKET_URI}/logo/api-dz-logo.png`,
-      content: (
-        <div>
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            <Trans
-              i18nKey="timeline.apiPlatform"
-              components={[
-                <a
-                  href="https://data-dz.com/api"
-                  className="underline text-primary dark:text-accent"
-                />,
-                <b></b>,
-              ]}
-            />
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-2 gap-3">
-            <video
-              src={`${import.meta.env.VITE_R2_BUCKET_URI}/videos/api-dz.mp4`}
-              autoPlay
-              loop
-              muted
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow"
-            />
-          </div>
-        </div>
+      url: "https://www.data-dz.com/api",
+      nom: "data-dz/api",
+      cle: "timeline.apiPlatform",
+      logo: logoProjet(
+        "dz-logo-violet",
+        <>data<span className="text-[#10b981]">-dz</span><span className="text-[#8b5cf6]">/api</span></>,
+        "Logo data-dz/api"
       ),
     },
     {
       title: "dec 2024",
-      logo: `${
-        import.meta.env.VITE_R2_BUCKET_URI
-      }/logo/data-dz-logo-removebg.png`,
-      content: (
-        <div>
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            <Trans
-              i18nKey="timeline.builtAndLaunched"
-              components={[
-                <a
-                  href="https://data-dz.com"
-                  className="underline text-primary dark:text-accent"
-                />,
-                <b></b>,
-              ]}
-            />
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-2 gap-3">
-            <img
-              src="/assets/img/data-dz-1.png"
-              alt="startup template"
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow"
-            />
-            <video
-              src={`${import.meta.env.VITE_R2_BUCKET_URI}/videos/data-dz.mp4`}
-              autoPlay
-              loop
-              muted
-              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow"
-            />
-          </div>
-        </div>
-      ),
+      url: "https://www.data-dz.com",
+      nom: "data-dz",
+      cle: "timeline.builtAndLaunched",
+      logo: logoProjet("", <>data<span className="text-[#10b981]">-dz</span></>, "Logo data-dz"),
     },
   ];
+
+  const timelineData = realisations.map((realisation) => ({
+    title: realisation.title,
+    logo: realisation.logo,
+    content: (
+      <div>
+        <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal md:mb-8">
+          <Trans i18nKey={realisation.cle} components={lienTexte(realisation.url)} />
+        </p>
+        {/* Aperçu en direct, ordinateur et téléphone : sur grand écran seulement */}
+        <ApercuSite url={realisation.url} nom={realisation.nom} />
+      </div>
+    ),
+  }));
 
   return (
     <section className="py-24" id="developers">
