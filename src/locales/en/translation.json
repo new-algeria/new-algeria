@@ -4,7 +4,8 @@
     "services": "Services",
     "developers": "Developers",
     "contact": "Contact",
-    "projects": "Projects"
+    "projects": "Projects",
+    "ideas": "Ideas"
   },
   "hero": {
     "title": "Building a Digital Future for Algeria",
@@ -307,9 +308,152 @@
     "unSeulCompteTitre": "One account for New Algeria and data-dz",
     "unSeulCompteTexte": "Your account also works on data-dz: same email, same profile. You can suggest datasets, follow your favourites and comment there.",
     "reessayer": "Try again",
-    "retourAccueil": "Back to home"
+    "retourAccueil": "Back to home",
+    "boiteIdees": "Idea box"
   },
   "legal": {
     "acceptation": "By creating an account, you accept our <conditions>terms of use</conditions> and our <confidentialite>privacy policy</confidentialite>."
+  },
+  "idees": {
+    "titrePage": "Idea box",
+    "badge": "Idea box",
+    "titre": "What's missing <0>in Algeria</0>?",
+    "sousTitre": "An everyday problem, a service that doesn't exist yet, data you can't find? Share your idea in 2 minutes: the community votes, and the most supported ones become our next projects.",
+    "proposer": "Share an idea",
+    "proposerPremiere": "Share the first idea",
+    "compteurs_one": "{{idees}} idea · {{votes}} votes",
+    "compteurs_other": "{{idees}} ideas · {{votes}} votes",
+    "rechercher": "Search ideas",
+    "tri": "Sort",
+    "tris": {
+      "populaires": "Popular",
+      "recentes": "Recent"
+    },
+    "filtreCategorie": "Filter by category",
+    "toutes": "All",
+    "categories": {
+      "sante": "Health",
+      "education": "Education",
+      "transport": "Transport",
+      "economie": "Economy",
+      "environnement": "Environment",
+      "administration": "Public services",
+      "culture": "Culture",
+      "numerique": "Digital",
+      "autre": "Other"
+    },
+    "statuts": {
+      "nouvelle": "New",
+      "en_etude": "Under review",
+      "retenue": "Planned",
+      "en_cours": "In progress",
+      "realisee": "Done",
+      "ecartee": "Declined"
+    },
+    "statutsDetail": {
+      "nouvelle": "just shared",
+      "en_etude": "the team is looking",
+      "retenue": "we'll build it",
+      "en_cours": "being built",
+      "realisee": "live!",
+      "ecartee": "not for now"
+    },
+    "filtreStatutActif": "Status: {{statut}}",
+    "indisponible": "The idea box is coming very soon 🚧 Check back in a few hours!",
+    "erreurs": {
+      "chargement": "Couldn't load the ideas.",
+      "tropDIdees": "You've already shared 5 ideas today: come back tomorrow 😉",
+      "contenuInvalide": "The title must be 5 to 120 characters long.",
+      "nonAutorise": "This action isn't allowed.",
+      "generique": "Oops, that didn't work. Try again in a moment."
+    },
+    "reessayer": "Try again",
+    "vide": "No ideas yet. The first one could be yours!",
+    "aucunResultat": "No idea matches your search.",
+    "commentTitre": "How does it work?",
+    "comment": {
+      "1": "Share an idea with your New Algeria account.",
+      "2": "The community votes for the ideas it wants to see happen.",
+      "3": "The team reviews the most supported ones and keeps you posted at every step."
+    },
+    "statutsTitre": "Statuses",
+    "supprimerTitre": "Delete this idea?",
+    "supprimer": "Delete",
+    "modifier": "Edit",
+    "actions": "Actions",
+    "masquee": "Hidden",
+    "voirPlus": "Show more",
+    "voirMoins": "Show less",
+    "motEquipe": "The team:",
+    "auteurSupprime": "Deleted account",
+    "voter": "Support the idea \"{{titre}}\"",
+    "retirerVote": "Remove my support for \"{{titre}}\"",
+    "publiee": "Thank you! Your idea is live 🎉",
+    "modifiee": "Idea updated",
+    "supprimee": "Idea deleted",
+    "dialogue": {
+      "titre": "Your new idea 💡",
+      "titreModifier": "Edit your idea",
+      "description": "Describe the problem or the solution in a few words. No need to be technical!",
+      "champTitre": "Your idea in one sentence",
+      "exempleTitre": "E.g. a map of on-duty pharmacies by wilaya",
+      "champCategorie": "Category",
+      "champDescription": "A few details",
+      "facultatif": "(optional)",
+      "exempleDescription": "Why it's useful, for whom, what already exists…",
+      "annuler": "Cancel",
+      "publier": "Publish",
+      "enregistrer": "Save"
+    },
+    "equipe": {
+      "titre": "Move the idea forward",
+      "statut": "Status",
+      "reponse": "A word for the community (optional)",
+      "exempleReponse": "E.g. we're preparing it with the data-dz team!",
+      "changer": "Change status",
+      "masquer": "Hide",
+      "afficher": "Show again",
+      "enregistre": "Idea updated"
+    }
+  },
+  "contribuer": {
+    "titre": "You too can <0>help Algeria</0>",
+    "sousTitre": "No coding needed: everyone can be useful, even in 2 minutes.",
+    "boite": {
+      "titre": "What's missing in Algeria?",
+      "texte": "Share an idea or support others': the most voted ones become our next projects.",
+      "vide": "No ideas yet: share the very first one!",
+      "voirToutes": "See all ideas"
+    },
+    "autres": "Other ways to help",
+    "compte": "One free account for everything, in 30 seconds.",
+    "creerCompte": "Create my account",
+    "actions": {
+      "idee": {
+        "titre": "Share an idea",
+        "texte": "An everyday problem? A solution? Tell us.",
+        "duree": "2 min"
+      },
+      "voter": {
+        "titre": "Vote for ideas",
+        "texte": "Support the ideas you want to see happen.",
+        "duree": "30 s"
+      },
+      "donnee": {
+        "titre": "Share a dataset",
+        "texte": "Know a useful file? Add it to data-dz.",
+        "duree": "5 min"
+      },
+      "github": {
+        "titre": "Join the team",
+        "texte": "Developer, designer, translator… build with us on GitHub.",
+        "duree": "1 min"
+      }
+    }
+  },
+  "bienvenue": {
+    "titre": "Welcome {{nom}} 👋",
+    "texte": "Thanks for joining New Algeria! How would you like to help?",
+    "plusTard": "Later"
   }
 }

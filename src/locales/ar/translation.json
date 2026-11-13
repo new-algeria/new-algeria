@@ -4,7 +4,8 @@
     "services": "الخدمات",
     "developers": "المطورون",
     "contact": "اتصل بنا",
-    "projects": "المشاريع"
+    "projects": "المشاريع",
+    "ideas": "الأفكار"
   },
   "hero": {
     "title": "بناء مستقبل رقمي للجزائر",
@@ -307,9 +308,156 @@
     "unSeulCompteTitre": "حساب واحد لـ New Algeria و data-dz",
     "unSeulCompteTexte": "حسابك يعمل أيضًا على data-dz: نفس البريد الإلكتروني ونفس الملف الشخصي. يمكنك هناك اقتراح بيانات ومتابعة مفضلاتك والتعليق.",
     "reessayer": "إعادة المحاولة",
-    "retourAccueil": "العودة إلى الصفحة الرئيسية"
+    "retourAccueil": "العودة إلى الصفحة الرئيسية",
+    "boiteIdees": "صندوق الأفكار"
   },
   "legal": {
     "acceptation": "بإنشائك حسابا، فإنك توافق على <conditions>شروط الاستخدام</conditions> و<confidentialite>سياسة الخصوصية</confidentialite>."
+  },
+  "idees": {
+    "titrePage": "صندوق الأفكار",
+    "badge": "صندوق الأفكار",
+    "titre": "ما الذي ينقص <0>في الجزائر</0>؟",
+    "sousTitre": "مشكلة يومية، خدمة غير موجودة بعد، بيانات لا تجدها؟ اقترح فكرتك في دقيقتين: المجتمع يصوّت، والأفكار الأكثر دعمًا تصبح مشاريعنا القادمة.",
+    "proposer": "اقترح فكرة",
+    "proposerPremiere": "اقترح أول فكرة",
+    "compteurs_zero": "{{idees}} فكرة · {{votes}} صوت",
+    "compteurs_one": "{{idees}} فكرة · {{votes}} صوت",
+    "compteurs_two": "{{idees}} فكرة · {{votes}} صوت",
+    "compteurs_few": "{{idees}} أفكار · {{votes}} صوت",
+    "compteurs_many": "{{idees}} فكرة · {{votes}} صوت",
+    "compteurs_other": "{{idees}} فكرة · {{votes}} صوت",
+    "rechercher": "ابحث عن فكرة",
+    "tri": "ترتيب",
+    "tris": {
+      "populaires": "الأكثر دعمًا",
+      "recentes": "الأحدث"
+    },
+    "filtreCategorie": "تصفية حسب الفئة",
+    "toutes": "الكل",
+    "categories": {
+      "sante": "الصحة",
+      "education": "التعليم",
+      "transport": "النقل",
+      "economie": "الاقتصاد",
+      "environnement": "البيئة",
+      "administration": "الإدارة",
+      "culture": "الثقافة",
+      "numerique": "الرقمنة",
+      "autre": "أخرى"
+    },
+    "statuts": {
+      "nouvelle": "جديدة",
+      "en_etude": "قيد الدراسة",
+      "retenue": "مقبولة",
+      "en_cours": "قيد الإنجاز",
+      "realisee": "منجزة",
+      "ecartee": "مستبعدة"
+    },
+    "statutsDetail": {
+      "nouvelle": "اقتُرحت للتو",
+      "en_etude": "الفريق يدرسها",
+      "retenue": "سننجزها",
+      "en_cours": "قيد البناء",
+      "realisee": "متاحة!",
+      "ecartee": "ليس الآن"
+    },
+    "filtreStatutActif": "الحالة: {{statut}}",
+    "indisponible": "صندوق الأفكار قادم قريبًا جدًا 🚧 عد بعد بضع ساعات!",
+    "erreurs": {
+      "chargement": "تعذّر تحميل الأفكار.",
+      "tropDIdees": "اقترحت 5 أفكار اليوم: عد غدًا 😉",
+      "contenuInvalide": "يجب أن يتراوح العنوان بين 5 و120 حرفًا.",
+      "nonAutorise": "هذا الإجراء غير ممكن.",
+      "generique": "عذرًا، لم ينجح ذلك. حاول مجددًا بعد لحظة."
+    },
+    "reessayer": "إعادة المحاولة",
+    "vide": "لا توجد أفكار بعد. قد تكون الأولى فكرتك!",
+    "aucunResultat": "لا توجد فكرة تطابق بحثك.",
+    "commentTitre": "كيف يعمل؟",
+    "comment": {
+      "1": "تقترح فكرة بحسابك في New Algeria.",
+      "2": "يصوّت المجتمع للأفكار التي يريد رؤيتها تتحقق.",
+      "3": "يدرس الفريق الأفكار الأكثر دعمًا ويُطلعك على كل مرحلة."
+    },
+    "statutsTitre": "الحالات",
+    "supprimerTitre": "حذف هذه الفكرة؟",
+    "supprimer": "حذف",
+    "modifier": "تعديل",
+    "actions": "إجراءات",
+    "masquee": "مخفية",
+    "voirPlus": "عرض المزيد",
+    "voirMoins": "عرض أقل",
+    "motEquipe": "الفريق:",
+    "auteurSupprime": "حساب محذوف",
+    "voter": "دعم فكرة «{{titre}}»",
+    "retirerVote": "سحب دعمي لـ«{{titre}}»",
+    "publiee": "شكرًا! فكرتك منشورة الآن 🎉",
+    "modifiee": "تم تعديل الفكرة",
+    "supprimee": "تم حذف الفكرة",
+    "dialogue": {
+      "titre": "فكرتك الجديدة 💡",
+      "titreModifier": "تعديل فكرتك",
+      "description": "صف المشكلة أو الحل في بضع كلمات. لا حاجة لأن تكون تقنيًا!",
+      "champTitre": "فكرتك في جملة واحدة",
+      "exempleTitre": "مثال: خريطة الصيدليات المناوبة حسب الولاية",
+      "champCategorie": "الفئة",
+      "champDescription": "بعض التفاصيل",
+      "facultatif": "(اختياري)",
+      "exempleDescription": "لماذا هي مفيدة، ولمن، وما الموجود حاليًا…",
+      "annuler": "إلغاء",
+      "publier": "نشر",
+      "enregistrer": "حفظ"
+    },
+    "equipe": {
+      "titre": "دفع الفكرة إلى الأمام",
+      "statut": "الحالة",
+      "reponse": "كلمة للمجتمع (اختياري)",
+      "exempleReponse": "مثال: نحضّرها مع فريق data-dz!",
+      "changer": "تغيير الحالة",
+      "masquer": "إخفاء",
+      "afficher": "إظهار من جديد",
+      "enregistre": "تم تحديث الفكرة"
+    }
+  },
+  "contribuer": {
+    "titre": "أنت أيضًا، <0>ساعد الجزائر</0>",
+    "sousTitre": "لا حاجة لمعرفة البرمجة: يمكن لكل واحد أن يكون مفيدًا، ولو في دقيقتين.",
+    "boite": {
+      "titre": "ما الذي ينقص في الجزائر؟",
+      "texte": "اقترح فكرة أو ادعم أفكار الآخرين: الأكثر تصويتًا تصبح مشاريعنا القادمة.",
+      "vide": "لا توجد أفكار بعد: اقترح الأولى!",
+      "voirToutes": "كل الأفكار"
+    },
+    "autres": "طرق أخرى للمساعدة",
+    "compte": "حساب واحد مجاني لكل شيء، في 30 ثانية.",
+    "creerCompte": "إنشاء حسابي",
+    "actions": {
+      "idee": {
+        "titre": "اقترح فكرة",
+        "texte": "مشكلة يومية؟ حل؟ أخبرنا.",
+        "duree": "دقيقتان"
+      },
+      "voter": {
+        "titre": "صوّت للأفكار",
+        "texte": "ادعم الأفكار التي تريد رؤيتها تتحقق.",
+        "duree": "30 ثانية"
+      },
+      "donnee": {
+        "titre": "شارك بيانات",
+        "texte": "تعرف ملفًا مفيدًا؟ أضفه إلى data-dz.",
+        "duree": "5 دقائق"
+      },
+      "github": {
+        "titre": "انضم إلى الفريق",
+        "texte": "مطوّر، مصمم، مترجم… ابنِ معنا على GitHub.",
+        "duree": "دقيقة"
+      }
+    }
+  },
+  "bienvenue": {
+    "titre": "مرحبًا {{nom}} 👋",
+    "texte": "شكرًا لانضمامك إلى New Algeria! كيف تريد أن تساعد؟",
+    "plusTard": "لاحقًا"
   }
 }

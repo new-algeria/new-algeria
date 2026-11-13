@@ -5,6 +5,7 @@ import ContactSection from "@/components/ContactSection";
 import FAQSection from "@/components/FAQSection";
 import HeroSection from "@/components/HeroSection";
 import ProjectsSection from "@/components/ProjectsSection";
+import SectionContribuer from "@/components/contribuer/SectionContribuer";
 import ServicesSection from "@/components/ServicesSection";
 import TimelineSection from "@/components/TimelineSection";
 import Footer from "@/components/Footer";
@@ -27,6 +28,9 @@ const Index = () => {
 
       {/* Projects Section */}
       <ProjectsSection />
+
+      {/* Contribuer : boîte à idées et autres façons d'aider */}
+      <SectionContribuer />
 
       {/* Services Section */}
       <ServicesSection />

@@ -61,6 +61,7 @@ const Navigation = ({ solide = false }: NavigationProps) => {
     { key: "services", label: t("nav.services") },
     { key: "projets", label: t("nav.projects") },
     { key: "developers", label: t("nav.developers") },
+    { key: "idees", label: t("nav.ideas"), href: routes.idees },
     { key: "contact", label: t("nav.contact") },
   ];
 
@@ -74,7 +75,7 @@ const Navigation = ({ solide = false }: NavigationProps) => {
       {/* Desktop Menu */}
       <div className="mb-nav-pill" {...entree("80")}>
         {menuItems.map((item) => (
-          <a key={item.key} href={routes.section(item.key)}>
+          <a key={item.key} href={item.href ?? routes.section(item.key)}>
             {item.label}
           </a>
         ))}
@@ -138,7 +139,7 @@ const Navigation = ({ solide = false }: NavigationProps) => {
       {isOpen && (
         <div className="mb-mobile-menu">
           {menuItems.map((item) => (
-            <a key={item.key} href={routes.section(item.key)} onClick={() => setIsOpen(false)}>
+            <a key={item.key} href={item.href ?? routes.section(item.key)} onClick={() => setIsOpen(false)}>
               {item.label}
             </a>
           ))}

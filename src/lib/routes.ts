@@ -9,6 +9,8 @@ export const routes = {
   section: (ancre: string) => `/#${ancre}`,
   membre: (pseudo: string) => `/members/${encodeURIComponent(pseudo)}`,
   profil: "/profile",
+  /** Boîte à idées (`?propose=1` ouvre le formulaire). */
+  idees: "/ideas",
   connexion: "/login",
   inscription: "/signup",
   motDePasseOublie: "/forgot-password",

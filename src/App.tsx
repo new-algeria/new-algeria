@@ -8,6 +8,7 @@ import { FournisseurAuth } from "@/contexte/FournisseurAuth";
 import { RouteProtegee } from "@/components/auth/RouteProtegee";
 import { routes } from "@/lib/routes";
 import { BoutonGithubFlottant } from "@/components/BoutonGithubFlottant";
+import { BienvenueContribuer } from "@/components/contribuer/BienvenueContribuer";
 import Index from "./pages/Index";
 
 // Pages du compte chargées à la demande : la vitrine reste aussi légère qu'avant.
@@ -18,6 +19,7 @@ const NouveauMotDePasse = lazy(() => import("./pages/auth/NouveauMotDePasse"));
 const RetourAuth = lazy(() => import("./pages/auth/RetourAuth"));
 const Profil = lazy(() => import("./pages/Profil"));
 const PageMembre = lazy(() => import("./pages/PageMembre"));
+const Idees = lazy(() => import("./pages/Idees"));
 
 const queryClient = new QueryClient();
 
@@ -45,10 +47,12 @@ const App = () => (
                 }
               />
               <Route path="/members/:pseudo" element={<PageMembre />} />
+              <Route path={routes.idees} element={<Idees />} />
               <Route path="*" element={<Navigate to={routes.accueil} replace />} />
             </Routes>
           </Suspense>
           <BoutonGithubFlottant />
+          <BienvenueContribuer />
         </BrowserRouter>
       </TooltipProvider>
     </FournisseurAuth>

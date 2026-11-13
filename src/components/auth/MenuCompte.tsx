@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { Database, LogOut, UserRound } from "lucide-react";
+import { Database, Lightbulb, LogOut, UserRound } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import {
   DropdownMenu,
@@ -62,6 +62,12 @@ export const MenuCompte = () => {
           <Link to={routes.profil} className="cursor-pointer gap-2.5 py-2">
             <UserRound className="h-4 w-4 text-gray-500" aria-hidden="true" />
             {t("auth.monProfil")}
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link to={routes.idees} className="cursor-pointer gap-2.5 py-2">
+            <Lightbulb className="h-4 w-4 text-gray-500" aria-hidden="true" />
+            {t("compte.boiteIdees")}
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
