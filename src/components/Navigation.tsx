@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import JoinUsBtn from "./JoinUsBtn";
 import { MenuCompte } from "./auth/MenuCompte";
+import { ClocheNotifications } from "./ClocheNotifications";
 import { routes } from "@/lib/routes";
 import { useAuth } from "@/contexte/ContexteAuth";
 
@@ -115,6 +116,7 @@ const Navigation = ({ solide = false }: NavigationProps) => {
         </button>
 
         {/* Visiteur : « Rejoignez-nous » mène à la connexion. Membre : sa photo de profil, qui ouvre le menu du compte. */}
+        {session && <ClocheNotifications />}
         {session ? (
           <MenuCompte />
         ) : (

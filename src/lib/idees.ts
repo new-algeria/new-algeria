@@ -47,6 +47,8 @@ export interface Idee {
   reponse_equipe: string | null;
   masquee: boolean;
   nb_votes: number;
+  /** Absent tant que la migration 20261113000021 n'est pas appliquée. */
+  nb_commentaires?: number;
   cree_le: string;
   auteur_id: string | null;
   auteur: Pick<Profil, "pseudo" | "nom_affiche" | "avatar_url"> | null;
@@ -57,6 +59,8 @@ export type TriIdees = "populaires" | "recentes";
 
 const COLONNES =
   "id, titre, description, categorie, statut, reponse_equipe, masquee, nb_votes, cree_le, auteur_id, auteur:profils!idees_auteur_id_fkey ( pseudo, nom_affiche, avatar_url )";
+/** Colonne ajoutée par la migration 20261113000021 : relue sans elle tant qu'elle manque (42703). */
+let sansCommentaires = false;
 
 /** Erreur levée quand la migration n'est pas encore appliquée (table inconnue). */
 export class BoiteIdeesIndisponible extends Error {}
@@ -66,16 +70,20 @@ const tableAbsente = (erreur: { code?: string } | null) =>
 
 /** Toutes les idées visibles (la RLS cache les idées masquées, sauf à leur auteur et à l'équipe). */
 export async function chargerIdees(): Promise<Idee[]> {
-  const { data, error } = await supabase
-    .from("idees")
-    .select(COLONNES)
-    .order("nb_votes", { ascending: false })
-    .order("cree_le", { ascending: false })
-    .limit(500);
+  const lire = (colonnes: string) =>
+    supabase.from("idees").select(colonnes).order("nb_votes", { ascending: false }).order("cree_le", { ascending: false }).limit(500);
+  let { data, error } = await lire(sansCommentaires ? COLONNES : `${COLONNES}, nb_commentaires`);
+  if (error?.code === "42703" && !sansCommentaires) {
+    sansCommentaires = true;
+    ({ data, error } = await lire(COLONNES));
+  }
   if (tableAbsente(error)) throw new BoiteIdeesIndisponible();
   if (error) throw error;
   return (data ?? []) as unknown as Idee[];
 }
+
+/** Vrai quand les commentaires sont disponibles (migration 20261113000021 appliquée). */
+export const commentairesDisponibles = () => !sansCommentaires;
 
 /** Identifiants des idées pour lesquelles le membre a voté. */
 export async function chargerMesVotes(): Promise<Set<string>> {

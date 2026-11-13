@@ -1576,3 +1576,12 @@ a:hover > .mb-chevron {
     font-size: 22px;
   }
 }
+
+/* Cloche des notifications : reste dans la barre sur mobile, à côté de la photo de profil */
+@media (max-width: 1100px) {
+  .mb-nav-actions .mb-icon-btn.mb-cloche {
+    display: inline-flex;
+    width: 44px;
+    height: 44px;
+  }
+}
