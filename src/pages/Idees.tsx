@@ -47,6 +47,8 @@ import { cn } from "@/lib/utils";
 
 /** Paramètre d'URL qui ouvre directement le formulaire (accueil, retour de connexion). */
 export const PARAMETRE_PROPOSER = "propose";
+/** Paramètre des liens de notification : l'idée à montrer, commentaires ouverts. */
+export const PARAMETRE_IDEE = "idea";
 
 const Puce = ({ actif, onClick, children }: { actif: boolean; onClick: () => void; children: React.ReactNode }) => (
   <button
@@ -84,6 +86,9 @@ const Idees = () => {
   const [formulaire, setFormulaire] = useState<{ ouvert: boolean; idee?: Idee }>({ ouvert: false });
   const [aSupprimer, setASupprimer] = useState<Idee | null>(null);
   const [aModerer, setAModerer] = useState<Idee | null>(null);
+  const [commentairesOuverts, setCommentairesOuverts] = useState<Set<string>>(() => new Set());
+  // Lien d'une notification : /ideas?idea=<id>#comment-<id>
+  const [cible, setCible] = useState<{ idee: string; commentaire: string | null } | null>(null);
 
   // « ?propose=1 » : ouvre le formulaire (depuis l'accueil ou au retour de la connexion).
   useEffect(() => {
@@ -93,6 +98,33 @@ const Idees = () => {
       setParametres(parametres, { replace: true });
     }
   }, [parametres, session, setParametres]);
+
+  useEffect(() => {
+    const idee = parametres.get(PARAMETRE_IDEE);
+    if (!idee) return;
+    const ancre = window.location.hash.match(/^#comment-([\w-]+)$/);
+    setCible({ idee, commentaire: ancre?.[1] ?? null });
+    setCommentairesOuverts((actuels) => new Set(actuels).add(idee));
+    // Tous les filtres retirés : l'idée visée doit être dans la liste.
+    setCategorie(null);
+    setStatut(null);
+    setTerme("");
+  }, [parametres]);
+
+  // Une fois la liste chargée, on fait défiler jusqu'à l'idée visée (le commentaire suit dans CommentairesIdee).
+  useEffect(() => {
+    if (!cible || !requete.data || cible.commentaire) return;
+    const minuteur = window.setTimeout(() => document.getElementById(`idea-${cible.idee}`)?.scrollIntoView({ behavior: "smooth", block: "start" }), 250);
+    return () => window.clearTimeout(minuteur);
+  }, [cible, requete.data]);
+
+  const basculerCommentaires = (id: string) =>
+    setCommentairesOuverts((actuels) => {
+      const suivants = new Set(actuels);
+      if (suivants.has(id)) suivants.delete(id);
+      else suivants.add(id);
+      return suivants;
+    });
 
   const ouvrirProposition = () => {
     if (!session) {
@@ -267,6 +299,10 @@ const Idees = () => {
                   onSupprimer={() => setASupprimer(idee)}
                   onStatut={() => setAModerer(idee)}
                   onMasquer={() => masquage.mutate(idee)}
+                  commentairesOuverts={commentairesOuverts.has(idee.id)}
+                  onBasculerCommentaires={() => basculerCommentaires(idee.id)}
+                  enAvant={cible?.idee === idee.id}
+                  cibleCommentaire={cible?.idee === idee.id ? cible.commentaire : null}
                 />
               ))
             )}

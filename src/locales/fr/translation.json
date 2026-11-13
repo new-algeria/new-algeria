@@ -414,6 +414,25 @@
       "masquer": "Masquer",
       "afficher": "Afficher à nouveau",
       "enregistre": "Idée mise à jour"
+    },
+    "commentaires": {
+      "nombre_one": "{{count}} commentaire",
+      "nombre_other": "{{count}} commentaires",
+      "commenter": "Commenter",
+      "aucun": "Aucun commentaire pour l'instant. Lance la discussion !",
+      "placeholder": "Ajoute ton avis, une précision, une piste…",
+      "placeholderReponse": "Ta réponse…",
+      "publier": "Publier",
+      "repondre": "Répondre",
+      "modifie": "modifié",
+      "supprime": "Commentaire supprimé",
+      "confirmerSuppression": "Supprimer ce commentaire ?",
+      "seConnecter": "Connecte-toi",
+      "pourCommenter": "pour participer à la discussion.",
+      "erreurs": {
+        "tropDeCommentaires": "Tu as beaucoup commenté en peu de temps : réessaie dans quelques minutes 😉",
+        "vide": "Ton commentaire est vide."
+      }
     }
   },
   "contribuer": {
@@ -455,5 +474,25 @@
     "titre": "Bienvenue {{nom}} 👋",
     "texte": "Merci de rejoindre New Algeria ! Comment veux-tu aider ?",
     "plusTard": "Plus tard"
+  },
+  "notifications": {
+    "titre_one": "Notifications, {{count}} non lue",
+    "titre_other": "Notifications, {{count}} non lues",
+    "entete": "Notifications",
+    "toutLire": "Tout marquer comme lu",
+    "vide": "Rien de neuf pour l'instant. Tu seras prévenu ici quand ton idée avancera ou recevra un commentaire.",
+    "nonLue": "Non lue",
+    "statut": {
+      "nouvelle": "Ton idée « {{titre}} » a été mise à jour",
+      "en_etude": "L'équipe étudie ton idée « {{titre}} » 🔍",
+      "retenue": "Bonne nouvelle : ton idée « {{titre}} » est retenue ! 🎉",
+      "en_cours": "Ton idée « {{titre}} » est en cours de réalisation 🛠️",
+      "realisee": "Ton idée « {{titre}} » est réalisée ! 🚀",
+      "ecartee": "Ton idée « {{titre}} » n'est pas retenue pour l'instant"
+    },
+    "messageEquipe": "L'équipe a laissé un message sur ton idée « {{titre}} »",
+    "commentaire": "{{auteur}} a commenté ton idée « {{titre}} »",
+    "reponse": "{{auteur}} t'a répondu sur « {{titre}} »",
+    "autre": "Nouvelle notification"
   }
 }

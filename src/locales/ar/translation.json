@@ -418,6 +418,29 @@
       "masquer": "إخفاء",
       "afficher": "إظهار من جديد",
       "enregistre": "تم تحديث الفكرة"
+    },
+    "commentaires": {
+      "nombre_zero": "{{count}} تعليق",
+      "nombre_one": "تعليق واحد",
+      "nombre_two": "تعليقان",
+      "nombre_few": "{{count}} تعليقات",
+      "nombre_many": "{{count}} تعليقًا",
+      "nombre_other": "{{count}} تعليق",
+      "commenter": "علّق",
+      "aucun": "لا توجد تعليقات بعد. ابدأ النقاش!",
+      "placeholder": "شارك رأيك، توضيحًا، فكرة…",
+      "placeholderReponse": "ردّك…",
+      "publier": "نشر",
+      "repondre": "رد",
+      "modifie": "معدَّل",
+      "supprime": "تعليق محذوف",
+      "confirmerSuppression": "حذف هذا التعليق؟",
+      "seConnecter": "سجّل الدخول",
+      "pourCommenter": "للمشاركة في النقاش.",
+      "erreurs": {
+        "tropDeCommentaires": "علّقت كثيرًا في وقت قصير: حاول مجددًا بعد بضع دقائق 😉",
+        "vide": "تعليقك فارغ."
+      }
     }
   },
   "contribuer": {
@@ -459,5 +482,29 @@
     "titre": "مرحبًا {{nom}} 👋",
     "texte": "شكرًا لانضمامك إلى New Algeria! كيف تريد أن تساعد؟",
     "plusTard": "لاحقًا"
+  },
+  "notifications": {
+    "titre_zero": "الإشعارات، {{count}} غير مقروءة",
+    "titre_one": "الإشعارات، {{count}} غير مقروء",
+    "titre_two": "الإشعارات، {{count}} غير مقروءة",
+    "titre_few": "الإشعارات، {{count}} غير مقروءة",
+    "titre_many": "الإشعارات، {{count}} غير مقروءة",
+    "titre_other": "الإشعارات، {{count}} غير مقروءة",
+    "entete": "الإشعارات",
+    "toutLire": "تعليم الكل كمقروء",
+    "vide": "لا جديد حاليًا. ستصلك هنا إشعارات عند تقدّم فكرتك أو عند التعليق عليها.",
+    "nonLue": "غير مقروء",
+    "statut": {
+      "nouvelle": "تم تحديث فكرتك «{{titre}}»",
+      "en_etude": "الفريق يدرس فكرتك «{{titre}}» 🔍",
+      "retenue": "خبر سار: فكرتك «{{titre}}» مقبولة! 🎉",
+      "en_cours": "فكرتك «{{titre}}» قيد الإنجاز 🛠️",
+      "realisee": "فكرتك «{{titre}}» أُنجزت! 🚀",
+      "ecartee": "فكرتك «{{titre}}» غير مقبولة حاليًا"
+    },
+    "messageEquipe": "ترك الفريق رسالة على فكرتك «{{titre}}»",
+    "commentaire": "علّق {{auteur}} على فكرتك «{{titre}}»",
+    "reponse": "ردّ عليك {{auteur}} في «{{titre}}»",
+    "autre": "إشعار جديد"
   }
 }

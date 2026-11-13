@@ -414,6 +414,25 @@
       "masquer": "Hide",
       "afficher": "Show again",
       "enregistre": "Idea updated"
+    },
+    "commentaires": {
+      "nombre_one": "{{count}} comment",
+      "nombre_other": "{{count}} comments",
+      "commenter": "Comment",
+      "aucun": "No comments yet. Start the conversation!",
+      "placeholder": "Share your thoughts, a detail, a lead…",
+      "placeholderReponse": "Your reply…",
+      "publier": "Post",
+      "repondre": "Reply",
+      "modifie": "edited",
+      "supprime": "Comment deleted",
+      "confirmerSuppression": "Delete this comment?",
+      "seConnecter": "Sign in",
+      "pourCommenter": "to join the conversation.",
+      "erreurs": {
+        "tropDeCommentaires": "You've commented a lot in a short time: try again in a few minutes 😉",
+        "vide": "Your comment is empty."
+      }
     }
   },
   "contribuer": {
@@ -455,5 +474,25 @@
     "titre": "Welcome {{nom}} 👋",
     "texte": "Thanks for joining New Algeria! How would you like to help?",
     "plusTard": "Later"
+  },
+  "notifications": {
+    "titre_one": "Notifications, {{count}} unread",
+    "titre_other": "Notifications, {{count}} unread",
+    "entete": "Notifications",
+    "toutLire": "Mark all as read",
+    "vide": "Nothing new yet. You'll be notified here when your idea moves forward or gets a comment.",
+    "nonLue": "Unread",
+    "statut": {
+      "nouvelle": "Your idea \"{{titre}}\" was updated",
+      "en_etude": "The team is reviewing your idea \"{{titre}}\" 🔍",
+      "retenue": "Good news: your idea \"{{titre}}\" was selected! 🎉",
+      "en_cours": "Your idea \"{{titre}}\" is being built 🛠️",
+      "realisee": "Your idea \"{{titre}}\" is live! 🚀",
+      "ecartee": "Your idea \"{{titre}}\" was not selected for now"
+    },
+    "messageEquipe": "The team left a message on your idea \"{{titre}}\"",
+    "commentaire": "{{auteur}} commented on your idea \"{{titre}}\"",
+    "reponse": "{{auteur}} replied to you on \"{{titre}}\"",
+    "autre": "New notification"
   }
 }
