@@ -4,7 +4,8 @@
     "services": "Services",
     "developers": "Développeurs",
     "contact": "Contact",
-    "projects": "Projets"
+    "projects": "Projets",
+    "ideas": "Idées"
   },
   "hero": {
     "title": "Le futur Numérique de l'Algérie",
@@ -307,9 +308,152 @@
     "unSeulCompteTitre": "Un seul compte pour New Algeria et data-dz",
     "unSeulCompteTexte": "Ton compte marche aussi sur data-dz : même email, même profil. Tu peux y proposer des données, suivre tes favoris et commenter.",
     "reessayer": "Réessayer",
-    "retourAccueil": "Retour à l'accueil"
+    "retourAccueil": "Retour à l'accueil",
+    "boiteIdees": "Boîte à idées"
   },
   "legal": {
     "acceptation": "En créant un compte, vous acceptez nos <conditions>conditions d'utilisation</conditions> et nos <confidentialite>règles de confidentialité</confidentialite>."
+  },
+  "idees": {
+    "titrePage": "Boîte à idées",
+    "badge": "Boîte à idées",
+    "titre": "Qu'est-ce qui manque <0>en Algérie</0> ?",
+    "sousTitre": "Un problème du quotidien, un service qui n'existe pas encore, une donnée introuvable ? Propose ton idée en 2 minutes : la communauté vote, et les plus soutenues deviennent nos prochains projets.",
+    "proposer": "Proposer une idée",
+    "proposerPremiere": "Proposer la première idée",
+    "compteurs_one": "{{idees}} idée · {{votes}} votes",
+    "compteurs_other": "{{idees}} idées · {{votes}} votes",
+    "rechercher": "Rechercher une idée",
+    "tri": "Trier",
+    "tris": {
+      "populaires": "Populaires",
+      "recentes": "Récentes"
+    },
+    "filtreCategorie": "Filtrer par catégorie",
+    "toutes": "Toutes",
+    "categories": {
+      "sante": "Santé",
+      "education": "Éducation",
+      "transport": "Transport",
+      "economie": "Économie",
+      "environnement": "Environnement",
+      "administration": "Administration",
+      "culture": "Culture",
+      "numerique": "Numérique",
+      "autre": "Autre"
+    },
+    "statuts": {
+      "nouvelle": "Nouvelle",
+      "en_etude": "En étude",
+      "retenue": "Retenue",
+      "en_cours": "En cours",
+      "realisee": "Réalisée",
+      "ecartee": "Écartée"
+    },
+    "statutsDetail": {
+      "nouvelle": "vient d'être proposée",
+      "en_etude": "l'équipe regarde",
+      "retenue": "on va la faire",
+      "en_cours": "en construction",
+      "realisee": "en ligne !",
+      "ecartee": "pas pour l'instant"
+    },
+    "filtreStatutActif": "Statut : {{statut}}",
+    "indisponible": "La boîte à idées arrive très bientôt 🚧 Reviens dans quelques heures !",
+    "erreurs": {
+      "chargement": "Impossible de charger les idées.",
+      "tropDIdees": "Tu as déjà proposé 5 idées aujourd'hui : reviens demain 😉",
+      "contenuInvalide": "Le titre doit faire entre 5 et 120 caractères.",
+      "nonAutorise": "Cette action n'est pas possible.",
+      "generique": "Oups, ça n'a pas marché. Réessaie dans un instant."
+    },
+    "reessayer": "Réessayer",
+    "vide": "Aucune idée pour l'instant. La première sera peut-être la tienne !",
+    "aucunResultat": "Aucune idée ne correspond à ta recherche.",
+    "commentTitre": "Comment ça marche ?",
+    "comment": {
+      "1": "Tu proposes une idée avec ton compte New Algeria.",
+      "2": "La communauté vote pour les idées qu'elle veut voir naître.",
+      "3": "L'équipe étudie les plus soutenues et te tient au courant à chaque étape."
+    },
+    "statutsTitre": "Les statuts",
+    "supprimerTitre": "Supprimer cette idée ?",
+    "supprimer": "Supprimer",
+    "modifier": "Modifier",
+    "actions": "Actions",
+    "masquee": "Masquée",
+    "voirPlus": "Voir plus",
+    "voirMoins": "Voir moins",
+    "motEquipe": "L'équipe :",
+    "auteurSupprime": "Compte supprimé",
+    "voter": "Soutenir l'idée « {{titre}} »",
+    "retirerVote": "Retirer mon soutien à « {{titre}} »",
+    "publiee": "Merci ! Ton idée est en ligne 🎉",
+    "modifiee": "Idée modifiée",
+    "supprimee": "Idée supprimée",
+    "dialogue": {
+      "titre": "Ta nouvelle idée 💡",
+      "titreModifier": "Modifier ton idée",
+      "description": "Décris le problème ou la solution en quelques mots. Pas besoin d'être technique !",
+      "champTitre": "Ton idée en une phrase",
+      "exempleTitre": "Ex. : une carte des pharmacies de garde par wilaya",
+      "champCategorie": "Catégorie",
+      "champDescription": "Quelques détails",
+      "facultatif": "(facultatif)",
+      "exempleDescription": "Pourquoi c'est utile, pour qui, ce qui existe déjà…",
+      "annuler": "Annuler",
+      "publier": "Publier",
+      "enregistrer": "Enregistrer"
+    },
+    "equipe": {
+      "titre": "Faire avancer l'idée",
+      "statut": "Statut",
+      "reponse": "Un mot pour la communauté (facultatif)",
+      "exempleReponse": "Ex. : on la prépare avec l'équipe data-dz !",
+      "changer": "Changer le statut",
+      "masquer": "Masquer",
+      "afficher": "Afficher à nouveau",
+      "enregistre": "Idée mise à jour"
+    }
+  },
+  "contribuer": {
+    "titre": "Toi aussi, <0>aide l'Algérie</0>",
+    "sousTitre": "Pas besoin de savoir coder : chacun peut être utile, même en 2 minutes.",
+    "boite": {
+      "titre": "Qu'est-ce qui manque en Algérie ?",
+      "texte": "Propose une idée ou soutiens celles des autres : les plus votées deviennent nos prochains projets.",
+      "vide": "Aucune idée pour l'instant : propose la toute première !",
+      "voirToutes": "Voir toutes les idées"
+    },
+    "autres": "Autres façons d'aider",
+    "compte": "Un seul compte pour tout faire, gratuit, en 30 secondes.",
+    "creerCompte": "Créer mon compte",
+    "actions": {
+      "idee": {
+        "titre": "Proposer une idée",
+        "texte": "Un problème du quotidien ? Une solution ? Dis-le-nous.",
+        "duree": "2 min"
+      },
+      "voter": {
+        "titre": "Voter pour des idées",
+        "texte": "Soutiens les idées que tu veux voir naître.",
+        "duree": "30 s"
+      },
+      "donnee": {
+        "titre": "Partager une donnée",
+        "texte": "Tu connais un fichier utile ? Ajoute-le à data-dz.",
+        "duree": "5 min"
+      },
+      "github": {
+        "titre": "Rejoindre l'équipe",
+        "texte": "Développeur, designer, traducteur… code avec nous sur GitHub.",
+        "duree": "1 min"
+      }
+    }
+  },
+  "bienvenue": {
+    "titre": "Bienvenue {{nom}} 👋",
+    "texte": "Merci de rejoindre New Algeria ! Comment veux-tu aider ?",
+    "plusTard": "Plus tard"
   }
 }
